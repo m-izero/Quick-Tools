@@ -1,0 +1,143 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: stats
+    // Document ID: global
+    // Fields:
+    //   - totalUsage: number (required)
+    //   - activeUsers: number (required)
+    //   - adRevenue: number (required)
+    //   - serverHealth: number (required)
+    //   - updatedAt: timestamp (optional)
+    //
+    // Collection: usageTrends
+    // Document ID: auto-generated
+    // Fields:
+    //   - name: string (required) - e.g., 'Mon'
+    //   - users: number (required)
+    //   - revenue: number (required)
+    //   - tools: number (required)
+    //   - latency: number (required)
+    //   - timestamp: timestamp (required)
+    //
+    // Collection: deviceDistribution
+    // Document ID: current
+    // Fields:
+    //   - mobile: number (required)
+    //   - desktop: number (required)
+    //   - tablet: number (required)
+    //
+    // Collection: tools
+    // Document ID: auto-generated
+    // Fields:
+    //   - id: string (required)
+    //   - name: string (required)
+    //   - category: string (required)
+    //   - status: string (required, 'active'|'inactive')
+    //   - featured: bool (required)
+    //   - usage: string (required)
+    //
+    // Collection: users
+    // Document ID: auth.uid
+    // Fields:
+    //   - uid: string (required)
+    //   - email: string (required)
+    //   - role: string (required, 'admin'|'superadmin')
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'superadmin'] ||
+        (request.auth.token.email == "mizerohirwaelyse@gmail.com" && request.auth.token.email_verified == true)
+      );
+    }
+
+    function isValidGlobalStats(data) {
+      return data.keys().hasAll(['totalUsage', 'activeUsers', 'adRevenue', 'serverHealth']) &&
+             data.totalUsage is number && data.activeUsers is number &&
+             data.adRevenue is number && data.serverHealth is number &&
+             data.serverHealth >= 0 && data.serverHealth <= 100;
+    }
+
+    function isValidUsageTrend(data) {
+      return data.keys().hasAll(['name', 'users', 'revenue', 'tools', 'latency', 'timestamp']) &&
+             data.name is string && data.name.size() > 0 && data.name.size() < 20 &&
+             data.users is number && data.revenue is number &&
+             data.tools is number && data.latency is number &&
+             data.timestamp is timestamp;
+    }
+
+    function isValidDeviceDistribution(data) {
+      return data.keys().hasAll(['mobile', 'desktop', 'tablet']) &&
+             data.mobile is number && data.desktop is number && data.tablet is number &&
+             (data.mobile + data.desktop + data.tablet) <= 100;
+    }
+
+    function isValidTool(data) {
+      return data.keys().hasAll(['id', 'name', 'category', 'status', 'featured', 'usage']) &&
+             data.id is string && data.name is string && data.category is string &&
+             data.status in ['active', 'inactive'] &&
+             data.featured is bool && data.usage is string;
+    }
+
+    function isValidUser(data) {
+      return data.keys().hasAll(['uid', 'email', 'role']) &&
+             data.uid == request.auth.uid &&
+             data.email is string &&
+             data.role in ['admin', 'superadmin'];
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /stats/global {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin() && isValidGlobalStats(request.resource.data);
+    }
+
+    match /usageTrends/{trendId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin() && isValidUsageTrend(request.resource.data);
+    }
+
+    match /deviceDistribution/current {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin() && isValidDeviceDistribution(request.resource.data);
+    }
+
+    match /tools/{toolId} {
+      allow read: if true; // Tools are public
+      allow write: if isAdmin() && isValidTool(request.resource.data);
+    }
+
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId) && request.resource.data.role == 'admin'; // Self-register as basic admin
+      allow update: if isAdmin(); // Only existing admins/superadmins can promote others
+      allow delete: if isAdmin();
+    }
+    
+    // Default Deny
+    match /{path=**} {
+      allow read, write: if false;
+    }
+  }
+}

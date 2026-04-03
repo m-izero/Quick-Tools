@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "GlobalStats": {
+      "title": "Global Statistics",
+      "description": "Overall metrics for the platform.",
+      "type": "object",
+      "properties": {
+        "totalUsage": { "type": "number", "description": "Total number of tool usages." },
+        "activeUsers": { "type": "number", "description": "Number of active users." },
+        "adRevenue": { "type": "number", "description": "Total ad revenue earned." },
+        "serverHealth": { "type": "number", "description": "Server health percentage (0-100)." },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Last update timestamp." }
+      },
+      "required": ["totalUsage", "activeUsers", "adRevenue", "serverHealth"]
+    },
+    "UsageTrend": {
+      "title": "Usage Trend Data Point",
+      "description": "A single data point for usage trends (e.g., daily).",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Label for the data point (e.g., 'Mon')." },
+        "users": { "type": "number", "description": "Number of users on this day." },
+        "revenue": { "type": "number", "description": "Revenue on this day." },
+        "tools": { "type": "number", "description": "Tools used on this day." },
+        "latency": { "type": "number", "description": "Average latency on this day." },
+        "timestamp": { "type": "string", "format": "date-time", "description": "Timestamp for sorting." }
+      },
+      "required": ["name", "users", "revenue", "tools", "latency", "timestamp"]
+    },
+    "DeviceDistribution": {
+      "title": "Device Distribution",
+      "description": "Percentage distribution of user devices.",
+      "type": "object",
+      "properties": {
+        "mobile": { "type": "number", "description": "Percentage of mobile users." },
+        "desktop": { "type": "number", "description": "Percentage of desktop users." },
+        "tablet": { "type": "number", "description": "Percentage of tablet users." }
+      },
+      "required": ["mobile", "desktop", "tablet"]
+    },
+    "Tool": {
+      "title": "Platform Tool",
+      "description": "A tool available on the platform.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the tool." },
+        "name": { "type": "string", "description": "Display name of the tool." },
+        "category": { "type": "string", "description": "Category the tool belongs to." },
+        "status": { "type": "string", "enum": ["active", "inactive"], "description": "Current operational status." },
+        "featured": { "type": "boolean", "description": "Whether the tool is featured on the home page." },
+        "usage": { "type": "string", "description": "Usage count string (e.g., '4.2k')." }
+      },
+      "required": ["id", "name", "category", "status", "featured", "usage"]
+    },
+    "AdminUser": {
+      "title": "Admin User",
+      "description": "A user with administrative privileges.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID." },
+        "email": { "type": "string", "format": "email", "description": "User's email address." },
+        "role": { "type": "string", "enum": ["admin", "superadmin"], "description": "Assigned role." }
+      },
+      "required": ["uid", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/stats/global": {
+      "schema": "GlobalStats",
+      "description": "Singleton document for global platform metrics."
+    },
+    "/usageTrends": {
+      "schema": "UsageTrend",
+      "description": "Collection of daily usage data points for charts."
+    },
+    "/deviceDistribution/current": {
+      "schema": "DeviceDistribution",
+      "description": "Singleton document for current device distribution percentages."
+    },
+    "/tools": {
+      "schema": "Tool",
+      "description": "Collection of all tools managed via the admin panel."
+    },
+    "/users": {
+      "schema": "AdminUser",
+      "description": "Collection of users with admin access."
+    }
+  }
+}
