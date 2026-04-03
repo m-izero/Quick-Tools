@@ -269,8 +269,8 @@ export function PdfTools() {
         const file = new File([blob], name, { type: blob.type });
         await navigator.share({
           files: [file],
-          title: 'Shared from QuickTools',
-          text: `Check out this ${name} I processed with QuickTools!`
+          title: 'Shared from Quick tools',
+          text: `Check out this ${name} I processed with Quick tools!`
         });
       } catch (err) {
         console.error('Share failed:', err);

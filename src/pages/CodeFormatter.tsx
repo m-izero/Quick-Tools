@@ -143,7 +143,7 @@ export function CodeFormatter() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Formatted Code from QuickTools',
+          title: 'Formatted Code from Quick tools',
           text: formattedCode,
           url: window.location.href
         });

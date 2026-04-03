@@ -170,7 +170,7 @@ export function ImageCompressor() {
         await navigator.share({
           files: [new File([image.compressed], `compressed-${image.original.name}`, { type: image.compressed.type })],
           title: 'Compressed Image',
-          text: 'Check out this compressed image from QuickTools!'
+          text: 'Check out this compressed image from Quick tools!'
         });
       } else {
         navigator.clipboard.writeText(image.compressedUrl!);

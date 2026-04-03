@@ -1,5 +1,8 @@
 {
-  "name": "QuickTools",
+  "name": "Quick tools",
   "description": "A fast, modern suite of online tools including image compression, PDF manipulation, AI summarization, and more.",
-  "requestFramePermissions": ["camera", "microphone"]
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
 }

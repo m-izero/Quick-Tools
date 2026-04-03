@@ -9,7 +9,7 @@ import { Footer } from '@/components/Footer';
 import { Home } from '@/pages/Home';
 import { ImageCompressor } from '@/pages/ImageCompressor';
 import { PdfTools } from '@/pages/PdfTools';
-import { AiSummarizer } from '@/pages/AiSummarizer';
+import { Base64Tool } from '@/pages/Base64Tool';
 import { PasswordGenerator } from '@/pages/PasswordGenerator';
 import { CodeFormatter } from '@/pages/CodeFormatter';
 import { MemoNotePad } from '@/pages/MemoNotePad';
@@ -89,7 +89,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/image-compressor" element={<ImageCompressor />} />
             <Route path="/pdf-tools" element={<PdfTools />} />
-            <Route path="/ai-summarizer" element={<AiSummarizer />} />
+            <Route path="/base64-tool" element={<Base64Tool />} />
             <Route path="/password-generator" element={<PasswordGenerator />} />
             <Route path="/code-formatter" element={<CodeFormatter />} />
             <Route path="/memo-note-pad" element={<MemoNotePad />} />

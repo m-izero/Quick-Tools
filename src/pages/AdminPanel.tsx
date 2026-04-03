@@ -302,7 +302,7 @@ export function AdminPanel() {
       <div className="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <h1 className="text-3xl font-black tracking-tight text-zinc-900 dark:text-white">Admin <span className="text-emerald-500">Panel</span></h1>
-          <p className="mt-1 text-zinc-500 dark:text-zinc-400 font-medium">Manage QuickTools platform performance and tools.</p>
+          <p className="mt-1 text-zinc-500 dark:text-zinc-400 font-medium">Manage Quick tools platform performance and tools.</p>
         </div>
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-500/20 text-[10px] font-black uppercase tracking-widest">

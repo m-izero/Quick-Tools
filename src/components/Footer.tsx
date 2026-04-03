@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { 
   Image as ImageIcon, 
   FileText, 
-  Sparkles, 
+  Binary, 
   Lock, 
   Code2, 
   StickyNote, 
@@ -20,7 +20,7 @@ export function Footer() {
   const toolLinks = [
     { name: 'Image Compressor', path: '/image-compressor', icon: ImageIcon },
     { name: 'PDF Tools', path: '/pdf-tools', icon: FileText },
-    { name: 'AI Summarizer', path: '/ai-summarizer', icon: Sparkles },
+    { name: 'Base64 Tool', path: '/base64-tool', icon: Binary },
     { name: 'Password Generator', path: '/password-generator', icon: Lock },
     { name: 'Code Formatter', path: '/code-formatter', icon: Code2 },
     { name: 'MemoNote Pad', path: '/memo-note-pad', icon: StickyNote },
@@ -37,7 +37,7 @@ export function Footer() {
                 <Settings className="h-5 w-5 text-white" />
               </div>
               <span className="text-xl font-black tracking-tight text-zinc-900 dark:text-white">
-                Quick<span className="text-emerald-500">Tools</span>
+                Quick <span className="text-emerald-500">tools</span>
               </span>
             </Link>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
@@ -132,7 +132,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            &copy; {currentYear} QuickTools. Built for speed and privacy.
+            &copy; {currentYear} Quick tools. Built for speed and privacy.
           </p>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 text-xs text-zinc-400">

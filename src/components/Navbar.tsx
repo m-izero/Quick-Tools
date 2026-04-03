@@ -10,13 +10,17 @@ export function Navbar() {
   const location = useLocation();
 
   const navItems = [
-    { name: 'Home', path: '/' },
     { name: 'Image', path: '/image-compressor' },
     { name: 'PDF', path: '/pdf-tools' },
-    { name: 'AI Summarizer', path: '/ai-summarizer' },
+    { name: 'Base64', path: '/base64-tool' },
     { name: 'Password', path: '/password-generator' },
     { name: 'Formatter', path: '/code-formatter' },
     { name: 'MemoNote', path: '/memo-note-pad' },
+  ];
+
+  const mobileNavItems = [
+    { name: 'Home', path: '/' },
+    ...navItems
   ];
 
   return (
@@ -26,19 +30,19 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-zinc-900 dark:text-white">
               <Hammer className="h-6 w-6 text-emerald-500" />
-              <span>QuickTools</span>
+              <span>Quick tools</span>
             </Link>
           </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-4 flex items-baseline space-x-0.5 lg:ml-6 lg:space-x-1 xl:ml-10 xl:space-x-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   className={cn(
-                    "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                    "rounded-md px-2 py-2 text-[11px] lg:text-sm font-medium transition-colors whitespace-nowrap",
                     location.pathname === item.path
                       ? "bg-emerald-50 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400"
                       : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white"
@@ -71,11 +75,11 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile/Tablet Nav */}
       {isOpen && (
         <div className="md:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950">
-          <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-            {navItems.map((item) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 px-2 pb-3 pt-2 sm:px-3">
+            {mobileNavItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}

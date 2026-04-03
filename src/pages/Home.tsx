@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { 
   Image as ImageIcon, 
   FileText, 
-  Sparkles, 
+  Binary, 
   Lock, 
   Code2, 
   ArrowRight,
@@ -39,10 +39,10 @@ const tools = [
     size: "md"
   },
   {
-    title: "AI Summarizer",
-    description: "Get concise summaries of long articles or documents using advanced AI.",
-    icon: Sparkles,
-    path: "/ai-summarizer",
+    title: "Base64 Tool",
+    description: "Encode and decode text to Base64 format instantly. 100% private and secure.",
+    icon: Binary,
+    path: "/base64-tool",
     color: "text-purple-500",
     bg: "bg-purple-500/10",
     size: "md"
@@ -107,7 +107,7 @@ export function Home() {
           transition={{ delay: 0.1 }}
           className="mt-8 text-lg sm:text-xl leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto font-medium"
         >
-          The ultimate utility belt for developers and creators. Process files, generate passwords, and summarize text—all locally in your browser.
+          The ultimate utility belt for developers and creators. Process files, generate passwords, and encode text—all locally in your browser.
         </motion.p>
         
         <motion.div 
@@ -254,7 +254,7 @@ export function Home() {
       <div className="mt-32 rounded-[3rem] bg-zinc-900 p-12 sm:p-20 text-center relative overflow-hidden">
         <div className="relative z-10">
           <h2 className="text-3xl sm:text-5xl font-black text-white mb-6">Ready to get started?</h2>
-          <p className="text-zinc-400 text-lg mb-10 max-w-xl mx-auto font-medium">Join thousands of users who trust QuickTools for their daily tasks. No registration, no fees, just tools.</p>
+          <p className="text-zinc-400 text-lg mb-10 max-w-xl mx-auto font-medium">Join thousands of users who trust Quick tools for their daily tasks. No registration, no fees, just tools.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/image-compressor" className="px-8 py-4 rounded-2xl bg-emerald-500 text-white font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-xl shadow-emerald-500/20">
               Try Image Compressor
