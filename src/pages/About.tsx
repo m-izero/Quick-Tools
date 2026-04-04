@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Info, Users, Shield, Zap, Heart, Code2, GraduationCap, Globe } from 'lucide-react';
 
@@ -121,12 +122,12 @@ export function About() {
         <p className="text-zinc-400 dark:text-emerald-50 mb-8 max-w-xl mx-auto font-medium">
           Quick Tools is constantly evolving. If you have suggestions for new tools or want to contribute, we'd love to hear from you.
         </p>
-        <a 
-          href="/contact" 
+        <Link 
+          to="/contact" 
           className="inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-white text-zinc-900 font-black text-sm uppercase tracking-widest hover:scale-105 transition-all"
         >
           Contact Us
-        </a>
+        </Link>
       </div>
     </div>
   );
