@@ -11,10 +11,9 @@ export function Navbar() {
 
   const toolCategories = [
     {
-      name: "Media & PDF",
+      name: "Image & PDF",
       tools: [
         { name: "Image Compressor", path: "/image-compressor" },
-        { name: "Video Compressor", path: "/video-compressor" },
         { name: "PDF Tools", path: "/pdf-tools" },
       ]
     },

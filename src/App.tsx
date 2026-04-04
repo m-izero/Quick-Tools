@@ -9,7 +9,6 @@ import { Footer } from '@/components/Footer';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { Home } from '@/pages/Home';
 import { ImageCompressor } from '@/pages/ImageCompressor';
-import { VideoCompressor } from '@/pages/VideoCompressor';
 import { PdfTools } from '@/pages/PdfTools';
 import { Base64Tool } from '@/pages/Base64Tool';
 import { PasswordGenerator } from '@/pages/PasswordGenerator';
@@ -99,7 +98,6 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/image-compressor" element={<ImageCompressor />} />
-            <Route path="/video-compressor" element={<VideoCompressor />} />
             <Route path="/pdf-tools" element={<PdfTools />} />
             <Route path="/base64-tool" element={<Base64Tool />} />
             <Route path="/password-generator" element={<PasswordGenerator />} />

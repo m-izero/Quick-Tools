@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { 
   Image as ImageIcon, 
-  Video,
   FileText, 
   Binary, 
   Lock, 
@@ -22,12 +21,11 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AdSection } from '@/components/AdSection';
-import { useRecentFiles } from '@/hooks/useRecentFiles';
 import { cn } from '@/utils/cn';
 
 const toolCategories = [
   {
-    name: "Media & PDF Tools",
+    name: "Image & PDF Tools",
     tools: [
       {
         title: "Image Compressor",
@@ -37,15 +35,6 @@ const toolCategories = [
         color: "text-blue-500",
         bg: "bg-blue-500/10",
         size: "lg"
-      },
-      {
-        title: "Video Compressor",
-        description: "Compress videos into smaller sizes while maintaining quality. 100% private.",
-        icon: Video,
-        path: "/video-compressor",
-        color: "text-blue-500",
-        bg: "bg-blue-500/10",
-        size: "md"
       },
       {
         title: "PDF Tools",
@@ -143,8 +132,6 @@ const toolCategories = [
 ];
 
 export function Home() {
-  const { recentFiles, clearRecentFiles } = useRecentFiles();
-
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <AdSection type="top" />
@@ -196,57 +183,6 @@ export function Home() {
           </div>
         </motion.div>
       </div>
-
-      {/* Recent Files Section */}
-      {recentFiles.length > 0 && (
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-16"
-        >
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-black text-zinc-900 dark:text-white flex items-center gap-2 uppercase tracking-widest">
-              <History className="h-5 w-5 text-emerald-500" />
-              Recent Activity
-            </h2>
-            <button 
-              onClick={clearRecentFiles}
-              className="text-xs font-black text-zinc-400 hover:text-red-500 transition-colors flex items-center gap-1 uppercase tracking-widest"
-            >
-              <Trash2 className="h-3.5 w-3.5" />
-              Clear History
-            </button>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {recentFiles.map((file) => (
-              <div 
-                key={file.id}
-                className="group relative bg-white dark:bg-zinc-900 rounded-2xl p-4 border border-zinc-100 dark:border-zinc-800 hover:border-emerald-500/50 transition-all shadow-sm"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="h-8 w-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
-                    <FileText className="h-4 w-4 text-emerald-500" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-xs font-black text-zinc-900 dark:text-white truncate">{file.name}</p>
-                    <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">{file.tool}</p>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between mt-4">
-                  <span className="text-[10px] font-bold text-zinc-400">{file.size}</span>
-                  <a 
-                    href={file.url} 
-                    download={file.name}
-                    className="p-1.5 rounded-lg bg-zinc-50 dark:bg-zinc-800 text-zinc-400 hover:text-emerald-500 transition-all"
-                  >
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      )}
 
       {/* Tools Grid - Categorized */}
       <div className="space-y-24">

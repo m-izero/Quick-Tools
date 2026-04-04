@@ -18,7 +18,6 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { AdSection } from '@/components/AdSection';
 import { FileUpload } from '@/components/FileUpload';
-import { useRecentFiles } from '@/hooks/useRecentFiles';
 import { cn } from '@/utils/cn';
 
 interface CompressedImage {
@@ -39,7 +38,6 @@ export function ImageCompressor() {
   const [previewSize, setPreviewSize] = useState<'small' | 'medium' | 'large'>('medium');
   const [zoom, setZoom] = useState(1);
   const [isProcessing, setIsProcessing] = useState(false);
-  const { addRecentFile } = useRecentFiles();
 
   const handleFilesSelected = (files: File[]) => {
     const newImages: CompressedImage[] = files.map(file => ({
@@ -103,8 +101,6 @@ export function ImageCompressor() {
           progress: 100 
         } : img
       ));
-      
-      addRecentFile(compressed, 'Image Compressor', compressedUrl);
     } catch (error) {
       console.error(error);
       const errorMessage = error instanceof Error ? error.message : 'Compression failed';

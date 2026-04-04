@@ -35,7 +35,6 @@ import { CSS } from '@dnd-kit/utilities';
 
 import { AdSection } from '@/components/AdSection';
 import { FileUpload } from '@/components/FileUpload';
-import { useRecentFiles } from '@/hooks/useRecentFiles';
 import { cn } from '@/utils/cn';
 
 interface SortableFileProps {
@@ -107,8 +106,6 @@ export function PdfTools() {
   const [pageRange, setPageRange] = useState('1-2');
   const [processedFiles, setProcessedFiles] = useState<{ name: string; url: string }[]>([]);
   
-  const { addRecentFile } = useRecentFiles();
-
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -163,10 +160,8 @@ export function PdfTools() {
       const blob = new Blob([pdfBytes], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
       const filename = 'merged-quicktools.pdf';
-      const file = new File([blob], filename, { type: 'application/pdf' });
       
       setProcessedFiles([{ name: filename, url }]);
-      addRecentFile(file, 'PDF Merger', url);
       setProgress(100);
     } catch (error) {
       console.error(error);
@@ -216,9 +211,7 @@ export function PdfTools() {
             const blob = new Blob([newPdfBytes], { type: 'application/pdf' });
             const url = URL.createObjectURL(blob);
             const name = `${baseName}_range_${start}-${end}.pdf`;
-            const fileObj = new File([blob], name, { type: 'application/pdf' });
             setProcessedFiles([{ name, url }]);
-            addRecentFile(fileObj, 'PDF Splitter', url);
             setProgress(100);
             setLoading(false);
             return;
@@ -233,9 +226,7 @@ export function PdfTools() {
         const zipContent = await zip.generateAsync({ type: 'blob' });
         const url = URL.createObjectURL(zipContent);
         const name = 'split-pages-quicktools.zip';
-        const fileObj = new File([zipContent], name, { type: 'application/zip' });
         setProcessedFiles([{ name, url }]);
-        addRecentFile(fileObj, 'PDF Splitter', url);
       }
       setProgress(100);
     } catch (error: any) {

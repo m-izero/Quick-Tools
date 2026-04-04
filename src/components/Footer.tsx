@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Image as ImageIcon, 
-  Video,
   FileText, 
   Binary, 
   Lock, 
@@ -24,10 +23,9 @@ export function Footer() {
 
   const toolCategories = [
     {
-      name: "Media & PDF",
+      name: "Image & PDF",
       links: [
         { name: 'Image Compressor', path: '/image-compressor', icon: ImageIcon },
-        { name: 'Video Compressor', path: '/video-compressor', icon: Video },
         { name: 'PDF Tools', path: '/pdf-tools', icon: FileText },
       ]
     },
