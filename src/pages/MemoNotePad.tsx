@@ -15,7 +15,6 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { AdSection } from '@/components/AdSection';
 import { cn } from '@/utils/cn';
 
 interface Note {
@@ -112,7 +111,6 @@ export function MemoNotePad() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12">
-      <AdSection type="top" />
       <div className="mb-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -329,8 +327,6 @@ export function MemoNotePad() {
           )}
         </div>
       </div>
-      
-      <AdSection type="middle" />
     </div>
   );
 }

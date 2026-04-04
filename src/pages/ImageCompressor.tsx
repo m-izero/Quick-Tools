@@ -16,7 +16,6 @@ import {
   FileText
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { AdSection } from '@/components/AdSection';
 import { FileUpload } from '@/components/FileUpload';
 import { cn } from '@/utils/cn';
 
@@ -179,7 +178,6 @@ export function ImageCompressor() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:py-12">
-      <AdSection type="top" />
       
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-zinc-900 dark:text-white sm:text-4xl">Image Compressor</h1>
@@ -393,8 +391,6 @@ export function ImageCompressor() {
               </div>
             </div>
           )}
-          
-          <AdSection type="middle" />
         </div>
 
         {/* Sidebar Settings */}
@@ -477,7 +473,6 @@ export function ImageCompressor() {
             </div>
           </div>
           
-          <AdSection type="sidebar" />
         </div>
       </div>
 

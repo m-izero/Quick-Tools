@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
-import { AdSection } from '@/components/AdSection';
 
 type Category = 'length' | 'weight' | 'temperature' | 'speed' | 'data';
 
@@ -128,7 +127,6 @@ export default function UnitConverter() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <AdSection type="top" />
         <div className="text-center mb-12">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -234,7 +232,6 @@ export default function UnitConverter() {
             </div>
           </div>
         </div>
-        <AdSection type="middle" className="mt-12" />
       </div>
     </div>
   );

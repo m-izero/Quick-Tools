@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Send, User, MessageSquare, CheckCircle2, AlertCircle } from 'lucide-react';
-import { AdSection } from '@/components/AdSection';
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -24,7 +23,7 @@ export function Contact() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-      <AdSection type="top" />
+      
 
       <div className="text-center mb-16">
         <motion.div
@@ -186,7 +185,6 @@ export function Contact() {
       </div>
 
       <div className="mt-20">
-        <AdSection type="middle" />
       </div>
     </div>
   );

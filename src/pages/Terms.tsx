@@ -1,14 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { FileText, CheckCircle, AlertTriangle, Scale, RefreshCcw, UserCheck } from 'lucide-react';
-import { AdSection } from '@/components/AdSection';
 
 export function Terms() {
   const lastUpdated = "April 4, 2026";
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <AdSection type="top" />
+      
 
       <div className="text-center mb-16">
         <motion.div
@@ -102,7 +101,6 @@ export function Terms() {
       </div>
 
       <div className="mt-12">
-        <AdSection type="middle" />
       </div>
     </div>
   );

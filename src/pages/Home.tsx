@@ -20,7 +20,6 @@ import {
   Braces
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { AdSection } from '@/components/AdSection';
 import { cn } from '@/utils/cn';
 
 const toolCategories = [
@@ -134,7 +133,6 @@ const toolCategories = [
 export function Home() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <AdSection type="top" />
       
       {/* Hero Section */}
       <div className="text-center mb-20">
@@ -238,7 +236,6 @@ export function Home() {
       </div>
 
       <div className="mt-20">
-        <AdSection type="middle" />
       </div>
 
       {/* Features Grid */}

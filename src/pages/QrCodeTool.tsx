@@ -16,7 +16,6 @@ import QRCode from 'qrcode';
 import jsQR from 'jsqr';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
-import { AdSection } from '@/components/AdSection';
 
 export default function QrCodeTool() {
   const [activeTab, setActiveTab] = useState<'generate' | 'read'>('generate');
@@ -172,7 +171,6 @@ export default function QrCodeTool() {
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <AdSection type="top" />
         <div className="text-center mb-12">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -400,7 +398,6 @@ export default function QrCodeTool() {
             )}
           </AnimatePresence>
         </div>
-        <AdSection type="middle" className="mt-12" />
       </div>
     </div>
   );

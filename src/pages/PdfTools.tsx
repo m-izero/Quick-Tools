@@ -33,7 +33,6 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
-import { AdSection } from '@/components/AdSection';
 import { FileUpload } from '@/components/FileUpload';
 import { cn } from '@/utils/cn';
 
@@ -274,7 +273,6 @@ export function PdfTools() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:py-12">
-      <AdSection type="top" />
       <div className="mb-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -524,7 +522,6 @@ export function PdfTools() {
             </motion.div>
           )}
 
-          <AdSection type="middle" />
         </div>
 
         <div className="lg:col-span-4 space-y-6">
@@ -554,8 +551,6 @@ export function PdfTools() {
               </div>
             </div>
           </div>
-
-          <AdSection type="sidebar" />
 
           <div className="rounded-3xl bg-zinc-50 p-8 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
             <h3 className="text-lg font-black text-zinc-900 dark:text-white mb-4">Pro Tips</h3>

@@ -12,7 +12,6 @@ import {
   AlertCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { AdSection } from '@/components/AdSection';
 import { cn } from '@/utils/cn';
 
 export function PasswordGenerator() {
@@ -86,7 +85,6 @@ export function PasswordGenerator() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:py-12">
-      <AdSection type="top" />
       <div className="mb-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -165,8 +163,6 @@ export function PasswordGenerator() {
               </div>
             </div>
           </div>
-
-          <AdSection type="middle" />
 
           {/* Settings Section */}
           <div className="rounded-3xl bg-white p-8 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-xl">
@@ -252,8 +248,6 @@ export function PasswordGenerator() {
               </div>
             </div>
           </div>
-
-          <AdSection type="sidebar" />
 
           <div className="rounded-3xl bg-zinc-50 p-8 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
             <h3 className="text-lg font-black text-zinc-900 dark:text-white mb-4 flex items-center gap-2">

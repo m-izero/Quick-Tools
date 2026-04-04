@@ -11,7 +11,6 @@ import {
   ShieldCheck,
   Smartphone
 } from 'lucide-react';
-import { AdSection } from '@/components/AdSection';
 import { cn } from '@/utils/cn';
 
 export function Base64Tool() {
@@ -96,7 +95,7 @@ export function Base64Tool() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-      <AdSection type="top" />
+      
 
       {/* Header */}
       <div className="text-center mb-12">
@@ -274,7 +273,6 @@ export function Base64Tool() {
           </div>
         </div>
 
-        <AdSection type="middle" />
       </div>
     </div>
   );
