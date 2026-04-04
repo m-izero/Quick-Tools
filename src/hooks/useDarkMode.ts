@@ -18,6 +18,20 @@ export function useDarkMode() {
       root.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
+    
+    // Dispatch a custom event to sync other instances of this hook
+    window.dispatchEvent(new CustomEvent('theme-change', { detail: isDark }));
+  }, [isDark]);
+
+  useEffect(() => {
+    const handleThemeChange = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail !== isDark) {
+        setIsDark(customEvent.detail);
+      }
+    };
+    window.addEventListener('theme-change', handleThemeChange);
+    return () => window.removeEventListener('theme-change', handleThemeChange);
   }, [isDark]);
 
   return { isDark, toggle: () => setIsDark(!isDark) };

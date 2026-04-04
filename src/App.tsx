@@ -27,6 +27,7 @@ import React, { useState, useEffect } from 'react';
 import { auth, signInWithGoogle } from '@/lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { LogIn } from 'lucide-react';
+import { useDarkMode } from '@/hooks/useDarkMode';
 
 const ADMIN_SECRET_PATH = "/admin-secure-9x7k2";
 
@@ -89,10 +90,12 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  useDarkMode(); // Initialize dark mode at root
+
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-white transition-colors dark:bg-zinc-950 flex flex-col">
+      <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow pb-20">
           <Routes>

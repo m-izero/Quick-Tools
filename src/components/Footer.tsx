@@ -9,9 +9,7 @@ import {
   StickyNote, 
   Settings,
   Github,
-  Twitter,
   Mail,
-  ExternalLink,
   QrCode,
   Palette,
   Scale,
@@ -68,13 +66,7 @@ export function Footer() {
               The ultimate collection of fast, secure, and free online tools for developers and creators. No login required.
             </p>
             <div className="flex items-center gap-4">
-              <a href="#" className="text-zinc-400 hover:text-emerald-500 transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-zinc-400 hover:text-emerald-500 transition-colors">
-                <Github className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-zinc-400 hover:text-emerald-500 transition-colors">
+              <a href="mailto:mizerohirwaelyse@gmail.com" className="text-zinc-400 hover:text-emerald-500 transition-colors">
                 <Mail className="h-5 w-5" />
               </a>
             </div>
@@ -115,11 +107,6 @@ export function Footer() {
                   <Link to="/contact" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
                     Contact Us
                   </Link>
-                </li>
-                <li>
-                  <a href="#" className="flex items-center gap-1 text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
-                    API Documentation <ExternalLink className="h-3 w-3" />
-                  </a>
                 </li>
               </ul>
             </div>
