@@ -283,6 +283,7 @@ export function PdfTools() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:py-12">
+      <AdSection type="top" />
       <div className="mb-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

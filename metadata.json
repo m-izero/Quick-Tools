@@ -1,6 +1,6 @@
 {
   "name": "Quick tools",
-  "description": "A fast, modern suite of online tools including image compression, PDF manipulation, AI summarization, and more.",
+  "description": "A fast, modern suite of online tools including image and video compression, PDF manipulation, QR code tools, color converters, unit converters, and developer utilities.",
   "requestFramePermissions": [
     "camera",
     "microphone"

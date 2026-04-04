@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { 
   Image as ImageIcon, 
+  Video,
   FileText, 
   Binary, 
   Lock, 
@@ -12,67 +13,132 @@ import {
   Smartphone,
   History,
   Trash2,
-  ExternalLink
+  QrCode,
+  Palette,
+  Scale,
+  Calculator,
+  Globe,
+  Braces
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AdSection } from '@/components/AdSection';
 import { useRecentFiles } from '@/hooks/useRecentFiles';
 import { cn } from '@/utils/cn';
 
-const tools = [
+const toolCategories = [
   {
-    title: "Image Compressor",
-    description: "Reduce image file size without losing quality. Supports PNG, JPG, and WebP.",
-    icon: ImageIcon,
-    path: "/image-compressor",
-    color: "text-blue-500",
-    bg: "bg-blue-500/10",
-    size: "lg" // Large card
+    name: "Media & PDF Tools",
+    tools: [
+      {
+        title: "Image Compressor",
+        description: "Reduce image file size without losing quality. Supports PNG, JPG, and WebP.",
+        icon: ImageIcon,
+        path: "/image-compressor",
+        color: "text-blue-500",
+        bg: "bg-blue-500/10",
+        size: "lg"
+      },
+      {
+        title: "Video Compressor",
+        description: "Compress videos into smaller sizes while maintaining quality. 100% private.",
+        icon: Video,
+        path: "/video-compressor",
+        color: "text-blue-500",
+        bg: "bg-blue-500/10",
+        size: "md"
+      },
+      {
+        title: "PDF Tools",
+        description: "Merge multiple PDFs into one or split a single PDF into multiple files.",
+        icon: FileText,
+        path: "/pdf-tools",
+        color: "text-red-500",
+        bg: "bg-red-500/10",
+        size: "md"
+      }
+    ]
   },
   {
-    title: "PDF Tools",
-    description: "Merge multiple PDFs into one or split a single PDF into multiple files.",
-    icon: FileText,
-    path: "/pdf-tools",
-    color: "text-red-500",
-    bg: "bg-red-500/10",
-    size: "md"
+    name: "Developer & Design",
+    tools: [
+      {
+        title: "Developer Tools",
+        description: "JSON formatter, URL encoder, and Base64 utilities for developers.",
+        icon: Code2,
+        path: "/dev-tools",
+        color: "text-amber-500",
+        bg: "bg-amber-500/10",
+        size: "md"
+      },
+      {
+        title: "Color Tool",
+        description: "Pick, convert, and save colors in HEX, RGB, and HSL formats.",
+        icon: Palette,
+        path: "/color-tool",
+        color: "text-pink-500",
+        bg: "bg-pink-500/10",
+        size: "md"
+      },
+      {
+        title: "Code Formatter",
+        description: "Prettify your HTML, CSS, and JavaScript code with one click.",
+        icon: Braces,
+        path: "/code-formatter",
+        color: "text-indigo-500",
+        bg: "bg-indigo-500/10",
+        size: "md"
+      }
+    ]
   },
   {
-    title: "Base64 Tool",
-    description: "Encode and decode text to Base64 format instantly. 100% private and secure.",
-    icon: Binary,
-    path: "/base64-tool",
-    color: "text-purple-500",
-    bg: "bg-purple-500/10",
-    size: "md"
-  },
-  {
-    title: "Password Generator",
-    description: "Create strong, secure, and random passwords to keep your accounts safe.",
-    icon: Lock,
-    path: "/password-generator",
-    color: "text-emerald-500",
-    bg: "bg-emerald-500/10",
-    size: "md"
-  },
-  {
-    title: "Code Formatter",
-    description: "Prettify your HTML, CSS, and JavaScript code with one click.",
-    icon: Code2,
-    path: "/code-formatter",
-    color: "text-amber-500",
-    bg: "bg-amber-500/10",
-    size: "md"
-  },
-  {
-    title: "MemoNote Pad",
-    description: "Quickly jot down notes and ideas. Saved locally in your browser.",
-    icon: FileText,
-    path: "/memo-note-pad",
-    color: "text-emerald-500",
-    bg: "bg-emerald-500/10",
-    size: "lg"
+    name: "Utility & Productivity",
+    tools: [
+      {
+        title: "QR Code Tools",
+        description: "Generate QR codes from text/URLs or scan them using your camera.",
+        icon: QrCode,
+        path: "/qr-code",
+        color: "text-emerald-500",
+        bg: "bg-emerald-500/10",
+        size: "lg"
+      },
+      {
+        title: "Unit Converter",
+        description: "Fast conversion for length, weight, temperature, speed, and data.",
+        icon: Scale,
+        path: "/unit-converter",
+        color: "text-orange-500",
+        bg: "bg-orange-500/10",
+        size: "md"
+      },
+      {
+        title: "Utility Calculators",
+        description: "Calculate age, percentages, and discounts instantly.",
+        icon: Calculator,
+        path: "/utility-tools",
+        color: "text-cyan-500",
+        bg: "bg-cyan-500/10",
+        size: "md"
+      },
+      {
+        title: "Password Generator",
+        description: "Create strong, secure, and random passwords to keep your accounts safe.",
+        icon: Lock,
+        path: "/password-generator",
+        color: "text-emerald-500",
+        bg: "bg-emerald-500/10",
+        size: "md"
+      },
+      {
+        title: "MemoNote Pad",
+        description: "Quickly jot down notes and ideas. Saved locally in your browser.",
+        icon: FileText,
+        path: "/memo-note-pad",
+        color: "text-emerald-500",
+        bg: "bg-emerald-500/10",
+        size: "md"
+      }
+    ]
   }
 ];
 
@@ -182,43 +248,56 @@ export function Home() {
         </motion.div>
       )}
 
-      {/* Tools Grid - Bento Style */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[280px]">
-        {tools.map((tool, index) => (
-          <motion.div
-            key={tool.title}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: index * 0.05 }}
-            className={cn(
-              "group relative",
-              tool.size === 'lg' ? "sm:col-span-2" : "col-span-1"
-            )}
-          >
-            <Link
-              to={tool.path}
-              className="flex flex-col h-full overflow-hidden rounded-[2.5rem] border-2 border-zinc-100 bg-white p-8 sm:p-10 transition-all hover:border-emerald-500 hover:shadow-2xl hover:shadow-emerald-500/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-500"
-            >
-              <div className={cn(
-                "mb-8 flex h-14 w-14 items-center justify-center rounded-2xl shadow-lg transition-transform group-hover:scale-110 duration-500",
-                tool.bg
-              )}>
-                <tool.icon className={cn("h-7 w-7", tool.color)} />
-              </div>
-              <div className="flex-grow">
-                <h3 className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white">{tool.title}</h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400 max-w-sm">
-                  {tool.description}
-                </p>
-              </div>
-              <div className="mt-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-emerald-500">
-                Launch Tool <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
-              </div>
-              
-              {/* Decorative Background Element */}
-              <div className="absolute -right-4 -bottom-4 h-32 w-32 rounded-full bg-emerald-500/5 blur-3xl group-hover:bg-emerald-500/10 transition-all" />
-            </Link>
-          </motion.div>
+      {/* Tools Grid - Categorized */}
+      <div className="space-y-24">
+        {toolCategories.map((category, catIndex) => (
+          <div key={category.name}>
+            <div className="flex items-center gap-4 mb-10">
+              <h2 className="text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">
+                {category.name}
+              </h2>
+              <div className="h-px flex-grow bg-zinc-200 dark:bg-zinc-800" />
+            </div>
+            
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[280px]">
+              {category.tools.map((tool, index) => (
+                <motion.div
+                  key={tool.title}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: (catIndex * 0.1) + (index * 0.05) }}
+                  className={cn(
+                    "group relative",
+                    tool.size === 'lg' ? "sm:col-span-2" : "col-span-1"
+                  )}
+                >
+                  <Link
+                    to={tool.path}
+                    className="flex flex-col h-full overflow-hidden rounded-[2.5rem] border-2 border-zinc-100 bg-white p-8 sm:p-10 transition-all hover:border-emerald-500 hover:shadow-2xl hover:shadow-emerald-500/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-500"
+                  >
+                    <div className={cn(
+                      "mb-8 flex h-14 w-14 items-center justify-center rounded-2xl shadow-lg transition-transform group-hover:scale-110 duration-500",
+                      tool.bg
+                    )}>
+                      <tool.icon className={cn("h-7 w-7", tool.color)} />
+                    </div>
+                    <div className="flex-grow">
+                      <h3 className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white">{tool.title}</h3>
+                      <p className="mt-4 text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400 max-w-sm">
+                        {tool.description}
+                      </p>
+                    </div>
+                    <div className="mt-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-emerald-500">
+                      Launch Tool <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
+                    </div>
+                    
+                    {/* Decorative Background Element */}
+                    <div className="absolute -right-4 -bottom-4 h-32 w-32 rounded-full bg-emerald-500/5 blur-3xl group-hover:bg-emerald-500/10 transition-all" />
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
 

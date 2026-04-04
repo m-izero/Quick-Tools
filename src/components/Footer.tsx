@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Image as ImageIcon, 
+  Video,
   FileText, 
   Binary, 
   Lock, 
@@ -11,19 +12,44 @@ import {
   Github,
   Twitter,
   Mail,
-  ExternalLink
+  ExternalLink,
+  QrCode,
+  Palette,
+  Scale,
+  Calculator
 } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const toolLinks = [
-    { name: 'Image Compressor', path: '/image-compressor', icon: ImageIcon },
-    { name: 'PDF Tools', path: '/pdf-tools', icon: FileText },
-    { name: 'Base64 Tool', path: '/base64-tool', icon: Binary },
-    { name: 'Password Generator', path: '/password-generator', icon: Lock },
-    { name: 'Code Formatter', path: '/code-formatter', icon: Code2 },
-    { name: 'MemoNote Pad', path: '/memo-note-pad', icon: StickyNote },
+  const toolCategories = [
+    {
+      name: "Media & PDF",
+      links: [
+        { name: 'Image Compressor', path: '/image-compressor', icon: ImageIcon },
+        { name: 'Video Compressor', path: '/video-compressor', icon: Video },
+        { name: 'PDF Tools', path: '/pdf-tools', icon: FileText },
+      ]
+    },
+    {
+      name: "Dev & Design",
+      links: [
+        { name: 'Developer Tools', path: '/dev-tools', icon: Code2 },
+        { name: 'Color Tool', path: '/color-tool', icon: Palette },
+        { name: 'Code Formatter', path: '/code-formatter', icon: Binary },
+        { name: 'Base64 Tool', path: '/base64-tool', icon: Binary },
+      ]
+    },
+    {
+      name: "Utility & Productivity",
+      links: [
+        { name: 'QR Code Tools', path: '/qr-code', icon: QrCode },
+        { name: 'Unit Converter', path: '/unit-converter', icon: Scale },
+        { name: 'Utility Calculators', path: '/utility-tools', icon: Calculator },
+        { name: 'Password Generator', path: '/password-generator', icon: Lock },
+        { name: 'MemoNote Pad', path: '/memo-note-pad', icon: StickyNote },
+      ]
+    }
   ];
 
   return (
@@ -57,76 +83,66 @@ export function Footer() {
           </div>
 
           {/* Tools Section */}
-          <div className="col-span-1">
-            <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900 dark:text-white mb-6">
-              Our Tools
-            </h3>
-            <ul className="space-y-4">
-              {toolLinks.map((tool) => (
-                <li key={tool.path}>
-                  <Link 
-                    to={tool.path} 
-                    className="group flex items-center gap-2 text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors"
-                  >
-                    <tool.icon className="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
-                    {tool.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div className="col-span-1 md:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {toolCategories.map((category) => (
+              <div key={category.name}>
+                <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900 dark:text-white mb-6">
+                  {category.name}
+                </h3>
+                <ul className="space-y-4">
+                  {category.links.map((tool) => (
+                    <li key={tool.path}>
+                      <Link 
+                        to={tool.path} 
+                        className="group flex items-center gap-2 text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors"
+                      >
+                        <tool.icon className="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                        {tool.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
 
           {/* Resources Section */}
-          <div className="col-span-1">
-            <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900 dark:text-white mb-6">
-              Resources
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <a href="#" className="flex items-center gap-1 text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
-                  API Documentation <ExternalLink className="h-3 w-3" />
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
-                  Help Center
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
-                  Community
-                </a>
-              </li>
-            </ul>
-          </div>
+          <div className="col-span-1 grid grid-cols-2 md:grid-cols-1 gap-8">
+            <div>
+              <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900 dark:text-white mb-6">
+                Resources
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link to="/contact" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <a href="#" className="flex items-center gap-1 text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
+                    API Documentation <ExternalLink className="h-3 w-3" />
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          {/* Legal Section */}
-          <div className="col-span-1">
-            <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900 dark:text-white mb-6">
-              Legal
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <a href="#" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
-                  Cookie Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
-                  Security
-                </a>
-              </li>
-            </ul>
+            <div>
+              <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900 dark:text-white mb-6">
+                Legal
+              </h3>
+              <ul className="space-y-4">
+                <li>
+                  <Link to="/privacy-policy" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/terms" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors">
+                    Terms of Service
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

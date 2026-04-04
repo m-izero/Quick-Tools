@@ -6,14 +6,24 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { ScrollToTop } from '@/components/ScrollToTop';
 import { Home } from '@/pages/Home';
 import { ImageCompressor } from '@/pages/ImageCompressor';
+import { VideoCompressor } from '@/pages/VideoCompressor';
 import { PdfTools } from '@/pages/PdfTools';
 import { Base64Tool } from '@/pages/Base64Tool';
 import { PasswordGenerator } from '@/pages/PasswordGenerator';
 import { CodeFormatter } from '@/pages/CodeFormatter';
 import { MemoNotePad } from '@/pages/MemoNotePad';
 import { AdminPanel } from '@/pages/AdminPanel';
+import QrCodeTool from '@/pages/QrCodeTool';
+import ColorTool from '@/pages/ColorTool';
+import UnitConverter from '@/pages/UnitConverter';
+import DevTools from '@/pages/DevTools';
+import UtilityTools from '@/pages/UtilityTools';
+import { PrivacyPolicy } from '@/pages/PrivacyPolicy';
+import { Terms } from '@/pages/Terms';
+import { Contact } from '@/pages/Contact';
 import React, { useState, useEffect } from 'react';
 import { auth, signInWithGoogle } from '@/lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
@@ -82,17 +92,27 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-white transition-colors dark:bg-zinc-950 flex flex-col">
         <Navbar />
         <main className="flex-grow pb-20">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/image-compressor" element={<ImageCompressor />} />
+            <Route path="/video-compressor" element={<VideoCompressor />} />
             <Route path="/pdf-tools" element={<PdfTools />} />
             <Route path="/base64-tool" element={<Base64Tool />} />
             <Route path="/password-generator" element={<PasswordGenerator />} />
             <Route path="/code-formatter" element={<CodeFormatter />} />
             <Route path="/memo-note-pad" element={<MemoNotePad />} />
+            <Route path="/qr-code" element={<QrCodeTool />} />
+            <Route path="/color-tool" element={<ColorTool />} />
+            <Route path="/unit-converter" element={<UnitConverter />} />
+            <Route path="/dev-tools" element={<DevTools />} />
+            <Route path="/utility-tools" element={<UtilityTools />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/contact" element={<Contact />} />
             
             {/* Protected Admin Route with Secret URL */}
             <Route path={ADMIN_SECRET_PATH} element={
