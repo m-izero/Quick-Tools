@@ -23,6 +23,7 @@ import UtilityTools from '@/pages/UtilityTools';
 import { PrivacyPolicy } from '@/pages/PrivacyPolicy';
 import { Terms } from '@/pages/Terms';
 import { Contact } from '@/pages/Contact';
+import { About } from '@/pages/About';
 import React, { useState, useEffect } from 'react';
 import { auth, signInWithGoogle } from '@/lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
@@ -114,6 +115,7 @@ export default function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
             
             {/* Protected Admin Route with Secret URL */}
             <Route path={ADMIN_SECRET_PATH} element={
