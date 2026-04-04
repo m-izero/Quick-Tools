@@ -30,6 +30,7 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 import { LogIn } from 'lucide-react';
 import { useDarkMode } from '@/hooks/useDarkMode';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const ADMIN_SECRET_PATH = "/admin-secure-9x7k2";
 
@@ -133,6 +134,7 @@ export default function App() {
         <Footer />
       </div>
       <Analytics />
+      <SpeedInsights />
     </Router>
   );
 }
