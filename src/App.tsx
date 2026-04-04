@@ -29,6 +29,7 @@ import { auth, signInWithGoogle } from '@/lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { LogIn } from 'lucide-react';
 import { useDarkMode } from '@/hooks/useDarkMode';
+import { Analytics } from '@vercel/analytics/react';
 
 const ADMIN_SECRET_PATH = "/admin-secure-9x7k2";
 
@@ -131,6 +132,7 @@ export default function App() {
         
         <Footer />
       </div>
+      <Analytics />
     </Router>
   );
 }
