@@ -398,6 +398,79 @@ export default function QrCodeTool() {
             )}
           </AnimatePresence>
         </div>
+
+        {/* SEO Content Section */}
+        <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                  Free <span className="text-emerald-500">QR Code Generator</span> & Scanner
+                </h2>
+                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                  Generate and read QR codes instantly with our free online tool. Whether you need to create a QR code for a website URL, plain text, or contact information, our generator provides high-quality results in seconds. Additionally, our built-in scanner allows you to decode QR codes using your device's camera or by uploading an image file, all processed locally for your privacy.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-4">Generating QR Codes</h4>
+                    <ol className="space-y-3">
+                      {[
+                        "Select the 'Generator' tab at the top of the tool.",
+                        "Enter the text or URL you want to encode into the input field.",
+                        "Choose your preferred QR code size (Small, Medium, or Large).",
+                        "Click 'Download PNG' to save your custom QR code to your device."
+                      ].map((step, i) => (
+                        <li key={i} className="flex gap-3 items-start text-sm text-zinc-600 dark:text-zinc-400 font-medium">
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                          {step}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-4">Scanning QR Codes</h4>
+                    <ol className="space-y-3">
+                      {[
+                        "Select the 'Scanner' tab and choose 'Upload Image' or 'Use Camera'.",
+                        "If uploading, select a PNG, JPG, or WebP image containing a QR code.",
+                        "If using the camera, point it at the QR code until it is recognized.",
+                        "The decoded result will appear instantly with an option to copy it."
+                      ].map((step, i) => (
+                        <li key={i} className="flex gap-3 items-start text-sm text-zinc-600 dark:text-zinc-400 font-medium">
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                          {step}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { title: "Instant Generation", desc: "Create high-quality QR codes in real-time as you type your content." },
+                    { title: "Real-time Scanning", desc: "Use your smartphone or webcam to scan QR codes directly in the browser." },
+                    { title: "Privacy Focused", desc: "All scanning and generation happen locally. Your data is never sent to our servers." },
+                    { title: "No App Required", desc: "Works perfectly on mobile and desktop without installing any third-party software." }
+                  ].map((benefit, i) => (
+                    <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                      <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -273,6 +273,78 @@ export function Base64Tool() {
           </div>
         </div>
 
+        {/* SEO Content Section */}
+        <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                  Free <span className="text-emerald-500">Base64 Encoder</span> & Decoder
+                </h2>
+                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                  Our Base64 Tool is a powerful, free online utility designed for developers and power users who need to quickly encode or decode text to and from Base64 format. Base64 encoding is essential for transmitting binary data over text-based protocols, such as embedding images in HTML or CSS, or handling data in APIs. This tool operates entirely within your web browser, ensuring that your sensitive data is never transmitted over the internet, providing a secure and private environment for all your data conversion needs.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-4">Encoding Text</h4>
+                    <ol className="space-y-3">
+                      {[
+                        "Ensure the 'Encode' mode is selected (or use 'Auto-Detect').",
+                        "Type or paste your plain text into the 'Input Text' area.",
+                        "The Base64 encoded result will appear instantly in the 'Result' box.",
+                        "Click the 'Copy' button to save the encoded string to your clipboard."
+                      ].map((step, i) => (
+                        <li key={i} className="flex gap-3 items-start text-sm text-zinc-600 dark:text-zinc-400 font-medium">
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                          {step}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-4">Decoding Base64</h4>
+                    <ol className="space-y-3">
+                      {[
+                        "Ensure the 'Decode' mode is selected (or use 'Auto-Detect').",
+                        "Paste your Base64 string into the 'Input Text' area.",
+                        "The decoded plain text will be displayed immediately in the 'Result' box.",
+                        "If the input is invalid Base64, an error message will guide you."
+                      ].map((step, i) => (
+                        <li key={i} className="flex gap-3 items-start text-sm text-zinc-600 dark:text-zinc-400 font-medium">
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                          {step}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { title: "Privacy First", desc: "All conversions happen locally in your browser. Your data is never sent to any server." },
+                    { title: "Auto-Detection", desc: "Smart detection automatically switches between encoding and decoding based on your input." },
+                    { title: "Real-Time Results", desc: "See your results instantly as you type, saving you time and effort." },
+                    { title: "Developer Friendly", desc: "Clean, monospaced output makes it easy to read and copy code-ready strings." }
+                  ].map((benefit, i) => (
+                    <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                      <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

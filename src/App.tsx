@@ -11,8 +11,9 @@ import { Home } from '@/pages/Home';
 import { ImageCompressor } from '@/pages/ImageCompressor';
 import { PdfTools } from '@/pages/PdfTools';
 import { Base64Tool } from '@/pages/Base64Tool';
-import { PasswordGenerator } from '@/pages/PasswordGenerator';
-import { CodeFormatter } from '@/pages/CodeFormatter';
+import { RandomStringGenerator } from '@/pages/RandomStringGenerator';
+import { PasswordStrengthMeter } from '@/pages/PasswordStrengthMeter';
+import { HashGenerator } from '@/pages/HashGenerator';
 import { MemoNotePad } from '@/pages/MemoNotePad';
 import { AdminPanel } from '@/pages/AdminPanel';
 import QrCodeTool from '@/pages/QrCodeTool';
@@ -29,7 +30,6 @@ import { auth, signInWithGoogle } from '@/lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { LogIn } from 'lucide-react';
 import { useDarkMode } from '@/hooks/useDarkMode';
-import { Analytics } from '@vercel/analytics/react';
 
 const ADMIN_SECRET_PATH = "/admin-secure-9x7k2";
 
@@ -91,6 +91,9 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+import { Blog } from './pages/Blog';
+import { BlogPost } from './pages/BlogPost';
+
 export default function App() {
   useDarkMode(); // Initialize dark mode at root
 
@@ -105,8 +108,9 @@ export default function App() {
             <Route path="/image-compressor" element={<ImageCompressor />} />
             <Route path="/pdf-tools" element={<PdfTools />} />
             <Route path="/base64-tool" element={<Base64Tool />} />
-            <Route path="/password-generator" element={<PasswordGenerator />} />
-            <Route path="/code-formatter" element={<CodeFormatter />} />
+            <Route path="/random-string-generator" element={<RandomStringGenerator />} />
+            <Route path="/password-strength" element={<PasswordStrengthMeter />} />
+            <Route path="/hash-generator" element={<HashGenerator />} />
             <Route path="/memo-note-pad" element={<MemoNotePad />} />
             <Route path="/qr-code" element={<QrCodeTool />} />
             <Route path="/color-tool" element={<ColorTool />} />
@@ -117,6 +121,8 @@ export default function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             
             {/* Protected Admin Route with Secret URL */}
             <Route path={ADMIN_SECRET_PATH} element={
@@ -132,7 +138,6 @@ export default function App() {
         
         <Footer />
       </div>
-      <Analytics />
     </Router>
   );
 }

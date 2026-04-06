@@ -290,6 +290,65 @@ export default function UtilityTools() {
             </AnimatePresence>
           </div>
         </div>
+
+        {/* SEO Content Section */}
+        <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                  Essential <span className="text-emerald-500">Utility Calculators</span> Online
+                </h2>
+                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                  Simplify your daily calculations with our site of free online utility tools. Whether you need to calculate your exact age, determine a percentage, or find out how much you'll save with a discount, our calculators provide fast and accurate results. Designed for ease of use, these tools help you make quick decisions without the need for complex formulas or manual math.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Available Calculators</h3>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">Age Calculator</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+                      Find out exactly how old you are in years, months, and days. Perfect for checking milestones or calculating time intervals between dates.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">Percentage Calculator</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+                      Easily calculate the percentage of any total value. Useful for business, finance, and everyday math problems.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">Discount Calculator</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+                      Determine the final price and total savings after applying a discount percentage. A must-have tool for smart shopping and budgeting.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { title: "Instant Accuracy", desc: "Get precise results immediately without any manual calculations or errors." },
+                    { title: "User-Friendly Interface", desc: "Simple inputs and clear results make these tools accessible to everyone." },
+                    { title: "Mobile Optimized", desc: "Perform quick calculations on the go from any smartphone or tablet." },
+                    { title: "Completely Free", desc: "Use all our utility calculators as much as you need without any cost or registration." }
+                  ].map((benefit, i) => (
+                    <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                      <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

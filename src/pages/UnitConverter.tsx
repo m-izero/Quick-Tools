@@ -232,6 +232,61 @@ export default function UnitConverter() {
             </div>
           </div>
         </div>
+
+        {/* SEO Content Section */}
+        <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                  Free <span className="text-emerald-500">Unit Converter</span> Online
+                </h2>
+                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                  Convert between hundreds of different units across multiple categories with our comprehensive online unit converter. Whether you're working on a school project, a professional engineering task, or just need to convert a recipe, our tool provides instant and accurate results. We support a wide range of measurements including length, weight, temperature, speed, and digital data storage, making it a versatile utility for everyone.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+                <ol className="space-y-4">
+                  {[
+                    "Select a category from the top (Length, Weight, Temperature, etc.).",
+                    "Choose the 'From' unit and the 'To' unit from the dropdown menus.",
+                    "Enter the value you want to convert in the 'From' input field.",
+                    "The converted result will appear instantly in the 'To' box below.",
+                    "Use the swap button to quickly reverse the conversion direction."
+                  ].map((step, i) => (
+                    <li key={i} className="flex gap-4 items-start">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">
+                        {i + 1}
+                      </span>
+                      <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { title: "Instant Conversions", desc: "Get results as you type. No need to click a convert button or wait for page reloads." },
+                    { title: "Wide Range of Units", desc: "Supports both metric and imperial systems, as well as specialized units for data and speed." },
+                    { title: "High Precision", desc: "Calculations are performed with high accuracy, providing up to 6 decimal places for precise work." },
+                    { title: "Mobile Friendly", desc: "Fully responsive design allows you to perform conversions on the go from any smartphone or tablet." }
+                  ].map((benefit, i) => (
+                    <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                      <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

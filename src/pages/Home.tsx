@@ -17,12 +17,45 @@ import {
   Scale,
   Calculator,
   Globe,
-  Braces
+  Braces,
+  Hash
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/utils/cn';
 
 const toolCategories = [
+  {
+    name: "Security & Privacy Tools",
+    tools: [
+      {
+        title: "Password Strength",
+        description: "Analyze your password strength using the industry-standard zxcvbn estimation algorithm.",
+        icon: ShieldCheck,
+        path: "/password-strength",
+        color: "text-emerald-500",
+        bg: "bg-emerald-500/10",
+        size: "md"
+      },
+      {
+        title: "Hash Generator",
+        description: "Generate secure SHA-256 and MD5 cryptographic hashes for your text data instantly.",
+        icon: Hash,
+        path: "/hash-generator",
+        color: "text-blue-500",
+        bg: "bg-blue-500/10",
+        size: "md"
+      },
+      {
+        title: "Random String",
+        description: "Generate secure, random strings for passwords, tokens, or identifiers with custom options.",
+        icon: Lock,
+        path: "/random-string-generator",
+        color: "text-teal-500",
+        bg: "bg-teal-500/10",
+        size: "md"
+      }
+    ]
+  },
   {
     name: "Image & PDF Tools",
     tools: [
@@ -66,15 +99,6 @@ const toolCategories = [
         color: "text-pink-500",
         bg: "bg-pink-500/10",
         size: "md"
-      },
-      {
-        title: "Code Formatter",
-        description: "Prettify your HTML, CSS, and JavaScript code with one click.",
-        icon: Braces,
-        path: "/code-formatter",
-        color: "text-indigo-500",
-        bg: "bg-indigo-500/10",
-        size: "md"
       }
     ]
   },
@@ -106,15 +130,6 @@ const toolCategories = [
         path: "/utility-tools",
         color: "text-cyan-500",
         bg: "bg-cyan-500/10",
-        size: "md"
-      },
-      {
-        title: "Password Generator",
-        description: "Create strong, secure, and random passwords to keep your accounts safe.",
-        icon: Lock,
-        path: "/password-generator",
-        color: "text-emerald-500",
-        bg: "bg-emerald-500/10",
         size: "md"
       },
       {
@@ -180,6 +195,74 @@ export function Home() {
             Mobile Ready
           </div>
         </motion.div>
+      </div>
+
+      {/* What We Offer Section */}
+      <div className="mb-32">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-white mb-4 uppercase tracking-tight">
+            What We <span className="text-emerald-500">Offer</span>
+          </h2>
+          <p className="text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl mx-auto">
+            Explore our comprehensive site of free online tools designed to simplify your digital life.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
+            <div className="h-12 w-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <ImageIcon className="h-6 w-6 text-blue-500" />
+            </div>
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">Image Tools</h3>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+              Professional-grade image optimization and conversion. Compress photos for the web, convert between formats, and resize images without losing quality.
+            </p>
+          </div>
+          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
+            <div className="h-12 w-12 rounded-2xl bg-red-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <FileText className="h-6 w-6 text-red-500" />
+            </div>
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">PDF Tools</h3>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+              Manage your PDF documents with ease. Merge multiple files, split pages, and optimize PDFs for sharing and storage, all within your browser.
+            </p>
+          </div>
+          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
+            <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <ShieldCheck className="h-6 w-6 text-emerald-500" />
+            </div>
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">Security Tools</h3>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+              Protect your digital identity. Generate strong passwords, analyze password strength, and create secure cryptographic hashes for your data.
+            </p>
+          </div>
+          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
+            <div className="h-12 w-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Code2 className="h-6 w-6 text-amber-500" />
+            </div>
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">Developer Tools</h3>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+              Essential utilities for web developers. Format JSON, encode/decode Base64, pick colors, and convert units with precision and speed.
+            </p>
+          </div>
+          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
+            <div className="h-12 w-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Calculator className="h-6 w-6 text-cyan-500" />
+            </div>
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">Utility Tools</h3>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+              Everyday calculators and generators. Create QR codes, calculate percentages, convert units, and take quick notes in our local notepad.
+            </p>
+          </div>
+          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
+            <div className="h-12 w-12 rounded-2xl bg-zinc-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <History className="h-6 w-6 text-zinc-500" />
+            </div>
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">Local Processing</h3>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+              All our tools run 100% locally in your browser. Your data never touches our servers, ensuring total privacy and lightning-fast performance.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Tools Grid - Categorized */}
@@ -266,7 +349,7 @@ export function Home() {
       <div className="mt-32 rounded-[3rem] bg-zinc-900 p-12 sm:p-20 text-center relative overflow-hidden">
         <div className="relative z-10">
           <h2 className="text-3xl sm:text-5xl font-black text-white mb-6">Ready to get started?</h2>
-          <p className="text-zinc-400 text-lg mb-10 max-w-xl mx-auto font-medium">Join thousands of users who trust Quick tools for their daily tasks. No registration, no fees, just tools.</p>
+          <p className="text-zinc-400 text-lg mb-10 max-w-xl mx-auto font-medium">Join thousands of users who trust QuickTools Pro for their daily tasks. No registration, no fees, just tools.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/image-compressor" className="px-8 py-4 rounded-2xl bg-emerald-500 text-white font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-xl shadow-emerald-500/20">
               Try Image Compressor

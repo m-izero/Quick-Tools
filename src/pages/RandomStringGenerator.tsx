@@ -5,34 +5,31 @@ import {
   Check, 
   RefreshCw, 
   ShieldCheck, 
-  ShieldAlert, 
-  Shield, 
   Zap,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  Hash
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
 
-export function PasswordGenerator() {
-  const [password, setPassword] = useState('');
+export function RandomStringGenerator() {
+  const [randomString, setRandomString] = useState('');
   const [length, setLength] = useState(16);
   const [options, setOptions] = useState({
     uppercase: true,
     lowercase: true,
     numbers: true,
     symbols: true,
-    excludeSimilar: false,
   });
   const [copied, setCopied] = useState(false);
 
-  const generatePassword = useCallback(() => {
+  const generateRandomString = useCallback(() => {
     const charset = {
       uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
       lowercase: 'abcdefghijklmnopqrstuvwxyz',
       numbers: '0123456789',
       symbols: '!@#$%^&*()_+~`|}{[]:;?><,./-=',
-      similar: 'il1Lo0O',
     };
 
     let characters = '';
@@ -40,11 +37,6 @@ export function PasswordGenerator() {
     if (options.lowercase) characters += charset.lowercase;
     if (options.numbers) characters += charset.numbers;
     if (options.symbols) characters += charset.symbols;
-
-    if (options.excludeSimilar) {
-      const similarRegex = new RegExp(`[${charset.similar}]`, 'g');
-      characters = characters.replace(similarRegex, '');
-    }
 
     if (!characters) return;
 
@@ -55,33 +47,18 @@ export function PasswordGenerator() {
     for (let i = 0; i < length; i++) {
       result += characters.charAt(array[i] % characters.length);
     }
-    setPassword(result);
+    setRandomString(result);
   }, [length, options]);
 
   useEffect(() => {
-    generatePassword();
-  }, [generatePassword]);
+    generateRandomString();
+  }, [generateRandomString]);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(password);
+    navigator.clipboard.writeText(randomString);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
-  const getStrength = () => {
-    let score = 0;
-    if (length >= 12) score += 1;
-    if (length >= 20) score += 1;
-    if (options.uppercase && options.lowercase) score += 1;
-    if (options.numbers) score += 1;
-    if (options.symbols) score += 1;
-    
-    if (score <= 2) return { label: 'Weak', color: 'bg-red-500', icon: <ShieldAlert className="h-4 w-4" />, text: 'text-red-500' };
-    if (score <= 4) return { label: 'Medium', color: 'bg-amber-500', icon: <Shield className="h-4 w-4" />, text: 'text-amber-500' };
-    return { label: 'Strong', color: 'bg-emerald-500', icon: <ShieldCheck className="h-4 w-4" />, text: 'text-emerald-500' };
-  };
-
-  const strength = getStrength();
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:py-12">
@@ -91,33 +68,33 @@ export function PasswordGenerator() {
           animate={{ opacity: 1, y: 0 }}
           className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400 mb-4"
         >
-          <Lock className="h-3 w-3" />
-          SECURE GENERATOR
+          <Hash className="h-3 w-3" />
+          SECURITY TOOL
         </motion.div>
         <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-zinc-900 dark:text-white">
-          Password <span className="text-emerald-500">Shield</span>
+          Random <span className="text-emerald-500">String</span> Generator
         </h1>
         <p className="mt-2 text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto">
-          Generate ultra-secure, random passwords that are impossible to crack.
+          Generate secure, random strings for passwords, tokens, or identifiers instantly.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
         <div className="lg:col-span-8 space-y-6">
-          {/* Password Display Box */}
+          {/* Display Box */}
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative flex flex-col items-center justify-center gap-6 rounded-3xl bg-white p-6 sm:p-12 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-2xl">
               <div className="w-full text-center overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
-                    key={password}
+                    key={randomString}
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.05 }}
                     className="font-mono text-xl sm:text-4xl md:text-5xl font-black text-zinc-900 dark:text-white break-all [overflow-wrap:anywhere] tracking-tight block"
                   >
-                    {password}
+                    {randomString}
                   </motion.span>
                 </AnimatePresence>
               </div>
@@ -133,33 +110,15 @@ export function PasswordGenerator() {
                   )}
                 >
                   {copied ? <CheckCircle2 className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
-                  {copied ? 'Copied!' : 'Copy Password'}
+                  {copied ? 'Copied!' : 'Copy String'}
                 </button>
                 <button
-                  onClick={generatePassword}
+                  onClick={generateRandomString}
                   className="flex items-center justify-center gap-2 rounded-2xl bg-zinc-100 px-6 py-4 font-black text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 transition-all shadow-lg shadow-black/5"
-                  title="Generate New"
+                  title="Regenerate"
                 >
                   <RefreshCw className="h-5 w-5" />
                 </button>
-              </div>
-
-              {/* Strength Indicator */}
-              <div className="w-full space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className={cn("flex items-center gap-2 text-xs font-black uppercase tracking-widest", strength.text)}>
-                    {strength.icon}
-                    {strength.label} Strength
-                  </div>
-                  <span className="text-xs font-bold text-zinc-500">{length} Characters</span>
-                </div>
-                <div className="h-2 w-full rounded-full bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${(length / 32) * 100}%` }}
-                    className={cn("h-full rounded-full transition-all duration-500", strength.color)}
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -174,20 +133,20 @@ export function PasswordGenerator() {
             <div className="space-y-10">
               <div>
                 <div className="flex justify-between mb-4">
-                  <label className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-wider">Password Length</label>
+                  <label className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-wider">String Length</label>
                   <span className="text-lg font-black text-emerald-500">{length}</span>
                 </div>
                 <input 
                   type="range" 
                   min="8" 
-                  max="32" 
+                  max="64" 
                   value={length}
                   onChange={(e) => setLength(parseInt(e.target.value))}
                   className="w-full h-3 bg-zinc-100 dark:bg-zinc-800 rounded-full appearance-none cursor-pointer accent-emerald-500"
                 />
                 <div className="flex justify-between mt-2 text-[10px] font-black text-zinc-400 uppercase tracking-widest">
-                  <span>Weak (8)</span>
-                  <span>Strong (32)</span>
+                  <span>8</span>
+                  <span>64</span>
                 </div>
               </div>
 
@@ -197,7 +156,6 @@ export function PasswordGenerator() {
                   { id: 'lowercase', label: 'Lowercase Letters', desc: 'abc...' },
                   { id: 'numbers', label: 'Numbers', desc: '123...' },
                   { id: 'symbols', label: 'Symbols', desc: '!@#...' },
-                  { id: 'excludeSimilar', label: 'Exclude Similar', desc: 'i, l, 1, L, o, 0, O' },
                 ].map((opt) => (
                   <label key={opt.id} className="flex items-center justify-between p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-800 cursor-pointer hover:border-emerald-500/30 transition-all group">
                     <div className="flex flex-col">
@@ -220,7 +178,6 @@ export function PasswordGenerator() {
           </div>
         </div>
 
-        {/* Sidebar */}
         <div className="lg:col-span-4 space-y-6">
           <div className="rounded-3xl bg-zinc-900 p-8 text-white shadow-xl">
             <h3 className="text-lg font-black mb-6 flex items-center gap-2">
@@ -234,7 +191,7 @@ export function PasswordGenerator() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold">Client-Side Only</h4>
-                  <p className="text-xs text-zinc-400 mt-1">Passwords are generated in your browser. No data is sent to any server.</p>
+                  <p className="text-xs text-zinc-400 mt-1">Strings are generated in your browser. No data is sent to any server.</p>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -248,26 +205,59 @@ export function PasswordGenerator() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className="rounded-3xl bg-zinc-50 p-8 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
-            <h3 className="text-lg font-black text-zinc-900 dark:text-white mb-4 flex items-center gap-2">
-              <AlertCircle className="h-5 w-5 text-amber-500" />
-              Pro Tips
-            </h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                Use at least 16 characters for critical accounts like banking or email.
-              </li>
-              <li className="flex items-start gap-3 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                Exclude similar characters if you need to type the password manually.
-              </li>
-              <li className="flex items-start gap-3 text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                Store your passwords in a trusted password manager.
-              </li>
-            </ul>
+      {/* SEO Content Section */}
+      <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                Free <span className="text-emerald-500">Random String</span> Generator Online
+              </h2>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                Generate secure, random strings for any purpose with our free online tool. Whether you need a strong password, a unique API token, or a random identifier for development, our generator provides high-entropy strings instantly. Built with security in mind, this tool uses the browser's native Web Crypto API to ensure true randomness and maximum privacy, as all generation happens locally on your device.
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+              <ol className="space-y-4">
+                {[
+                  "Adjust the 'String Length' slider to your desired number of characters (8-64).",
+                  "Toggle the character sets you want to include (Uppercase, Lowercase, Numbers, Symbols).",
+                  "The random string will update automatically as you change the settings.",
+                  "Click 'Copy String' to save the result or use the refresh button to generate a new one."
+                ].map((step, i) => (
+                  <li key={i} className="flex gap-4 items-start">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">
+                      {i + 1}
+                    </span>
+                    <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
+              <div className="grid grid-cols-1 gap-4">
+                {[
+                  { title: "Cryptographically Secure", desc: "Uses the Web Crypto API for high-quality randomness suitable for security purposes." },
+                  { title: "100% Local Processing", desc: "Your generated strings never leave your browser, ensuring complete privacy." },
+                  { title: "Highly Customizable", desc: "Fine-tune the length and character types to meet specific requirements." },
+                  { title: "Instant & Free", desc: "Generate as many strings as you need without any cost or registration." }
+                ].map((benefit, i) => (
+                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

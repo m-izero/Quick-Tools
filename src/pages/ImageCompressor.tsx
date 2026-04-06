@@ -498,6 +498,60 @@ export function ImageCompressor() {
           </div>
         </div>
       )}
+
+      {/* SEO Content Section */}
+      <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                Free <span className="text-emerald-500">Image Compressor</span> Online
+              </h2>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                Compress your images quickly and reduce file size without losing quality. Our advanced browser-based compression engine supports PNG, JPG, and WebP formats, ensuring your photos are optimized for the web while maintaining visual fidelity. This tool runs entirely in your browser, meaning your images are never uploaded to a server, providing you with maximum privacy and speed.
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+              <ol className="space-y-4">
+                {[
+                  "Upload your images by dragging and dropping or clicking the upload area.",
+                  "Adjust the quality and target file size settings in the sidebar to your preference.",
+                  "Click 'Compress All' or 'Compress Now' to start the optimization process.",
+                  "Preview the results and download individual images or all as a ZIP file."
+                ].map((step, i) => (
+                  <li key={i} className="flex gap-4 items-start">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">
+                      {i + 1}
+                    </span>
+                    <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
+              <div className="grid grid-cols-1 gap-4">
+                {[
+                  { title: "Fast Processing", desc: "No server-side uploads means instant results directly in your browser." },
+                  { title: "Privacy Guaranteed", desc: "Your images never leave your device. All processing is 100% local." },
+                  { title: "High Quality", desc: "Advanced algorithms ensure significant file size reduction with minimal quality loss." },
+                  { title: "Completely Free", desc: "No subscriptions, no watermarks, and no hidden fees. Use it as much as you need." }
+                ].map((benefit, i) => (
+                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -242,6 +242,65 @@ export default function DevTools() {
             </div>
           </div>
         </div>
+
+        {/* SEO Content Section */}
+        <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                  Professional <span className="text-emerald-500">Developer Tools</span> Online
+                </h2>
+                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                  Streamline your development workflow with our site of essential developer utilities. From formatting complex JSON structures to encoding URLs and Base64 strings, our tools provide a fast, secure, and reliable way to handle data. Built for developers by developers, these tools run entirely in your browser, ensuring that your sensitive code and data never leave your local environment.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Available Tools</h3>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">JSON Formatter</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+                      Convert messy, minified JSON into a beautiful, readable format with proper indentation. Our tool also validates your JSON structure, helping you catch syntax errors instantly.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">URL Encoder/Decoder</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+                      Safely encode special characters in your URLs for web transmission or decode them back to their original form. Essential for handling query parameters and API requests.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">Base64 Tool</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+                      Quickly encode text to Base64 format or decode Base64 strings back to plain text. Perfect for handling data in environments that only support ASCII characters.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { title: "Zero Data Leakage", desc: "All processing is done client-side. Your data is never sent to our servers, keeping your secrets safe." },
+                    { title: "Instant Results", desc: "Experience real-time formatting and encoding without the latency of server-side calls." },
+                    { title: "Mobile Optimized", desc: "Access professional-grade developer tools from any device with our fully responsive interface." },
+                    { title: "Completely Free", desc: "No subscriptions, no limits. Use our tools as much as you need for your daily development tasks." }
+                  ].map((benefit, i) => (
+                    <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                      <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

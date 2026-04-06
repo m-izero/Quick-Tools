@@ -22,7 +22,7 @@ export function About() {
     {
       icon: Heart,
       title: "Free Forever",
-      description: "No subscriptions, no hidden fees. Quick Tools is a gift to the developer community.",
+      description: "No subscriptions, no hidden fees. QuickTools Pro is a gift to the developer community.",
       color: "text-rose-500",
       bg: "bg-rose-500/10"
     }
@@ -40,10 +40,10 @@ export function About() {
           Our Story
         </motion.div>
         <h1 className="text-4xl font-black tracking-tight text-zinc-900 dark:text-white sm:text-6xl">
-          About <span className="text-emerald-500">Quick Tools</span>
+          About <span className="text-emerald-500">QuickTools Pro</span>
         </h1>
         <p className="mt-4 text-zinc-600 dark:text-zinc-400 font-medium max-w-2xl mx-auto">
-          Empowering developers and students with a comprehensive suite of fast, secure, and free online utilities.
+          Empowering developers and students with a comprehensive site of fast, secure, and free online utilities.
         </p>
       </div>
 
@@ -73,7 +73,7 @@ export function About() {
             A Resource for the <span className="text-emerald-500">Next Generation</span> of Creators
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-            Quick Tools was born out of a simple observation: developers and students often need quick, reliable tools for everyday tasks—like compressing an image, formatting code, or converting units—without the hassle of signing up or worrying about data privacy.
+            QuickTools Pro was born out of a simple observation: developers and students often need quick, reliable tools for everyday tasks—like compressing an image, generating secure hashes, or converting units—without the hassle of signing up or worrying about data privacy.
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-4">
@@ -120,7 +120,7 @@ export function About() {
       <div className="bg-zinc-900 dark:bg-emerald-500 p-12 rounded-[3rem] text-center text-white shadow-2xl shadow-emerald-500/20">
         <h2 className="text-3xl font-black mb-4">Join Our Community</h2>
         <p className="text-zinc-400 dark:text-emerald-50 mb-8 max-w-xl mx-auto font-medium">
-          Quick Tools is constantly evolving. If you have suggestions for new tools or want to contribute, we'd love to hear from you.
+          QuickTools Pro is constantly evolving. If you have suggestions for new tools or want to contribute, we'd love to hear from you.
         </p>
         <Link 
           to="/contact" 

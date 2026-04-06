@@ -334,6 +334,61 @@ export default function ColorTool() {
             </div>
           </div>
         </div>
+
+        {/* SEO Content Section */}
+        <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                  Free <span className="text-emerald-500">Color Picker</span> & Converter Online
+                </h2>
+                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                  Design with confidence using our professional-grade online color picker and converter. Whether you're a web developer, graphic designer, or digital artist, our tool provides a seamless way to select, convert, and save colors for your projects. We support all major web formats including HEX, RGB, and HSL, allowing you to translate colors between different systems with mathematical precision.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+                <ol className="space-y-4">
+                  {[
+                    "Use the visual color picker or enter a specific HEX, RGB, or HSL value.",
+                    "Observe the real-time conversion across all supported formats.",
+                    "Click the copy icon next to any value to save it to your clipboard.",
+                    "Save your favorite colors to the sidebar for quick access later.",
+                    "Toggle between light and dark modes to see how your colors look in different environments."
+                  ].map((step, i) => (
+                    <li key={i} className="flex gap-4 items-start">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">
+                        {i + 1}
+                      </span>
+                      <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {[
+                    { title: "Real-Time Conversion", desc: "Instantly see HEX, RGB, and HSL values as you adjust the color picker." },
+                    { title: "Favorite Colors", desc: "Save up to 20 favorite colors locally in your browser for future reference." },
+                    { title: "Precision Design", desc: "Manually adjust individual color components for pixel-perfect design work." },
+                    { title: "Privacy Focused", desc: "Your color palettes are stored locally on your device and never sent to our servers." }
+                  ].map((benefit, i) => (
+                    <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                      <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

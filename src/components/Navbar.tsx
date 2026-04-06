@@ -11,6 +11,14 @@ export function Navbar() {
 
   const toolCategories = [
     {
+      name: "Security Tools",
+      tools: [
+        { name: "Password Strength", path: "/password-strength" },
+        { name: "Hash Generator", path: "/hash-generator" },
+        { name: "Random String", path: "/random-string-generator" },
+      ]
+    },
+    {
       name: "Image & PDF",
       tools: [
         { name: "Image Compressor", path: "/image-compressor" },
@@ -22,7 +30,6 @@ export function Navbar() {
       tools: [
         { name: "Developer Tools", path: "/dev-tools" },
         { name: "Color Tool", path: "/color-tool" },
-        { name: "Code Formatter", path: "/code-formatter" },
         { name: "Base64 Tool", path: "/base64-tool" },
       ]
     },
@@ -32,7 +39,6 @@ export function Navbar() {
         { name: "QR Code Tools", path: "/qr-code" },
         { name: "Unit Converter", path: "/unit-converter" },
         { name: "Utility Calculators", path: "/utility-tools" },
-        { name: "Password Generator", path: "/password-generator" },
         { name: "MemoNote Pad", path: "/memo-note-pad" },
       ]
     }
@@ -42,12 +48,12 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight text-zinc-900 dark:text-white">
               <Hammer className="h-6 w-6 text-emerald-500" />
-              <span>Quick tools</span>
+              <span>QuickTools Pro</span>
             </Link>
           </div>
 
@@ -66,7 +72,19 @@ export function Navbar() {
                 Home
               </Link>
 
-              <div className="relative">
+              <Link
+                to="/blog"
+                className={cn(
+                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  location.pathname.startsWith("/blog")
+                    ? "text-emerald-600 dark:text-emerald-400"
+                    : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+                )}
+              >
+                Blog
+              </Link>
+
+              <div>
                 <button
                   onMouseEnter={() => setIsToolsOpen(true)}
                   onClick={() => setIsToolsOpen(!isToolsOpen)}
@@ -85,9 +103,9 @@ export function Navbar() {
                 {isToolsOpen && (
                   <div 
                     onMouseLeave={() => setIsToolsOpen(false)}
-                    className="absolute left-0 mt-2 w-[600px] origin-top-left rounded-2xl border border-zinc-200 bg-white p-6 shadow-2xl dark:border-zinc-800 dark:bg-zinc-900"
+                    className="absolute left-1/2 -translate-x-1/2 mt-2 w-[700px] origin-top rounded-2xl border border-zinc-200 bg-white p-6 shadow-2xl dark:border-zinc-800 dark:bg-zinc-900"
                   >
-                    <div className="grid grid-cols-3 gap-8">
+                    <div className="grid grid-cols-4 gap-8">
                       {toolCategories.map((category) => (
                         <div key={category.name} className="space-y-4">
                           <h4 className="text-[10px] font-black uppercase tracking-widest text-zinc-400">
@@ -153,6 +171,16 @@ export function Navbar() {
               )}
             >
               Home
+            </Link>
+            <Link
+              to="/blog"
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "block text-lg font-black uppercase tracking-widest",
+                location.pathname.startsWith("/blog") ? "text-emerald-500" : "text-zinc-900 dark:text-white"
+              )}
+            >
+              Blog
             </Link>
 
             {toolCategories.map((category) => (

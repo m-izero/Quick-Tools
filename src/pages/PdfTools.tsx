@@ -571,6 +571,79 @@ export function PdfTools() {
           </div>
         </div>
       </div>
+
+      {/* SEO Content Section */}
+      <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                Free <span className="text-emerald-500">PDF Tools</span> Online
+              </h2>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                Manage your PDF documents with ease using our comprehensive site of free online tools. Whether you need to merge multiple PDF files into a single document or split a large PDF into individual pages, our platform provides a fast, secure, and professional-grade solution. All processing is handled directly in your web browser, ensuring that your sensitive documents are never uploaded to a server, maintaining 100% privacy and security.
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+              <div className="space-y-8">
+                <div>
+                  <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-4">Merging PDFs</h4>
+                  <ol className="space-y-3">
+                    {[
+                      "Select 'Merge' mode and upload the PDF files you want to combine.",
+                      "Drag and drop the files to reorder them as needed.",
+                      "Click 'Merge All PDFs' to create your combined document.",
+                      "Download the merged PDF or share it directly."
+                    ].map((step, i) => (
+                      <li key={i} className="flex gap-3 items-start text-sm text-zinc-600 dark:text-zinc-400 font-medium">
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                        {step}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <div>
+                  <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-4">Splitting PDFs</h4>
+                  <ol className="space-y-3">
+                    {[
+                      "Select 'Split' mode and upload the PDF file you wish to divide.",
+                      "Choose between 'Individual Pages' or 'Page Range' split options.",
+                      "If using a range, specify the start and end pages (e.g., 1-5).",
+                      "Click 'Split PDF(s)' and download the resulting ZIP or PDF file."
+                    ].map((step, i) => (
+                      <li key={i} className="flex gap-3 items-start text-sm text-zinc-600 dark:text-zinc-400 font-medium">
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                        {step}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
+              <div className="grid grid-cols-1 gap-4">
+                {[
+                  { title: "Browser-Based Security", desc: "Your files never leave your computer. All PDF manipulations happen locally for maximum safety." },
+                  { title: "No Quality Loss", desc: "We use high-fidelity libraries to ensure your text and images remain sharp after processing." },
+                  { title: "Batch Processing", desc: "Merge or split multiple files simultaneously, saving you time on repetitive tasks." },
+                  { title: "Completely Free", desc: "Professional-grade PDF tools without the professional price tag. No hidden costs." }
+                ].map((benefit, i) => (
+                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

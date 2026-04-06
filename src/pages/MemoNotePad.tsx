@@ -327,6 +327,61 @@ export function MemoNotePad() {
           )}
         </div>
       </div>
+
+      {/* SEO Content Section */}
+      <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                Free <span className="text-amber-500">Online Notepad</span> & Memo Pad
+              </h2>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                Capture your ideas, create to-do lists, or draft important documents with our free online notepad. MemoNote is designed for simplicity and speed, providing a clean, distraction-free environment for all your writing needs. Unlike other online editors, our notepad saves your work locally in your browser's storage, ensuring your notes are always available even after you close the tab. It's the perfect tool for quick memos, temporary storage, or organized drafting.
+              </p>
+            </div>
+            
+            <div className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+              <ol className="space-y-4">
+                {[
+                  "Click 'New Note' to create a fresh document instantly.",
+                  "Enter a descriptive title and start typing your content in the main editor.",
+                  "Your work is auto-saved locally as you type, so you never lose a word.",
+                  "Use the 'Export' button to download your note as a .txt file for offline use.",
+                  "Organize your notes using the sidebar and search functionality."
+                ].map((step, i) => (
+                  <li key={i} className="flex gap-4 items-start">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-500 text-[10px] font-black text-white">
+                      {i + 1}
+                    </span>
+                    <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
+              <div className="grid grid-cols-1 gap-4">
+                {[
+                  { title: "Local Privacy", desc: "Your notes are stored only on your device. We never see or store your private thoughts." },
+                  { title: "Auto-Save Feature", desc: "Never worry about losing work. Every keystroke is saved instantly in your browser." },
+                  { title: "Clean Interface", desc: "A minimalist design focused on readability and ease of use across all devices." },
+                  { title: "Offline Access", desc: "Export your notes as standard text files to keep them safe outside the browser." }
+                ].map((benefit, i) => (
+                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
