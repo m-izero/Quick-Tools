@@ -3,7 +3,6 @@ import {
   Settings, 
   BarChart3, 
   ShieldAlert, 
-  ExternalLink, 
   Eye, 
   EyeOff, 
   Star, 
@@ -51,7 +50,7 @@ import {
 } from 'recharts';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { db, logout } from '@/lib/firebase';
 import { 
   doc, 
@@ -127,6 +126,19 @@ export function AdminPanel() {
   const [isUpdating, setIsUpdating] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [showApiKey, setShowApiKey] = useState(false);
+  const [settings, setSettings] = useState({
+    maintenanceMode: false,
+    aiFeatures: true,
+    userAnalytics: true
+  });
+  const [adPlacements, setAdPlacements] = useState([
+    { name: 'Top Banner', size: '728x90', status: 'active', revenue: '$45.20' },
+    { name: 'Middle Section', size: '300x250', status: 'active', revenue: '$68.10' },
+    { name: 'Sidebar Widget', size: '300x600', status: 'paused', revenue: '$29.20' },
+    { name: 'Mobile Bottom', size: '320x50', status: 'active', revenue: '$12.40' },
+  ]);
+  const [isOptimizing, setIsOptimizing] = useState(false);
   const navigate = useNavigate();
 
   const categories = ['All', ...new Set(tools.map(t => t.category))];
@@ -296,6 +308,14 @@ export function AdminPanel() {
     return matchesSearch && matchesCategory;
   });
 
+  const handleOptimize = async (type: 'cache' | 'db') => {
+    setIsOptimizing(true);
+    // Simulate optimization
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    setIsOptimizing(false);
+    alert(type === 'cache' ? "Cache cleared successfully! 2.4GB freed." : "Database optimization complete. All indexes are up to date.");
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12">
       {/* Header */}
@@ -305,6 +325,13 @@ export function AdminPanel() {
           <p className="mt-1 text-zinc-500 dark:text-zinc-400 font-medium">Manage Quick tools platform performance and tools.</p>
         </div>
         <div className="flex items-center gap-3">
+          <Link 
+            to="/"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700 text-[10px] font-black uppercase tracking-widest hover:bg-zinc-200 transition-all"
+          >
+            <Globe className="h-4 w-4" />
+            View Site
+          </Link>
           <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-500/20 text-[10px] font-black uppercase tracking-widest">
             <ShieldAlert className="h-4 w-4" />
             Live Mode
@@ -750,28 +777,26 @@ export function AdminPanel() {
                   <h3 className="text-lg font-black text-zinc-900 dark:text-white mb-6">Optimization</h3>
                   <div className="space-y-4">
                     <button 
-                      onClick={() => {
-                        alert("Cache cleared successfully! 2.4GB freed.");
-                      }}
-                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-left"
+                      onClick={() => handleOptimize('cache')}
+                      disabled={isOptimizing}
+                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-left disabled:opacity-50"
                     >
                       <div>
                         <p className="text-sm font-black text-zinc-900 dark:text-white">Clear Cache</p>
                         <p className="text-[10px] text-zinc-500">Free up 2.4GB of temporary files</p>
                       </div>
-                      <ArrowUpRight className="h-4 w-4 text-zinc-400" />
+                      <RefreshCw className={cn("h-4 w-4 text-zinc-400", isOptimizing && "animate-spin")} />
                     </button>
                     <button 
-                      onClick={() => {
-                        alert("Database optimization complete. All indexes are up to date.");
-                      }}
-                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-left"
+                      onClick={() => handleOptimize('db')}
+                      disabled={isOptimizing}
+                      className="w-full flex items-center justify-between p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all text-left disabled:opacity-50"
                     >
                       <div>
                         <p className="text-sm font-black text-zinc-900 dark:text-white">Optimize DB</p>
                         <p className="text-[10px] text-zinc-500">Re-index all tool usage tables</p>
                       </div>
-                      <ArrowUpRight className="h-4 w-4 text-zinc-400" />
+                      <RefreshCw className={cn("h-4 w-4 text-zinc-400", isOptimizing && "animate-spin")} />
                     </button>
                   </div>
                 </div>
@@ -792,12 +817,7 @@ export function AdminPanel() {
               <div className="rounded-3xl bg-white dark:bg-zinc-900 p-8 border border-zinc-200 dark:border-zinc-800 shadow-sm">
                 <h3 className="text-lg font-black text-zinc-900 dark:text-white mb-8">Active Placements</h3>
                 <div className="space-y-4">
-                  {[
-                    { name: 'Top Banner', size: '728x90', status: 'active', revenue: '$45.20' },
-                    { name: 'Middle Section', size: '300x250', status: 'active', revenue: '$68.10' },
-                    { name: 'Sidebar Widget', size: '300x600', status: 'paused', revenue: '$29.20' },
-                    { name: 'Mobile Bottom', size: '320x50', status: 'active', revenue: '$12.40' },
-                  ].map((ad) => (
+                  {adPlacements.map((ad, index) => (
                     <div key={ad.name} className="flex items-center justify-between p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-100 dark:border-zinc-800">
                       <div className="flex items-center gap-4">
                         <div className="h-12 w-12 rounded-xl bg-emerald-500/10 flex items-center justify-center">
@@ -813,10 +833,17 @@ export function AdminPanel() {
                           <p className="text-sm font-black text-zinc-900 dark:text-white">{ad.revenue}</p>
                           <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Earnings</span>
                         </div>
-                        <button className={cn(
-                          "px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest",
-                          ad.status === 'active' ? "bg-emerald-100 text-emerald-700" : "bg-zinc-200 text-zinc-600"
-                        )}>
+                        <button 
+                          onClick={() => {
+                            const newPlacements = [...adPlacements];
+                            newPlacements[index].status = ad.status === 'active' ? 'paused' : 'active';
+                            setAdPlacements(newPlacements);
+                          }}
+                          className={cn(
+                            "px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all",
+                            ad.status === 'active' ? "bg-emerald-100 text-emerald-700" : "bg-zinc-200 text-zinc-600"
+                          )}
+                        >
                           {ad.status}
                         </button>
                       </div>
@@ -866,8 +893,17 @@ export function AdminPanel() {
                       <p className="text-sm font-black text-zinc-900 dark:text-white">Maintenance Mode</p>
                       <p className="text-xs text-zinc-500">Disable all tools for public users</p>
                     </div>
-                    <button className="h-6 w-12 rounded-full bg-zinc-200 dark:bg-zinc-800 relative transition-all">
-                      <div className="absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow-sm" />
+                    <button 
+                      onClick={() => setSettings(s => ({ ...s, maintenanceMode: !s.maintenanceMode }))}
+                      className={cn(
+                        "h-6 w-12 rounded-full relative transition-all",
+                        settings.maintenanceMode ? "bg-red-500" : "bg-zinc-200 dark:bg-zinc-800"
+                      )}
+                    >
+                      <div className={cn(
+                        "absolute top-1 h-4 w-4 rounded-full bg-white shadow-sm transition-all",
+                        settings.maintenanceMode ? "right-1" : "left-1"
+                      )} />
                     </button>
                   </div>
                   <div className="flex items-center justify-between">
@@ -875,8 +911,17 @@ export function AdminPanel() {
                       <p className="text-sm font-black text-zinc-900 dark:text-white">AI Features</p>
                       <p className="text-xs text-zinc-500">Enable Gemini-powered summarization</p>
                     </div>
-                    <button className="h-6 w-12 rounded-full bg-emerald-500 relative transition-all">
-                      <div className="absolute right-1 top-1 h-4 w-4 rounded-full bg-white shadow-sm" />
+                    <button 
+                      onClick={() => setSettings(s => ({ ...s, aiFeatures: !s.aiFeatures }))}
+                      className={cn(
+                        "h-6 w-12 rounded-full relative transition-all",
+                        settings.aiFeatures ? "bg-emerald-500" : "bg-zinc-200 dark:bg-zinc-800"
+                      )}
+                    >
+                      <div className={cn(
+                        "absolute top-1 h-4 w-4 rounded-full bg-white shadow-sm transition-all",
+                        settings.aiFeatures ? "right-1" : "left-1"
+                      )} />
                     </button>
                   </div>
                   <div className="flex items-center justify-between">
@@ -884,8 +929,17 @@ export function AdminPanel() {
                       <p className="text-sm font-black text-zinc-900 dark:text-white">User Analytics</p>
                       <p className="text-xs text-zinc-500">Track anonymous tool usage data</p>
                     </div>
-                    <button className="h-6 w-12 rounded-full bg-emerald-500 relative transition-all">
-                      <div className="absolute right-1 top-1 h-4 w-4 rounded-full bg-white shadow-sm" />
+                    <button 
+                      onClick={() => setSettings(s => ({ ...s, userAnalytics: !s.userAnalytics }))}
+                      className={cn(
+                        "h-6 w-12 rounded-full relative transition-all",
+                        settings.userAnalytics ? "bg-emerald-500" : "bg-zinc-200 dark:bg-zinc-800"
+                      )}
+                    >
+                      <div className={cn(
+                        "absolute top-1 h-4 w-4 rounded-full bg-white shadow-sm transition-all",
+                        settings.userAnalytics ? "right-1" : "left-1"
+                      )} />
                     </button>
                   </div>
                 </div>
@@ -901,17 +955,23 @@ export function AdminPanel() {
                     <label className="text-[10px] font-black text-zinc-500 uppercase tracking-widest block mb-2">Admin API Key</label>
                     <div className="flex gap-2">
                       <input 
-                        type="password" 
-                        value="••••••••••••••••" 
+                        type={showApiKey ? "text" : "password"} 
+                        value="sk-qt-pro-admin-key-2026-v1" 
                         readOnly
                         className="flex-grow bg-zinc-100 dark:bg-zinc-800 border-none rounded-xl px-4 py-3 text-sm font-mono"
                       />
-                      <button className="px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-all">
-                        <Eye className="h-5 w-5" />
+                      <button 
+                        onClick={() => setShowApiKey(!showApiKey)}
+                        className="px-4 py-3 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-all"
+                      >
+                        {showApiKey ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                       </button>
                     </div>
                   </div>
-                  <button className="w-full py-4 rounded-2xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 font-black text-[10px] uppercase tracking-widest hover:opacity-90 transition-all">
+                  <button 
+                    onClick={() => alert("Security policy updated successfully.")}
+                    className="w-full py-4 rounded-2xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 font-black text-[10px] uppercase tracking-widest hover:opacity-90 transition-all"
+                  >
                     Update Security Policy
                   </button>
                 </div>

@@ -22,7 +22,7 @@ const postContent: Record<string, React.ReactNode> = {
       <ul>
         <li><strong>Choose the Right Format:</strong> Use JPEG for photos, PNG for graphics with transparency, and WebP for a modern, efficient alternative that supports both lossy and lossless compression.</li>
         <li><strong>Resize Before Compressing:</strong> Don't upload a 4000px wide image if it will only be displayed at 800px. Resize the image to its intended display dimensions first.</li>
-        <li><strong>Use Online Tools:</strong> Tools like our Image Compressor use advanced algorithms to optimize your images directly in the browser, ensuring privacy and speed.</li>
+        <li><strong>Use Online Tools:</strong> Tools like our <Link to="/image-compressor" className="text-emerald-500 font-bold hover:underline">Image Compressor</Link> use advanced algorithms to optimize your images directly in the browser, ensuring privacy and speed.</li>
         <li><strong>Test and Iterate:</strong> Experiment with different compression levels and formats to find the best results for your specific needs.</li>
       </ul>
       
@@ -71,7 +71,7 @@ const postContent: Record<string, React.ReactNode> = {
       <p>Creating a strong, random password manually can be difficult. Fortunately, there are tools and techniques you can use to make the process easier:</p>
       
       <h3>Use a Password Generator</h3>
-      <p>Our Random String Generator uses cryptographically secure algorithms to create truly random passwords in your browser. You can customize the length and character types to meet the requirements of any site.</p>
+      <p>Our <Link to="/random-string-generator" className="text-emerald-500 font-bold hover:underline">Random String Generator</Link> uses cryptographically secure algorithms to create truly random passwords in your browser. You can customize the length and character types to meet the requirements of any site.</p>
       
       <h3>Use Passphrases</h3>
       <p>A passphrase is a series of random words that are easy for you to remember but hard for a computer to guess. For example, "Correct-Horse-Battery-Staple" is a famous example of a strong passphrase.</p>
@@ -88,19 +88,19 @@ const postContent: Record<string, React.ReactNode> = {
       <p>As a developer, your productivity is often tied to the tools you use. While there are many powerful (and expensive) software sites available, there are also many incredible free online tools that can help you streamline your workflow and build better applications. Here are some of the best free online tools for developers.</p>
       
       <h2>1. QuickTools Pro</h2>
-      <p>Of course, we have to mention our own site of tools! QuickTools Pro offers a wide range of utilities for developers, including image compression, PDF manipulation, security tools, and more. All tools run locally in your browser, ensuring your data remains private and secure.</p>
+      <p>Of course, we have to mention our own site of tools! <Link to="/" className="text-emerald-500 font-bold hover:underline">QuickTools Pro</Link> offers a wide range of utilities for developers, including <Link to="/image-compressor" className="text-emerald-500 font-bold hover:underline">image compression</Link>, <Link to="/pdf-tools" className="text-emerald-500 font-bold hover:underline">PDF manipulation</Link>, <Link to="/password-strength" className="text-emerald-500 font-bold hover:underline">security tools</Link>, and more. All tools run locally in your browser, ensuring your data remains private and secure.</p>
       
       <h2>2. JSON Formatter & Validator</h2>
-      <p>Working with JSON data is a daily task for many developers. A good JSON formatter can help you visualize and debug complex data structures, while a validator can ensure your JSON is syntactically correct.</p>
+      <p>Working with JSON data is a daily task for many developers. A good <Link to="/dev-tools" className="text-emerald-500 font-bold hover:underline">JSON formatter</Link> can help you visualize and debug complex data structures, while a validator can ensure your JSON is syntactically correct.</p>
       
       <h2>3. Base64 Encoder/Decoder</h2>
-      <p>Whether you're embedding images in CSS or sending data over an API, a Base64 tool is essential for quickly encoding and decoding binary data.</p>
+      <p>Whether you're embedding images in CSS or sending data over an API, a <Link to="/base64-tool" className="text-emerald-500 font-bold hover:underline">Base64 tool</Link> is essential for quickly encoding and decoding binary data.</p>
       
       <h2>4. QR Code Generator</h2>
-      <p>QR codes are a versatile way to share URLs, text, and other information. A free QR code generator can help you create custom codes for your projects and marketing materials.</p>
+      <p>QR codes are a versatile way to share URLs, text, and other information. A free <Link to="/qr-code" className="text-emerald-500 font-bold hover:underline">QR code generator</Link> can help you create custom codes for your projects and marketing materials.</p>
       
       <h2>5. Color Pickers & Converters</h2>
-      <p>Finding the perfect color for your design and converting it between different formats (HEX, RGB, HSL) is a common task. Online color tools make this process fast and easy.</p>
+      <p>Finding the perfect color for your design and converting it between different formats (HEX, RGB, HSL) is a common task. Online <Link to="/color-tool" className="text-emerald-500 font-bold hover:underline">color tools</Link> make this process fast and easy.</p>
       
       <h2>Conclusion</h2>
       <p>The web is full of amazing free resources for developers. By incorporating these tools into your daily workflow, you can save time, reduce errors, and focus on what you do best: building great software.</p>
@@ -114,7 +114,7 @@ const postContent: Record<string, React.ReactNode> = {
       <p>A QR code is a type of two-dimensional barcode that can store a variety of information, such as a URL, text, contact information, or even Wi-Fi credentials. When scanned with a smartphone camera, the code is instantly decoded, and the information is displayed or the action is performed.</p>
       
       <h2>How to Generate a QR Code</h2>
-      <p>Generating a QR code is a simple process that can be done in a few easy steps using our QR Code Tool:</p>
+      <p>Generating a QR code is a simple process that can be done in a few easy steps using our <Link to="/qr-code" className="text-emerald-500 font-bold hover:underline">QR Code Tool</Link>:</p>
       <ol>
         <li><strong>Select the Type of Information:</strong> Choose whether you want to encode a URL, plain text, or other data.</li>
         <li><strong>Enter the Data:</strong> Type or paste the information you want to encode into the input field.</li>
@@ -143,6 +143,32 @@ export function BlogPost() {
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
+
+  const handleShare = (platform: string) => {
+    const url = window.location.href;
+    const title = post.title;
+    let shareUrl = '';
+
+    switch (platform) {
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+        break;
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
+        break;
+      case 'linkedin':
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+        break;
+      case 'copy':
+        navigator.clipboard.writeText(url);
+        alert('Link copied to clipboard!');
+        return;
+    }
+
+    if (shareUrl) {
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+  };
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
@@ -194,16 +220,32 @@ export function BlogPost() {
 
         <div className="relative">
           <div className="absolute -left-20 top-0 hidden xl:flex flex-col gap-4">
-            <button className="h-10 w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 transition-colors">
+            <button 
+              onClick={() => handleShare('facebook')}
+              className="h-10 w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 transition-colors"
+              aria-label="Share on Facebook"
+            >
               <Facebook className="h-4 w-4" />
             </button>
-            <button className="h-10 w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 transition-colors">
+            <button 
+              onClick={() => handleShare('twitter')}
+              className="h-10 w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 transition-colors"
+              aria-label="Share on Twitter"
+            >
               <Twitter className="h-4 w-4" />
             </button>
-            <button className="h-10 w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 transition-colors">
+            <button 
+              onClick={() => handleShare('linkedin')}
+              className="h-10 w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 transition-colors"
+              aria-label="Share on LinkedIn"
+            >
               <Linkedin className="h-4 w-4" />
             </button>
-            <button className="h-10 w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 transition-colors">
+            <button 
+              onClick={() => handleShare('copy')}
+              className="h-10 w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-emerald-500 transition-colors"
+              aria-label="Copy link"
+            >
               <Share2 className="h-4 w-4" />
             </button>
           </div>
