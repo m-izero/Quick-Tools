@@ -59,9 +59,9 @@ export function Footer() {
   return (
     <footer className="bg-zinc-50 border-t border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand Section */}
-          <div className="col-span-2 lg:col-span-2">
+          <div className="col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="h-8 w-8 rounded-xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
                 <Settings className="h-5 w-5 text-white" />
@@ -70,7 +70,7 @@ export function Footer() {
                 QuickTools <span className="text-emerald-500">Pro</span>
               </span>
             </Link>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed max-w-xs">
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
               The ultimate collection of fast, secure, and free online tools for developers and creators. No login required.
             </p>
             <div className="flex items-center gap-4">
@@ -80,38 +80,42 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Tools Sections */}
-          {toolCategories.map((category) => (
-            <div key={category.name} className="col-span-1">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mb-6">
-                {category.name}
-              </h3>
-              <ul className="space-y-3">
-                {category.links.map((tool) => (
-                  <li key={tool.path}>
-                    <Link 
-                      to={tool.path} 
-                      className="group flex items-center gap-2 text-xs font-bold text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors"
-                    >
-                      {tool.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Tools Section */}
+          <div className="col-span-1 md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {toolCategories.map((category) => (
+              <div key={category.name}>
+                <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900 dark:text-white mb-6">
+                  {category.name}
+                </h3>
+                <ul className="space-y-4">
+                  {category.links.map((tool) => (
+                    <li key={tool.path}>
+                      <Link 
+                        to={tool.path} 
+                        className="group flex items-center gap-2 text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 dark:hover:text-emerald-400 transition-colors"
+                      >
+                        <tool.icon className="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" />
+                        {tool.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
 
           {/* Resources & Legal */}
           <div className="col-span-1">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500 mb-6">
+            <h3 className="text-sm font-black uppercase tracking-wider text-zinc-900 dark:text-white mb-6">
               Platform
             </h3>
-            <ul className="space-y-3">
-              <li><Link to="/all-tools" className="text-xs font-black text-emerald-500 hover:underline uppercase tracking-widest">All Tools</Link></li>
-              <li><Link to="/blog" className="text-xs font-bold text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Blog</Link></li>
-              <li><Link to="/about" className="text-xs font-bold text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">About</Link></li>
-              <li><Link to="/privacy-policy" className="text-xs font-bold text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Privacy</Link></li>
-              <li><Link to="/terms" className="text-xs font-bold text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Terms</Link></li>
+            <ul className="space-y-4">
+              <li><Link to="/all-tools" className="text-sm font-black text-emerald-500 hover:underline uppercase tracking-widest">All Tools</Link></li>
+              <li><Link to="/blog" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Blog</Link></li>
+              <li><Link to="/about" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">About</Link></li>
+              <li><Link to="/contact" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Contact</Link></li>
+              <li><Link to="/privacy-policy" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Privacy</Link></li>
+              <li><Link to="/terms" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Terms</Link></li>
             </ul>
           </div>
         </div>
