@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   Palette, 
   Copy, 
@@ -12,6 +13,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
+import { Link } from 'react-router-dom';
 
 type ColorFormat = 'hex' | 'rgb' | 'hsl';
 
@@ -145,6 +147,11 @@ export default function ColorTool() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Online Color Tool - HEX, RGB, HSL Converter | QuickTools Pro</title>
+        <meta name="description" content="Pick, convert, and save colors for your design projects. Support for HEX, RGB, and HSL formats. Create beautiful palettes and manage your color library instantly." />
+        <meta name="keywords" content="color tool, color picker, hex to rgb, rgb to hsl, color converter, online color palette, design tools" />
+      </Helmet>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <motion.div
@@ -335,58 +342,120 @@ export default function ColorTool() {
           </div>
         </div>
 
-        {/* SEO Content Section */}
+        {/* Rich Content Section */}
         <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
-                  Free <span className="text-emerald-500">Color Picker</span> & Converter Online
-                </h2>
-                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                  Design with confidence using our professional-grade online color picker and converter. Whether you're a web developer, graphic designer, or digital artist, our tool provides a seamless way to select, convert, and save colors for your projects. We support all major web formats including HEX, RGB, and HSL, allowing you to translate colors between different systems with mathematical precision.
-                </p>
-              </div>
-              
-              <div className="space-y-6">
-                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
-                <ol className="space-y-4">
-                  {[
-                    "Use the visual color picker or enter a specific HEX, RGB, or HSL value.",
-                    "Observe the real-time conversion across all supported formats.",
-                    "Click the copy icon next to any value to save it to your clipboard.",
-                    "Save your favorite colors to the sidebar for quick access later.",
-                    "Toggle between light and dark modes to see how your colors look in different environments."
-                  ].map((step, i) => (
-                    <li key={i} className="flex gap-4 items-start">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">
-                        {i + 1}
-                      </span>
-                      <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">{step}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </div>
+          <div className="max-w-3xl mx-auto space-y-16">
+            {/* H1 & Intro */}
+            <section>
+              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                Professional <span className="text-emerald-500">Color Picker</span> & Converter
+              </h2>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                Our Color Picker & Converter is a professional-grade online tool designed for web developers, graphic designers, and digital artists who require absolute precision in their color selection. Whether you're building a brand identity, styling a website, or creating digital illustrations, this tool provides a seamless way to select, convert, and save colors. We support all major web formats, including HEX, RGB, and HSL, allowing you to translate colors between different systems with mathematical accuracy. With a built-in favorites system and real-time previews, it's the ultimate utility for managing your digital color palettes.
+              </p>
+            </section>
 
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {[
-                    { title: "Real-Time Conversion", desc: "Instantly see HEX, RGB, and HSL values as you adjust the color picker." },
-                    { title: "Favorite Colors", desc: "Save up to 20 favorite colors locally in your browser for future reference." },
-                    { title: "Precision Design", desc: "Manually adjust individual color components for pixel-perfect design work." },
-                    { title: "Privacy Focused", desc: "Your color palettes are stored locally on your device and never sent to our servers." }
-                  ].map((benefit, i) => (
-                    <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
-                      <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
-                    </div>
-                  ))}
-                </div>
+            {/* How to Use */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+              <ol className="space-y-4">
+                {[
+                  "Use the visual color picker to browse through the spectrum or click the color input box to open your system's native color selector.",
+                  "Manually enter a specific HEX, RGB, or HSL value into the corresponding input fields to see the color update instantly.",
+                  "Observe the real-time conversion across all supported formats as you adjust the sliders or input values.",
+                  "Click the 'Copy' icon next to any color format (HEX, RGB, or HSL) to save that specific value to your clipboard.",
+                  "Click the 'Save to Favorites' button to store your current color in the sidebar for quick access during your design session.",
+                  "To reuse a favorite color, simply click on its color swatch in the 'Favorite Colors' section to load it back into the main picker."
+                ].map((step, i) => (
+                  <li key={i} className="flex gap-4 items-start text-zinc-600 dark:text-zinc-400 font-medium">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            {/* Why Use This Tool? */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why Use This Tool?</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { title: "Instant Multi-Format Conversion", desc: "Automatically translate any color between HEX, RGB, and HSL formats without needing multiple tools." },
+                  { title: "Local Favorites Storage", desc: "Save up to 20 of your most-used colors directly in your browser's local storage for future sessions." },
+                  { title: "High-Contrast Previews", desc: "Our preview window automatically adjusts text color based on brightness, ensuring readability." },
+                  { title: "Precision Component Control", desc: "Fine-tune individual Red, Green, Blue, or HSL values for pixel-perfect color matching." }
+                ].map((item, i) => (
+                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{item.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            </div>
+            </section>
+
+            {/* Common Use Cases */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Common Use Cases</h3>
+              <div className="space-y-4">
+                {[
+                  { title: "Web Development Styling", desc: "Quickly convert a designer's HEX codes into RGB or HSL values for use in CSS variables or modern frameworks." },
+                  { title: "Brand Identity Consistency", desc: "Ensure that your brand colors are consistent across different digital platforms by verifying their exact values." },
+                  { title: "UI/UX Design Mockups", desc: "Experiment with different color shades and saturations to find the perfect accent colors for your interface." }
+                ].map((useCase, i) => (
+                  <div key={i} className="flex gap-4 items-start p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
+                    <div className="h-2 w-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                    <div>
+                      <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-1">{useCase.title}</h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{useCase.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* FAQ */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Frequently Asked Questions</h3>
+              <div className="space-y-8">
+                {[
+                  { q: "What is the difference between HEX, RGB, and HSL?", a: "HEX is a hexadecimal representation of RGB values commonly used in HTML/CSS. RGB (Red, Green, Blue) defines colors based on light intensity. HSL (Hue, Saturation, Lightness) is a more intuitive way for humans to describe colors based on their vibrant qualities." },
+                  { q: "Are my favorite colors saved if I close my browser?", a: "Yes. We use your browser's local storage to save your favorite colors, so they will still be there the next time you visit our site from the same device." },
+                  { q: "Can I pick a color directly from my screen?", a: "While web browsers don't allow websites to 'see' outside the tab for security reasons, you can use your system's native color picker (by clicking the color box) which often includes an eyedropper tool." },
+                  { q: "Does this tool support transparency (Alpha channel)?", a: "Currently, our tool focuses on solid colors (HEX, RGB, HSL). We are looking into adding RGBA and HSLA support in a future update." },
+                  { q: "Is there a limit to how many colors I can save?", a: "To ensure the best performance, we limit the 'Favorite Colors' list to the 20 most recent colors you've saved." },
+                  { q: "Is this tool free to use for commercial projects?", a: "Absolutely. Our Color Picker & Converter is 100% free for both personal and professional use." }
+                ].map((faq, i) => (
+                  <div key={i} className="space-y-2">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
+                      <span className="text-emerald-500">Q:</span> {faq.q}
+                    </h4>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed pl-6 border-l-2 border-emerald-500/20">
+                      {faq.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Related Tools */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {[
+                  { name: "Random String Generator", path: "/random-string" },
+                  { name: "Image Compressor", path: "/image-compressor" },
+                  { name: "Unit Converter", path: "/unit-converter" }
+                ].map((tool, i) => (
+                  <Link
+                    key={i}
+                    to={tool.path}
+                    className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center text-sm font-black text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 hover:border-emerald-500 transition-all uppercase tracking-widest"
+                  >
+                    {tool.name}
+                  </Link>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { Shield, Lock, Eye, Cookie, Mail, AlertCircle } from 'lucide-react';
 
@@ -7,6 +8,10 @@ export function PrivacyPolicy() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Privacy Policy - QuickTools Pro</title>
+        <meta name="description" content="Read our privacy policy to understand how we handle your data. QuickTools Pro is committed to privacy, with all processing happening locally in your browser." />
+      </Helmet>
       
 
       <div className="text-center mb-16">
@@ -63,9 +68,7 @@ export function PrivacyPolicy() {
             <h2 className="text-2xl font-black text-zinc-900 dark:text-white m-0">Google AdSense</h2>
           </div>
           <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            We use Google AdSense to serve ads when you visit our website. Google may use cookies (such as the DART cookie) 
-            to serve ads based on your visits to this and other websites on the Internet. You may opt out of the use of 
-            the DART cookie by visiting the Google Ad and Content Network privacy policy.
+            We use Google AdSense to serve ads when you visit our website. Google may use cookies to serve ads based on your visits to this and other websites on the Internet. You may opt out of personalized advertising by visiting: <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-emerald-500 hover:underline">https://www.google.com/settings/ads</a>
           </p>
         </section>
 

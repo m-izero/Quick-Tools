@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { ArrowLeft, Clock, User, Calendar, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { blogPosts } from './Blog';
@@ -172,6 +173,10 @@ export function BlogPost() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>{post.title} | QuickTools Blog</title>
+        <meta name="description" content={post.excerpt} />
+      </Helmet>
       <Link 
         to="/blog"
         className="inline-flex items-center gap-2 text-sm font-black text-zinc-500 hover:text-emerald-500 transition-colors mb-12 uppercase tracking-widest"

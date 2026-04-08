@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import imageCompression from 'browser-image-compression';
 import JSZip from 'jszip';
 import { 
@@ -18,6 +19,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { FileUpload } from '@/components/FileUpload';
 import { cn } from '@/utils/cn';
+import { Link } from 'react-router-dom';
 
 interface CompressedImage {
   id: string;
@@ -178,6 +180,11 @@ export function ImageCompressor() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:py-12">
+      <Helmet>
+        <title>Online Image Compressor - Reduce File Size Fast | QuickTools Pro</title>
+        <meta name="description" content="Compress your images without losing quality. Support for PNG, JPG, and WebP. Batch process multiple images instantly in your browser. 100% private and secure." />
+        <meta name="keywords" content="image compressor, reduce image size, compress png, compress jpg, online image optimizer, batch image compression" />
+      </Helmet>
       
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-zinc-900 dark:text-white sm:text-4xl">Image Compressor</h1>
@@ -499,57 +506,120 @@ export function ImageCompressor() {
         </div>
       )}
 
-      {/* SEO Content Section */}
+      {/* Rich Content Section */}
       <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
-                Free <span className="text-emerald-500">Image Compressor</span> Online
-              </h2>
-              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                Compress your images quickly and reduce file size without losing quality. Our advanced browser-based compression engine supports PNG, JPG, and WebP formats, ensuring your photos are optimized for the web while maintaining visual fidelity. This tool runs entirely in your browser, meaning your images are never uploaded to a server, providing you with maximum privacy and speed.
-              </p>
-            </div>
-            
-            <div className="space-y-6">
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
-              <ol className="space-y-4">
-                {[
-                  "Upload your images by dragging and dropping or clicking the upload area.",
-                  "Adjust the quality and target file size settings in the sidebar to your preference.",
-                  "Click 'Compress All' or 'Compress Now' to start the optimization process.",
-                  "Preview the results and download individual images or all as a ZIP file."
-                ].map((step, i) => (
-                  <li key={i} className="flex gap-4 items-start">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">
-                      {i + 1}
-                    </span>
-                    <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">{step}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
+        <div className="max-w-3xl mx-auto space-y-16">
+          {/* H1 & Intro */}
+          <section>
+            <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+              Image <span className="text-emerald-500">Compressor</span>
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              Our Image Compressor is a high-performance, browser-based tool designed to reduce the file size of your images without sacrificing visual quality. Supporting popular formats like JPEG, PNG, and WebP, it's the perfect solution for web developers, social media managers, and anyone looking to optimize their digital assets. By performing all compression locally on your device, we guarantee maximum privacy and lightning-fast results. This tool helps you save storage space, speed up website loading times, and make sharing large photos easier than ever.
+            </p>
+          </section>
 
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
-              <div className="grid grid-cols-1 gap-4">
-                {[
-                  { title: "Fast Processing", desc: "No server-side uploads means instant results directly in your browser." },
-                  { title: "Privacy Guaranteed", desc: "Your images never leave your device. All processing is 100% local." },
-                  { title: "High Quality", desc: "Advanced algorithms ensure significant file size reduction with minimal quality loss." },
-                  { title: "Completely Free", desc: "No subscriptions, no watermarks, and no hidden fees. Use it as much as you need." }
-                ].map((benefit, i) => (
-                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
-                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
-                  </div>
-                ))}
-              </div>
+          {/* How to Use */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+            <ol className="space-y-4">
+              {[
+                "Click the 'Upload Images' area or drag and drop your image files directly into the browser.",
+                "Select your desired compression quality (Low, Medium, or High) from the settings sidebar.",
+                "Use the 'Target Size' slider to specify a maximum file size if you have specific constraints.",
+                "Click the 'Compress All' button to begin processing all uploaded images simultaneously.",
+                "Use the 'Before/After' preview window to compare the original and compressed versions side-by-side.",
+                "Download individual compressed images or click 'ZIP' to download all optimized files in a single archive."
+              ].map((step, i) => (
+                <li key={i} className="flex gap-4 items-start text-zinc-600 dark:text-zinc-400 font-medium">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          {/* Why Use This Tool? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why Use This Tool?</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { title: "Lossy vs. Lossless Options", desc: "Choose the right balance between file size reduction and image fidelity to suit your specific needs." },
+                { title: "Batch Processing Capabilities", desc: "Save time by uploading and compressing multiple images at once with our efficient batch engine." },
+                { title: "Privacy-First Architecture", desc: "Your images are never uploaded to a server; all optimization happens locally in your web browser." },
+                { title: "Website Performance Optimization", desc: "Smaller image files lead to faster page loads, improving user experience and SEO rankings for your site." }
+              ].map((item, i) => (
+                <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                  <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{item.title}</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
-          </div>
+          </section>
+
+          {/* Common Use Cases */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Common Use Cases</h3>
+            <div className="space-y-4">
+              {[
+                { title: "Website & Blog Optimization", desc: "Reduce the weight of your web pages by compressing high-resolution photos before uploading them to your CMS." },
+                { title: "Email Attachments", desc: "Shrink large image files to stay within email provider size limits while maintaining clear, viewable quality." },
+                { title: "Social Media Sharing", desc: "Quickly optimize photos for platforms like Instagram or Twitter to ensure fast uploads and consistent presentation." }
+              ].map((useCase, i) => (
+                <div key={i} className="flex gap-4 items-start p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
+                  <div className="h-2 w-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-1">{useCase.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{useCase.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Frequently Asked Questions</h3>
+            <div className="space-y-8">
+              {[
+                { q: "What is the difference between lossy and lossless compression?", a: "Lossy compression significantly reduces file size by removing some non-essential data, which may slightly affect quality. Lossless compression reduces file size without any loss in visual quality but typically results in larger files than lossy methods." },
+                { q: "Which image formats are supported by this compressor?", a: "Our tool supports the most common web formats, including JPEG, PNG, and WebP. It can also handle large high-resolution photos up to 50MB in size." },
+                { q: "Will my images lose their transparency?", a: "No. If you upload a PNG with a transparent background, our compressor will maintain that transparency in the optimized version." },
+                { q: "Is there a limit to how many images I can compress at once?", a: "There is no hard limit, but performance depends on your device's memory and processing power. We recommend batches of 10-20 images for the best experience." },
+                { q: "How much file size can I expect to save?", a: "Depending on the original image and chosen settings, you can often see reductions of 50% to 90% in file size with minimal noticeable difference in quality." },
+                { q: "Are my private photos safe using this online tool?", a: "Yes, 100%. Because the compression is performed entirely within your browser using JavaScript, your images are never sent to our servers. Your privacy is our top priority." }
+              ].map((faq, i) => (
+                <div key={i} className="space-y-2">
+                  <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
+                    <span className="text-emerald-500">Q:</span> {faq.q}
+                  </h4>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed pl-6 border-l-2 border-emerald-500/20">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Related Tools */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { name: "PDF Tools", path: "/pdf-tools" },
+                { name: "QR Code Tools", path: "/qr-code-tool" },
+                { name: "Unit Converter", path: "/unit-converter" }
+              ].map((tool, i) => (
+                <Link
+                  key={i}
+                  to={tool.path}
+                  className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center text-sm font-black text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 hover:border-emerald-500 transition-all uppercase tracking-widest"
+                >
+                  {tool.name}
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </div>

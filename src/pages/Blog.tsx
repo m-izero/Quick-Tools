@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { BookOpen, ArrowRight, Clock, User } from 'lucide-react';
@@ -54,6 +55,11 @@ export const blogPosts = [
 export function Blog() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>QuickTools Blog - Tips, Tutorials, and Digital Insights</title>
+        <meta name="description" content="Explore our blog for expert tips on image compression, security best practices, and how to make the most of our digital toolkit." />
+        <meta name="keywords" content="blog, digital tools, tutorials, image compression tips, security guides, developer blog" />
+      </Helmet>
       <div className="text-center mb-16">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

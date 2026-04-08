@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   Settings, 
   BarChart3, 
@@ -318,6 +319,10 @@ export function AdminPanel() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12">
+      <Helmet>
+        <title>Admin Panel - QuickTools Pro</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Header */}
       <div className="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>

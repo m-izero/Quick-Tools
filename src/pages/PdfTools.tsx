@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useMemo } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { PDFDocument } from 'pdf-lib';
 import JSZip from 'jszip';
 import { 
@@ -15,6 +16,7 @@ import {
   RotateCcw
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 import {
   DndContext,
   closestCenter,
@@ -273,6 +275,11 @@ export function PdfTools() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:py-12">
+      <Helmet>
+        <title>Online PDF Tools - Merge & Split PDFs Fast | QuickTools Pro</title>
+        <meta name="description" content="Manage your PDF documents with ease. Merge multiple PDF files into one or split pages into individual documents. Fast, secure, and 100% browser-based." />
+        <meta name="keywords" content="pdf tools, merge pdf, split pdf, online pdf editor, pdf joiner, pdf splitter, secure pdf processing" />
+      </Helmet>
       <div className="mb-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -572,76 +579,120 @@ export function PdfTools() {
         </div>
       </div>
 
-      {/* SEO Content Section */}
+      {/* Rich Content Section */}
       <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
-                Free <span className="text-emerald-500">PDF Tools</span> Online
-              </h2>
-              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                Manage your PDF documents with ease using our comprehensive site of free online tools. Whether you need to merge multiple PDF files into a single document or split a large PDF into individual pages, our platform provides a fast, secure, and professional-grade solution. All processing is handled directly in your web browser, ensuring that your sensitive documents are never uploaded to a server, maintaining 100% privacy and security.
-              </p>
-            </div>
-            
-            <div className="space-y-6">
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
-              <div className="space-y-8">
-                <div>
-                  <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-4">Merging PDFs</h4>
-                  <ol className="space-y-3">
-                    {[
-                      "Select 'Merge' mode and upload the PDF files you want to combine.",
-                      "Drag and drop the files to reorder them as needed.",
-                      "Click 'Merge All PDFs' to create your combined document.",
-                      "Download the merged PDF or share it directly."
-                    ].map((step, i) => (
-                      <li key={i} className="flex gap-3 items-start text-sm text-zinc-600 dark:text-zinc-400 font-medium">
-                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
-                        {step}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-                <div>
-                  <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-4">Splitting PDFs</h4>
-                  <ol className="space-y-3">
-                    {[
-                      "Select 'Split' mode and upload the PDF file you wish to divide.",
-                      "Choose between 'Individual Pages' or 'Page Range' split options.",
-                      "If using a range, specify the start and end pages (e.g., 1-5).",
-                      "Click 'Split PDF(s)' and download the resulting ZIP or PDF file."
-                    ].map((step, i) => (
-                      <li key={i} className="flex gap-3 items-start text-sm text-zinc-600 dark:text-zinc-400 font-medium">
-                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
-                        {step}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-3xl mx-auto space-y-16">
+          {/* H1 & Intro */}
+          <section>
+            <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+              Professional <span className="text-emerald-500">PDF Tools</span>
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              Our PDF Tools suite provides a professional-grade, browser-based solution for managing your digital documents with ease and precision. Whether you need to merge multiple PDF files into a single cohesive report or split a large document into individual pages or specific ranges, our tool offers a fast and reliable experience. Built with a focus on privacy, all processing occurs locally on your device, ensuring that your sensitive information never leaves your browser. It's the ultimate utility for students, professionals, and anyone who works with PDF documents regularly.
+            </p>
+          </section>
 
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
-              <div className="grid grid-cols-1 gap-4">
-                {[
-                  { title: "Browser-Based Security", desc: "Your files never leave your computer. All PDF manipulations happen locally for maximum safety." },
-                  { title: "No Quality Loss", desc: "We use high-fidelity libraries to ensure your text and images remain sharp after processing." },
-                  { title: "Batch Processing", desc: "Merge or split multiple files simultaneously, saving you time on repetitive tasks." },
-                  { title: "Completely Free", desc: "Professional-grade PDF tools without the professional price tag. No hidden costs." }
-                ].map((benefit, i) => (
-                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
-                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
-                  </div>
-                ))}
-              </div>
+          {/* How to Use */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+            <ol className="space-y-4">
+              {[
+                "Choose between 'Merge' or 'Split' mode using the toggle switch at the top of the tool.",
+                "Upload your PDF files by clicking the upload area or dragging and dropping them directly into the browser.",
+                "If merging, drag and drop the file cards to reorder them exactly how you want them to appear in the final document.",
+                "If splitting, select either 'Individual Pages' to extract every page or 'Page Range' to specify a custom start and end point.",
+                "Click the 'Merge All PDFs' or 'Split PDF(s)' button to begin the local processing of your files.",
+                "Once complete, click the 'Download' button to save your new PDF or ZIP archive to your computer."
+              ].map((step, i) => (
+                <li key={i} className="flex gap-4 items-start text-zinc-600 dark:text-zinc-400 font-medium">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          {/* Why Use This Tool? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why Use This Tool?</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { title: "Zero Server-Side Uploads", desc: "Your privacy is guaranteed as all PDF manipulations happen entirely within your web browser." },
+                { title: "Professional-Grade Fidelity", desc: "We use the pdf-lib library to ensure that your text, images, and formatting remain perfectly intact." },
+                { title: "Intuitive Drag-and-Drop Interface", desc: "Easily organize and reorder your documents before merging with our user-friendly sorting system." },
+                { title: "Versatile Splitting Options", desc: "Extract single pages, specific ranges, or batch split multiple documents simultaneously to save time." }
+              ].map((item, i) => (
+                <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                  <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{item.title}</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
-          </div>
+          </section>
+
+          {/* Common Use Cases */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Common Use Cases</h3>
+            <div className="space-y-4">
+              {[
+                { title: "Combining Reports & Receipts", desc: "Merge multiple scanned receipts or individual report chapters into a single, organized PDF file for easy sharing." },
+                { title: "Extracting Specific Pages", desc: "Quickly pull out a single page from a large manual or textbook to send as a focused reference." },
+                { title: "Organizing Digital Portfolios", desc: "Combine your resume, cover letter, and work samples into one professional document for job applications." }
+              ].map((useCase, i) => (
+                <div key={i} className="flex gap-4 items-start p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
+                  <div className="h-2 w-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-1">{useCase.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{useCase.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Frequently Asked Questions</h3>
+            <div className="space-y-8">
+              {[
+                { q: "Is it safe to upload my sensitive PDFs to this website?", a: "Yes, because you aren't actually 'uploading' them in the traditional sense. Our tool uses client-side JavaScript to process the files locally in your browser. Your data never touches our servers." },
+                { q: "What is the maximum file size I can process?", a: "While we don't set a hard limit, performance depends on your computer's RAM. Most standard documents up to 100MB should process smoothly." },
+                { q: "Can I merge PDFs that have different page sizes?", a: "Yes. Our merging engine handles documents with varying dimensions and orientations, combining them into a single file while preserving their original layouts." },
+                { q: "Will the links and bookmarks in my PDF still work after merging?", a: "In most cases, yes. Our tool aims to preserve the internal structure of the PDF, although complex interactive elements may sometimes require professional software for advanced editing." },
+                { q: "Why did my split PDF download as a ZIP file?", a: "When you choose to split a document into 'Individual Pages,' we package all the resulting single-page PDFs into a ZIP archive to make it easier for you to download them all at once." },
+                { q: "Do I need to install any software or plugins to use these tools?", a: "No. Our PDF Master works entirely within any modern web browser (Chrome, Firefox, Safari, Edge) without the need for additional software or extensions." }
+              ].map((faq, i) => (
+                <div key={i} className="space-y-2">
+                  <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
+                    <span className="text-emerald-500">Q:</span> {faq.q}
+                  </h4>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed pl-6 border-l-2 border-emerald-500/20">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Related Tools */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { name: "Image Compressor", path: "/image-compressor" },
+                { name: "Random String Generator", path: "/random-string" },
+                { name: "Hash Generator", path: "/hash-generator" }
+              ].map((tool, i) => (
+                <Link
+                  key={i}
+                  to={tool.path}
+                  className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center text-sm font-black text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 hover:border-emerald-500 transition-all uppercase tracking-widest"
+                >
+                  {tool.name}
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </div>

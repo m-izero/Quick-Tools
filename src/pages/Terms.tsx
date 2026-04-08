@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { FileText, CheckCircle, AlertTriangle, Scale, RefreshCcw, UserCheck } from 'lucide-react';
 
@@ -7,6 +8,10 @@ export function Terms() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Terms of Service - QuickTools Pro</title>
+        <meta name="description" content="Review the terms and conditions for using QuickTools Pro. Understand your rights and our commitment to providing secure, browser-based tools." />
+      </Helmet>
       
 
       <div className="text-center mb-16">

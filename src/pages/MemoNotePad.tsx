@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   StickyNote, 
   Plus, 
@@ -16,6 +17,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
+import { Link } from 'react-router-dom';
 
 interface Note {
   id: string;
@@ -111,6 +113,11 @@ export function MemoNotePad() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12">
+      <Helmet>
+        <title>MemoNote Pad - Private Browser-Based Notes | QuickTools Pro</title>
+        <meta name="description" content="A simple and private online notepad. Jot down ideas, save notes locally in your browser, and download them as text files. 100% private and secure." />
+        <meta name="keywords" content="online notepad, private notes, browser notes, memo pad, quick notes, local storage notes" />
+      </Helmet>
       <div className="mb-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -328,58 +335,120 @@ export function MemoNotePad() {
         </div>
       </div>
 
-      {/* SEO Content Section */}
+      {/* Rich Content Section */}
       <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
-                Free <span className="text-amber-500">Online Notepad</span> & Memo Pad
-              </h2>
-              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                Capture your ideas, create to-do lists, or draft important documents with our free online notepad. MemoNote is designed for simplicity and speed, providing a clean, distraction-free environment for all your writing needs. Unlike other online editors, our notepad saves your work locally in your browser's storage, ensuring your notes are always available even after you close the tab. It's the perfect tool for quick memos, temporary storage, or organized drafting.
-              </p>
-            </div>
-            
-            <div className="space-y-6">
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
-              <ol className="space-y-4">
-                {[
-                  "Click 'New Note' to create a fresh document instantly.",
-                  "Enter a descriptive title and start typing your content in the main editor.",
-                  "Your work is auto-saved locally as you type, so you never lose a word.",
-                  "Use the 'Export' button to download your note as a .txt file for offline use.",
-                  "Organize your notes using the sidebar and search functionality."
-                ].map((step, i) => (
-                  <li key={i} className="flex gap-4 items-start">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-500 text-[10px] font-black text-white">
-                      {i + 1}
-                    </span>
-                    <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">{step}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
+        <div className="max-w-3xl mx-auto space-y-16">
+          {/* H1 & Intro */}
+          <section>
+            <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+              Professional <span className="text-amber-500">MemoNote Pad</span> & Online Notepad
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              MemoNote Pad is a minimalist, high-performance online notepad designed for capturing your thoughts, drafting documents, and organizing to-do lists instantly. Built with a focus on speed and privacy, our tool saves all your work locally in your browser's storage, ensuring that your notes are always available even after you close the tab or restart your device. Whether you're a student taking quick lecture notes, a writer drafting a new story, or a professional keeping track of daily tasks, MemoNote provides a clean, distraction-free environment for all your writing needs. It's the perfect digital companion for anyone who values simplicity and data security.
+            </p>
+          </section>
 
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
-              <div className="grid grid-cols-1 gap-4">
-                {[
-                  { title: "Local Privacy", desc: "Your notes are stored only on your device. We never see or store your private thoughts." },
-                  { title: "Auto-Save Feature", desc: "Never worry about losing work. Every keystroke is saved instantly in your browser." },
-                  { title: "Clean Interface", desc: "A minimalist design focused on readability and ease of use across all devices." },
-                  { title: "Offline Access", desc: "Export your notes as standard text files to keep them safe outside the browser." }
-                ].map((benefit, i) => (
-                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
-                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
-                  </div>
-                ))}
-              </div>
+          {/* How to Use */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+            <ol className="space-y-4">
+              {[
+                "Click the 'New Note' button in the sidebar to create a fresh, untitled document instantly.",
+                "Enter a descriptive title in the top header to help you easily identify your note later.",
+                "Start typing your content in the main editor area; our tool features real-time auto-saving for every keystroke.",
+                "Use the search bar in the sidebar to quickly find specific notes by their title or content as your collection grows.",
+                "Click the 'Download' icon to export your note as a standard .txt file for offline use or sharing.",
+                "To keep your workspace organized, use the 'Trash' icon to delete old notes or the 'Eraser' icon to clear the current note's content."
+              ].map((step, i) => (
+                <li key={i} className="flex gap-4 items-start text-zinc-600 dark:text-zinc-400 font-medium">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-500 text-[10px] font-black text-white">{i + 1}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          {/* Why Use This Tool? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why Use This Tool?</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { title: "Complete Local Privacy", desc: "Your notes are stored exclusively on your device's local storage, meaning we never see or store your private data." },
+                { title: "Instant Auto-Save Technology", desc: "Never worry about losing work again; our editor saves every change in real-time as you type." },
+                { title: "Distraction-Free Writing", desc: "Enjoy a minimalist interface that removes unnecessary clutter, allowing you to focus entirely on your thoughts." },
+                { title: "Seamless Multi-Device Support", desc: "Access and manage your notes across desktop and mobile browsers with a fully responsive and intuitive design." }
+              ].map((item, i) => (
+                <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                  <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{item.title}</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
-          </div>
+          </section>
+
+          {/* Common Use Cases */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Common Use Cases</h3>
+            <div className="space-y-4">
+              {[
+                { title: "Quick Idea Capture", desc: "Use the notepad to instantly jot down fleeting thoughts, creative ideas, or reminders before they're forgotten." },
+                { title: "Drafting & Content Creation", desc: "Write blog posts, emails, or reports in a clean environment before transferring them to their final destination." },
+                { title: "Daily Task Management", desc: "Create and maintain simple to-do lists or meeting agendas that stay saved in your browser for easy daily access." }
+              ].map((useCase, i) => (
+                <div key={i} className="flex gap-4 items-start p-4 rounded-2xl bg-amber-500/5 border border-amber-500/10">
+                  <div className="h-2 w-2 rounded-full bg-amber-500 mt-2 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-1">{useCase.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{useCase.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Frequently Asked Questions</h3>
+            <div className="space-y-8">
+              {[
+                { q: "Where are my notes actually stored?", a: "Your notes are stored in your browser's 'LocalStorage.' This means they reside on your physical device and are not uploaded to any cloud server." },
+                { q: "Will I lose my notes if I close the browser?", a: "No. Because they are saved in local storage, your notes will persist even after you close the tab, restart your browser, or reboot your computer." },
+                { q: "Can I access my notes from a different computer?", a: "Since the data is stored locally on the specific device you used, notes will not automatically sync to other computers or phones." },
+                { q: "Is there a limit to how many notes I can create?", a: "The only limit is the storage capacity of your browser's local storage, which typically allows for thousands of text-based notes." },
+                { q: "How do I back up my notes?", a: "We recommend using the 'Export' feature to download your important notes as .txt files to your computer for safe keeping." },
+                { q: "Is my writing secure from other people?", a: "Your notes are as secure as your device. Anyone with access to your computer and browser profile can see the notes stored there." }
+              ].map((faq, i) => (
+                <div key={i} className="space-y-2">
+                  <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
+                    <span className="text-amber-500">Q:</span> {faq.q}
+                  </h4>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed pl-6 border-l-2 border-amber-500/20">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Related Tools */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { name: "Random String Generator", path: "/random-string" },
+                { name: "Developer Tools", path: "/dev-tools" },
+                { name: "Base64 Tool", path: "/base64-tool" }
+              ].map((tool, i) => (
+                <Link
+                  key={i}
+                  to={tool.path}
+                  className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center text-sm font-black text-zinc-600 dark:text-zinc-400 hover:text-amber-500 hover:border-amber-500 transition-all uppercase tracking-widest"
+                >
+                  {tool.name}
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </div>

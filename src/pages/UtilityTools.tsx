@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   Calculator, 
   Calendar, 
@@ -12,6 +13,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
+import { Link } from 'react-router-dom';
 
 type UtilityTool = 'age' | 'percentage' | 'discount';
 
@@ -82,6 +84,11 @@ export default function UtilityTools() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Utility Calculators - Age, Percentage, Discount | QuickTools Pro</title>
+        <meta name="description" content="Free online utility calculators. Calculate your age, find percentages, and determine discount prices instantly. Simple, fast, and accurate tools for everyday use." />
+        <meta name="keywords" content="age calculator, percentage calculator, discount calculator, online calculators, free utility tools, quick tools" />
+      </Helmet>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <motion.div
@@ -291,62 +298,120 @@ export default function UtilityTools() {
           </div>
         </div>
 
-        {/* SEO Content Section */}
+        {/* Rich Content Section */}
         <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
-                  Essential <span className="text-emerald-500">Utility Calculators</span> Online
-                </h2>
-                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                  Simplify your daily calculations with our site of free online utility tools. Whether you need to calculate your exact age, determine a percentage, or find out how much you'll save with a discount, our calculators provide fast and accurate results. Designed for ease of use, these tools help you make quick decisions without the need for complex formulas or manual math.
-                </p>
-              </div>
-              
-              <div className="space-y-6">
-                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Available Calculators</h3>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">Age Calculator</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-                      Find out exactly how old you are in years, months, and days. Perfect for checking milestones or calculating time intervals between dates.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">Percentage Calculator</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-                      Easily calculate the percentage of any total value. Useful for business, finance, and everyday math problems.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">Discount Calculator</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-                      Determine the final price and total savings after applying a discount percentage. A must-have tool for smart shopping and budgeting.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-3xl mx-auto space-y-16">
+            {/* H1 & Intro */}
+            <section>
+              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                Essential <span className="text-emerald-500">Utility Calculators</span>
+              </h2>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                Our Utility Calculators suite is a collection of essential, everyday math tools designed to simplify your life and provide instant, accurate results. Whether you're trying to calculate your exact age in years, months, and days, determine a percentage for a financial report, or find out exactly how much you'll save during a sale, our calculators have you covered. We've combined the most frequently used mathematical functions into a single, user-friendly interface that eliminates the need for complex manual calculations. It's the perfect resource for students, shoppers, and professionals who value precision and efficiency in their daily tasks.
+              </p>
+            </section>
 
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {[
-                    { title: "Instant Accuracy", desc: "Get precise results immediately without any manual calculations or errors." },
-                    { title: "User-Friendly Interface", desc: "Simple inputs and clear results make these tools accessible to everyone." },
-                    { title: "Mobile Optimized", desc: "Perform quick calculations on the go from any smartphone or tablet." },
-                    { title: "Completely Free", desc: "Use all our utility calculators as much as you need without any cost or registration." }
-                  ].map((benefit, i) => (
-                    <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
-                      <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
-                    </div>
-                  ))}
-                </div>
+            {/* How to Use */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+              <ol className="space-y-4">
+                {[
+                  "Choose the specific calculator you need from the top tabs: Age, Percentage, or Discount.",
+                  "For the Age Calculator: Select your date of birth from the calendar picker and click 'Calculate Age' to see your exact age breakdown.",
+                  "For the Percentage Calculator: Enter the percentage value and the total amount to instantly find the calculated result.",
+                  "For the Discount Calculator: Input the original price of an item and the discount percentage to see your final price and total savings.",
+                  "Review the results displayed in the highlighted boxes, which update instantly upon calculation.",
+                  "Use the 'Reset' or 'Clear' functionality to start a new calculation with different values at any time."
+                ].map((step, i) => (
+                  <li key={i} className="flex gap-4 items-start text-zinc-600 dark:text-zinc-400 font-medium">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            {/* Why Use This Tool? */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why Use This Tool?</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { title: "All-In-One Convenience", desc: "Access three essential calculators in one place, saving you from navigating multiple websites or apps." },
+                  { title: "Error-Free Accuracy", desc: "Eliminate the risk of manual calculation errors with our mathematically sound algorithms and precise logic." },
+                  { title: "Clean & Intuitive Design", desc: "Enjoy a distraction-free interface that focuses on providing the answers you need without unnecessary complexity." },
+                  { title: "Instant Financial Insights", desc: "Quickly understand your savings and percentages to make better-informed purchasing and budgeting decisions." }
+                ].map((item, i) => (
+                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{item.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            </div>
+            </section>
+
+            {/* Common Use Cases */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Common Use Cases</h3>
+              <div className="space-y-4">
+                {[
+                  { title: "Milestone Tracking", desc: "Calculate your exact age or the age of a loved one for birthdays, anniversaries, or legal documentation requirements." },
+                  { title: "Smart Shopping", desc: "Use the discount calculator while at the store to instantly know the final price of items on sale and track your total savings." },
+                  { title: "Business & Finance", desc: "Quickly determine percentages for tips, taxes, or commission rates during meetings or while reviewing financial statements." }
+                ].map((useCase, i) => (
+                  <div key={i} className="flex gap-4 items-start p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
+                    <div className="h-2 w-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                    <div>
+                      <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-1">{useCase.title}</h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{useCase.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* FAQ */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Frequently Asked Questions</h3>
+              <div className="space-y-8">
+                {[
+                  { q: "How accurate is the Age Calculator?", a: "Our tool calculates age based on the exact number of years, months, and days, accounting for leap years and varying month lengths for total precision." },
+                  { q: "Can I calculate percentages for large numbers?", a: "Yes. Our percentage calculator can handle extremely large values, making it suitable for both personal and professional financial calculations." },
+                  { q: "Does the Discount Calculator handle decimals?", a: "Absolutely. You can enter prices and discount percentages with decimal points (e.g., $19.99 at 12.5% off) for precise retail calculations." },
+                  { q: "Is my data stored when I use these calculators?", a: "No. All calculations are performed locally in your browser. We do not store or track any of the numbers or dates you enter into the tools." },
+                  { q: "Can I use these tools on my phone?", a: "Yes. The Utility Calculators are fully responsive and optimized for mobile browsers, making them perfect for use while shopping or on the go." },
+                  { q: "Are there any limits on how many times I can use the tools?", a: "There are no limits. You can use all our calculators as many times as you need, completely free of charge and without registration." }
+                ].map((faq, i) => (
+                  <div key={i} className="space-y-2">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
+                      <span className="text-emerald-500">Q:</span> {faq.q}
+                    </h4>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed pl-6 border-l-2 border-emerald-500/20">
+                      {faq.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Related Tools */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {[
+                  { name: "Unit Converter", path: "/unit-converter" },
+                  { name: "Developer Tools", path: "/dev-tools" },
+                  { name: "Random String Generator", path: "/random-string" }
+                ].map((tool, i) => (
+                  <Link
+                    key={i}
+                    to={tool.path}
+                    className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center text-sm font-black text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 hover:border-emerald-500 transition-all uppercase tracking-widest"
+                  >
+                    {tool.name}
+                  </Link>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </div>

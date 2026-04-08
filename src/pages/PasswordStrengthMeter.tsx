@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   Shield, 
   ShieldCheck, 
@@ -15,6 +16,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import zxcvbn from 'zxcvbn';
 import { cn } from '@/utils/cn';
+import { Link } from 'react-router-dom';
 
 export function PasswordStrengthMeter() {
   const [password, setPassword] = useState('');
@@ -62,6 +64,11 @@ export function PasswordStrengthMeter() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:py-12">
+      <Helmet>
+        <title>Password Strength Checker - Secure Your Accounts | QuickTools Pro</title>
+        <meta name="description" content="Check your password strength with our secure, local analyzer. Get instant feedback on complexity, crack time, and security improvements using the zxcvbn algorithm." />
+        <meta name="keywords" content="password strength, password checker, secure password, zxcvbn, password security, online tool" />
+      </Helmet>
       <div className="mb-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -209,76 +216,120 @@ export function PasswordStrengthMeter() {
         </div>
       </div>
 
-      {/* SEO Content Section */}
+      {/* Rich Content Section */}
       <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
-                Free <span className="text-emerald-500">Password Strength</span> Meter & Generator
-              </h2>
-              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                Ensure your online security with our advanced Password Strength Meter. Using the industry-standard zxcvbn algorithm, our tool provides a realistic estimation of how long it would take for a computer to crack your password. It goes beyond simple character counting by identifying common patterns, dictionary words, and keyboard sequences. Additionally, you can use our built-in secure password generator to create high-entropy, random passwords that are virtually impossible to guess.
-              </p>
-            </div>
-            
-            <div className="space-y-6">
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
-              <div className="space-y-8">
-                <div>
-                  <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-4">Testing Your Password</h4>
-                  <ol className="space-y-3">
-                    {[
-                      "Type your password into the 'Enter Password' input field.",
-                      "Observe the real-time strength indicator and score (0-4).",
-                      "Review the 'Analysis & Suggestions' section for specific improvements.",
-                      "Check the estimated crack time to understand your password's resilience."
-                    ].map((step, i) => (
-                      <li key={i} className="flex gap-3 items-start text-sm text-zinc-600 dark:text-zinc-400 font-medium">
-                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
-                        {step}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-                <div>
-                  <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-4">Generating a Password</h4>
-                  <ol className="space-y-3">
-                    {[
-                      "Click the 'Generate Secure Password' link above the input field.",
-                      "A strong, 16-character random password will be created instantly.",
-                      "Toggle the 'Eye' icon to view or hide the generated password.",
-                      "Copy the password and use it for your online accounts."
-                    ].map((step, i) => (
-                      <li key={i} className="flex gap-3 items-start text-sm text-zinc-600 dark:text-zinc-400 font-medium">
-                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
-                        {step}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-3xl mx-auto space-y-16">
+          {/* H1 & Intro */}
+          <section>
+            <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+              Password <span className="text-emerald-500">Strength Checker</span>
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              Our Password Strength Checker is a professional-grade security tool designed to help you evaluate the resilience of your passwords against modern hacking techniques. By utilizing the industry-standard zxcvbn algorithm, it provides a realistic estimation of how long it would take for a computer to crack your password. This tool is essential for anyone looking to bolster their online security and protect sensitive personal information from unauthorized access. It goes beyond simple character counting to identify complex patterns and dictionary-based vulnerabilities.
+            </p>
+          </section>
 
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
-              <div className="grid grid-cols-1 gap-4">
-                {[
-                  { title: "Advanced Estimation", desc: "Uses pattern matching and dictionary checks for a more accurate strength score." },
-                  { title: "Secure Generation", desc: "Creates cryptographically secure random passwords directly in your browser." },
-                  { title: "Privacy Guaranteed", desc: "Your passwords are never sent to a server. All analysis is performed locally." },
-                  { title: "Actionable Feedback", desc: "Receive specific tips on how to make your passwords stronger and more unique." }
-                ].map((benefit, i) => (
-                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
-                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
-                  </div>
-                ))}
-              </div>
+          {/* How to Use */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+            <ol className="space-y-4">
+              {[
+                "Enter the password you wish to test into the designated input field.",
+                "Watch the real-time strength meter as it updates with every character you type.",
+                "Review the numerical score (0 to 4) and the descriptive label (e.g., 'Strong' or 'Weak').",
+                "Read the 'Analysis & Suggestions' section to see specific feedback on how to improve your password.",
+                "Check the estimated crack time to understand how your password would fare against offline attacks.",
+                "If your password is weak, use our 'Generate Secure Password' feature to create a high-entropy alternative."
+              ].map((step, i) => (
+                <li key={i} className="flex gap-4 items-start text-zinc-600 dark:text-zinc-400 font-medium">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          {/* Why Use This Tool? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why Use This Tool?</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { title: "Advanced Pattern Recognition", desc: "Unlike basic meters, our tool detects common names, dates, and keyboard patterns that hackers easily exploit." },
+                { title: "Realistic Crack Time Estimation", desc: "Get a clear understanding of your password's strength through estimated timeframes for various attack scenarios." },
+                { title: "100% Client-Side Privacy", desc: "Your passwords are never sent to our servers; all analysis happens locally in your browser for maximum security." },
+                { title: "Actionable Security Advice", desc: "Receive specific suggestions on how to make your passwords more unique and difficult to guess." }
+              ].map((item, i) => (
+                <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                  <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{item.title}</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
-          </div>
+          </section>
+
+          {/* Common Use Cases */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Common Use Cases</h3>
+            <div className="space-y-4">
+              {[
+                { title: "Setting Up New Accounts", desc: "Verify that the password you've chosen for a new service meets high security standards before finalizing your registration." },
+                { title: "Security Audits", desc: "Periodically check your existing passwords to ensure they are still considered strong by modern standards." },
+                { title: "Educational Purposes", desc: "Learn about what makes a password strong or weak by experimenting with different character combinations and patterns." }
+              ].map((useCase, i) => (
+                <div key={i} className="flex gap-4 items-start p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
+                  <div className="h-2 w-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-1">{useCase.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{useCase.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Frequently Asked Questions</h3>
+            <div className="space-y-8">
+              {[
+                { q: "How does the strength meter calculate the score?", a: "Our tool uses the zxcvbn algorithm, which simulates a realistic cracking attempt. It checks for common patterns, dictionary words, and keyboard sequences, assigning a score from 0 (very weak) to 4 (very strong) based on the estimated number of guesses required to crack it." },
+                { q: "Is it safe to type my real password into this tool?", a: "Yes, it is completely safe. All processing is performed locally within your web browser using JavaScript. Your password is never transmitted over the internet or stored on our servers, ensuring total privacy." },
+                { q: "What makes a password 'Strong' according to this tool?", a: "A strong password typically has high entropy, meaning it is long and lacks predictable patterns. Using a mix of uppercase letters, lowercase letters, numbers, and symbols while avoiding common words or sequences will result in a higher score." },
+                { q: "Why does my long password still show as 'Weak'?", a: "Length is important, but randomness is equally critical. If your long password consists of common words (e.g., 'passwordpasswordpassword') or simple sequences (e.g., '12345678901234567890'), the algorithm will recognize these patterns and mark the password as weak." },
+                { q: "How often should I change my passwords?", a: "While the old advice was to change passwords every 90 days, modern security experts suggest only changing them if you suspect a breach. However, it's vital to use unique, strong passwords for every account to prevent a single breach from compromising multiple services." },
+                { q: "Can I use the generated password for my bank account?", a: "Absolutely. Our generator uses cryptographically secure random number generation to create high-entropy passwords that are ideal for sensitive accounts like banking, email, and social media." }
+              ].map((faq, i) => (
+                <div key={i} className="space-y-2">
+                  <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
+                    <span className="text-emerald-500">Q:</span> {faq.q}
+                  </h4>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed pl-6 border-l-2 border-emerald-500/20">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Related Tools */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { name: "Hash Generator", path: "/hash-generator" },
+                { name: "Random String Generator", path: "/random-string-generator" },
+                { name: "Developer Tools", path: "/dev-tools" }
+              ].map((tool, i) => (
+                <Link
+                  key={i}
+                  to={tool.path}
+                  className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center text-sm font-black text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 hover:border-emerald-500 transition-all uppercase tracking-widest"
+                >
+                  {tool.name}
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </div>

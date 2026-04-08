@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { 
   Image as ImageIcon, 
   FileText, 
@@ -24,6 +25,7 @@ import { Link } from 'react-router-dom';
 import { cn } from '@/utils/cn';
 
 const toolCategories = [
+// ... (rest of the categories)
   {
     name: "Security & Privacy Tools",
     tools: [
@@ -148,24 +150,29 @@ const toolCategories = [
 export function Home() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>QuickTools Pro - Free Online Digital Toolkit for Developers & Creators</title>
+        <meta name="description" content="Access a suite of free, professional, and private online tools. Image compression, PDF manipulation, password strength analysis, unit conversion, and more—all processed locally in your browser." />
+        <meta name="keywords" content="online tools, developer tools, image compressor, pdf tools, password checker, unit converter, free utilities, private tools" />
+      </Helmet>
       
       {/* Hero Section */}
-      <div className="text-center mb-20">
+      <div className="text-center mb-32">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-xs font-black text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-400 mb-6 uppercase tracking-widest border border-emerald-100 dark:border-emerald-500/20"
         >
           <Zap className="h-3.5 w-3.5" />
-          Fast • Secure • Free
+          Professional • Private • Free
         </motion.div>
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl font-black tracking-tight text-zinc-900 dark:text-white sm:text-7xl lg:text-8xl"
         >
-          Tools for the <br />
-          <span className="text-emerald-500">Modern Web</span>.
+          Your All-in-One <br />
+          <span className="text-emerald-500">Digital Toolkit</span>.
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -173,7 +180,7 @@ export function Home() {
           transition={{ delay: 0.1 }}
           className="mt-8 text-lg sm:text-xl leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-3xl mx-auto font-medium"
         >
-          The ultimate utility belt for developers and creators. Process files, generate passwords, and encode text—all locally in your browser.
+          QuickTools Pro provides a suite of high-performance, browser-based utilities for developers, designers, and everyday users. Process files, secure data, and optimize your workflow—all 100% locally on your device.
         </motion.p>
         
         <motion.div 
@@ -184,96 +191,139 @@ export function Home() {
         >
           <div className="flex items-center gap-2 text-sm font-bold text-zinc-500">
             <ShieldCheck className="h-5 w-5 text-emerald-500" />
-            100% Private
+            No Data Uploads
           </div>
           <div className="flex items-center gap-2 text-sm font-bold text-zinc-500">
             <Zap className="h-5 w-5 text-amber-500" />
-            Instant Results
+            Instant Processing
           </div>
           <div className="flex items-center gap-2 text-sm font-bold text-zinc-500">
             <Smartphone className="h-5 w-5 text-blue-500" />
-            Mobile Ready
+            No Installation
           </div>
         </motion.div>
       </div>
 
-      {/* What We Offer Section */}
-      <div className="mb-32">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-white mb-4 uppercase tracking-tight">
-            What We <span className="text-emerald-500">Offer</span>
+      {/* Mission Section */}
+      <div className="mb-32 py-20 border-y border-zinc-100 dark:border-zinc-800">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-tight">
+            Our <span className="text-emerald-500">Mission</span>
           </h2>
-          <p className="text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl mx-auto">
-            Explore our comprehensive site of free online tools designed to simplify your digital life.
+          <p className="text-lg text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+            At QuickTools Pro, we believe that powerful digital utilities should be accessible to everyone without compromising privacy or performance. Most online tools require you to upload sensitive files to a remote server, creating potential security risks and slow processing times. Our platform changes that by leveraging modern web technologies to perform all calculations and file manipulations directly in your browser. Your data never leaves your device, ensuring total security and lightning-fast results.
           </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
-            <div className="h-12 w-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <ImageIcon className="h-6 w-6 text-blue-500" />
-            </div>
-            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">Image Tools</h3>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-              Professional-grade image optimization and conversion. Compress photos for the web, convert between formats, and resize images without losing quality.
-            </p>
-          </div>
-          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
-            <div className="h-12 w-12 rounded-2xl bg-red-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <FileText className="h-6 w-6 text-red-500" />
-            </div>
-            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">PDF Tools</h3>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-              Manage your PDF documents with ease. Merge multiple files, split pages, and optimize PDFs for sharing and storage, all within your browser.
-            </p>
-          </div>
-          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
-            <div className="h-12 w-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <ShieldCheck className="h-6 w-6 text-emerald-500" />
-            </div>
-            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">Security Tools</h3>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-              Protect your digital identity. Generate strong passwords, analyze password strength, and create secure cryptographic hashes for your data.
-            </p>
-          </div>
-          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
-            <div className="h-12 w-12 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Code2 className="h-6 w-6 text-amber-500" />
-            </div>
-            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">Developer Tools</h3>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-              Essential utilities for web developers. Format JSON, encode/decode Base64, pick colors, and convert units with precision and speed.
-            </p>
-          </div>
-          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
-            <div className="h-12 w-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <Calculator className="h-6 w-6 text-cyan-500" />
-            </div>
-            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">Utility Tools</h3>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-              Everyday calculators and generators. Create QR codes, calculate percentages, convert units, and take quick notes in our local notepad.
-            </p>
-          </div>
-          <div className="p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:shadow-xl transition-all group">
-            <div className="h-12 w-12 rounded-2xl bg-zinc-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <History className="h-6 w-6 text-zinc-500" />
-            </div>
-            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3 uppercase tracking-widest">Local Processing</h3>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-              All our tools run 100% locally in your browser. Your data never touches our servers, ensuring total privacy and lightning-fast performance.
-            </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8">
+            {[
+              { label: "Tools Available", value: "12+" },
+              { label: "Data Privacy", value: "100%" },
+              { label: "Cost to Use", value: "$0" }
+            ].map((stat, i) => (
+              <div key={i} className="space-y-1">
+                <div className="text-3xl font-black text-emerald-500">{stat.value}</div>
+                <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
+      {/* Navigation Guide Section */}
+      <div className="mb-48 space-y-24">
+        <div className="text-center space-y-4">
+          <h2 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-tight">
+            How to <span className="text-emerald-500">Navigate</span>
+          </h2>
+          <p className="text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl mx-auto">
+            Master QuickTools Pro in seconds. Here's a visual guide to getting the most out of our professional toolkit.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-32">
+          {[
+            {
+              title: "1. Browse the Tool Dashboard",
+              desc: "Our homepage is your command center. Tools are organized into logical categories like 'Security', 'Image & PDF', and 'Developer Utilities'. Simply scroll and click to launch any tool instantly.",
+              image: "https://picsum.photos/seed/dashboard-guide/1200/675",
+              icon: Zap,
+              tag: "Dashboard"
+            },
+            {
+              title: "2. Seamless Tool Interaction",
+              desc: "Every tool is designed with a consistent, high-performance interface. Drag and drop files, paste text, or use your camera for QR scanning. All processing happens locally—no waiting for uploads.",
+              image: "https://picsum.photos/seed/tool-guide/1200/675",
+              icon: Code2,
+              tag: "Workspace"
+            },
+            {
+              title: "3. Quick Access Navigation",
+              desc: "Use the global navigation bar to quickly switch between tools, visit our blog for tutorials, or access legal information. Everything you need is always just one click away.",
+              image: "https://picsum.photos/seed/nav-guide/1200/675",
+              icon: ArrowRight,
+              tag: "Navigation"
+            }
+          ].map((step, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className={cn(
+                "flex flex-col gap-12 lg:items-center",
+                i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+              )}
+            >
+              <div className="flex-1 space-y-8">
+                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                  <step.icon className="h-5 w-5" />
+                  <span className="text-xs font-black uppercase tracking-widest">{step.tag}</span>
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-black text-zinc-900 dark:text-white uppercase tracking-tight leading-tight">
+                  {step.title}
+                </h3>
+                <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+                  {step.desc}
+                </p>
+                <div className="flex items-center gap-4 pt-4">
+                  <div className="h-1 w-12 rounded-full bg-emerald-500" />
+                  <span className="text-xs font-black text-zinc-400 uppercase tracking-[0.2em]">Step {i + 1} of 3</span>
+                </div>
+              </div>
+              <div className="flex-1 w-full">
+                <div className="relative group">
+                  <div className="absolute -inset-4 bg-emerald-500/20 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  <div className="relative overflow-hidden rounded-[2.5rem] border-4 border-zinc-100 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800 shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:border-emerald-500/50">
+                    <img 
+                      src={step.image} 
+                      alt={step.title}
+                      className="w-full aspect-video object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                      <div className="h-12 w-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                        <Zap className="h-6 w-6 fill-current" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
       {/* Tools Grid - Categorized */}
-      <div className="space-y-24">
+      <div className="space-y-32">
         {toolCategories.map((category, catIndex) => (
           <div key={category.name}>
-            <div className="flex items-center gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-12">
               <h2 className="text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">
                 {category.name}
               </h2>
-              <div className="h-px flex-grow bg-zinc-200 dark:bg-zinc-800" />
+              <div className="h-px flex-grow bg-zinc-200 dark:bg-zinc-800 hidden sm:block" />
+              <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
+                {category.tools.length} Specialized Tools
+              </p>
             </div>
             
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[280px]">
@@ -298,9 +348,9 @@ export function Home() {
                     )}>
                       <tool.icon className={cn("h-7 w-7", tool.color)} />
                     </div>
-                    <div className="flex-grow">
-                      <h3 className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white">{tool.title}</h3>
-                      <p className="mt-4 text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400 max-w-sm">
+                    <div className="flex-grow min-w-0">
+                      <h3 className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white truncate">{tool.title}</h3>
+                      <p className="mt-4 text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400 line-clamp-2">
                         {tool.description}
                       </p>
                     </div>
@@ -318,51 +368,124 @@ export function Home() {
         ))}
       </div>
 
-      <div className="mt-20">
+      {/* Why Choose Us Section */}
+      <div className="mt-48 space-y-24">
+        <div className="text-center space-y-4">
+          <h2 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-tight">
+            Why Choose <span className="text-emerald-500">QuickTools Pro</span>?
+          </h2>
+          <p className="text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl mx-auto">
+            We've built a platform that prioritizes your workflow and security above all else.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {[
+            {
+              icon: ShieldCheck,
+              title: "Privacy First",
+              desc: "Your files never leave your device. All processing happens locally in your browser for maximum security.",
+              color: "text-blue-500",
+              bg: "bg-blue-500/10"
+            },
+            {
+              icon: Zap,
+              title: "Lightning Fast",
+              desc: "No server uploads means no waiting. Get your results instantly with our optimized browser-based engines.",
+              color: "text-amber-500",
+              bg: "bg-amber-500/10"
+            },
+            {
+              icon: Smartphone,
+              title: "Mobile Optimized",
+              desc: "Designed for the modern web. Use all our tools on your phone or tablet with a seamless, responsive experience.",
+              color: "text-emerald-500",
+              bg: "bg-emerald-500/10"
+            }
+          ].map((feature, i) => (
+            <div key={i} className="text-center space-y-6">
+              <div className={cn("h-20 w-20 rounded-[2rem] flex items-center justify-center mx-auto shadow-lg", feature.bg)}>
+                <feature.icon className={cn("h-10 w-10", feature.color)} />
+              </div>
+              <h3 className="text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-tight">{feature.title}</h3>
+              <p className="text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{feature.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Features Grid */}
-      <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div className="text-center">
-          <div className="h-16 w-16 rounded-3xl bg-blue-500/10 flex items-center justify-center mx-auto mb-6">
-            <Lock className="h-8 w-8 text-blue-500" />
+      {/* FAQ Section */}
+      <div className="mt-48 py-24 border-t border-zinc-100 dark:border-zinc-800">
+        <div className="max-w-3xl mx-auto space-y-16">
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-tight">
+              Frequently Asked <span className="text-emerald-500">Questions</span>
+            </h2>
+            <p className="text-zinc-500 dark:text-zinc-400 font-medium">
+              Everything you need to know about our platform.
+            </p>
           </div>
-          <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3">Privacy First</h3>
-          <p className="text-sm text-zinc-500 font-medium leading-relaxed">Your files never leave your device. All processing happens locally in your browser for maximum security.</p>
-        </div>
-        <div className="text-center">
-          <div className="h-16 w-16 rounded-3xl bg-amber-500/10 flex items-center justify-center mx-auto mb-6">
-            <Zap className="h-8 w-8 text-amber-500" />
+
+          <div className="space-y-12">
+            {[
+              {
+                q: "Are the tools really free to use?",
+                a: "Yes, 100%. All tools on QuickTools Pro are completely free to use without any hidden costs, subscriptions, or registration requirements."
+              },
+              {
+                q: "Is my data safe on your website?",
+                a: "Absolutely. We use client-side processing, which means all calculations and file manipulations happen directly in your browser. Your data is never uploaded to our servers."
+              },
+              {
+                q: "Do I need to install any software?",
+                a: "No. All our tools work directly in your web browser. There is no need to download or install any third-party applications or plugins."
+              },
+              {
+                q: "What browsers are supported?",
+                a: "We support all modern web browsers, including Chrome, Firefox, Safari, and Edge, on both desktop and mobile devices."
+              },
+              {
+                q: "Can I use these tools for commercial purposes?",
+                a: "Yes. You are free to use any of our generated outputs (passwords, compressed images, PDFs, etc.) for both personal and commercial projects."
+              },
+              {
+                q: "How do you make money if the tools are free?",
+                a: "We support the maintenance and development of QuickTools Pro through non-intrusive advertisements. This allows us to keep the tools free for everyone."
+              }
+            ].map((faq, i) => (
+              <div key={i} className="space-y-3">
+                <h4 className="text-lg font-black text-zinc-900 dark:text-white uppercase tracking-tight flex items-center gap-3">
+                  <span className="text-emerald-500">Q:</span> {faq.q}
+                </h4>
+                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed pl-8 border-l-2 border-emerald-500/20">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
           </div>
-          <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3">Lightning Fast</h3>
-          <p className="text-sm text-zinc-500 font-medium leading-relaxed">No server uploads means no waiting. Get your results instantly with our optimized browser-based engines.</p>
-        </div>
-        <div className="text-center">
-          <div className="h-16 w-16 rounded-3xl bg-emerald-500/10 flex items-center justify-center mx-auto mb-6">
-            <Smartphone className="h-8 w-8 text-emerald-500" />
-          </div>
-          <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-3">Mobile Optimized</h3>
-          <p className="text-sm text-zinc-500 font-medium leading-relaxed">Designed for the modern web. Use all our tools on your phone or tablet with a seamless, responsive experience.</p>
         </div>
       </div>
 
-      <div className="mt-32 rounded-[3rem] bg-zinc-900 p-12 sm:p-20 text-center relative overflow-hidden">
+      {/* CTA Section */}
+      <div className="mt-48 rounded-[3rem] bg-zinc-900 p-12 sm:p-24 text-center relative overflow-hidden">
         <div className="relative z-10">
-          <h2 className="text-3xl sm:text-5xl font-black text-white mb-6">Ready to get started?</h2>
-          <p className="text-zinc-400 text-lg mb-10 max-w-xl mx-auto font-medium">Join thousands of users who trust QuickTools Pro for their daily tasks. No registration, no fees, just tools.</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/image-compressor" className="px-8 py-4 rounded-2xl bg-emerald-500 text-white font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-xl shadow-emerald-500/20">
-              Try Image Compressor
+          <h2 className="text-3xl sm:text-6xl font-black text-white mb-8 tracking-tight">Ready to boost your <br /><span className="text-emerald-500">productivity?</span></h2>
+          <p className="text-zinc-400 text-lg sm:text-xl mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
+            Join thousands of users who trust QuickTools Pro for their daily digital tasks. No registration, no fees, just professional tools.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6">
+            <Link to="/image-compressor" className="px-10 py-5 rounded-2xl bg-emerald-500 text-white font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-2xl shadow-emerald-500/40 active:scale-95">
+              Get Started Now
             </Link>
-            <Link to="/pdf-tools" className="px-8 py-4 rounded-2xl bg-white/10 text-white font-black uppercase tracking-widest hover:bg-white/20 transition-all backdrop-blur-sm">
-              Explore PDF Tools
+            <Link to="/dev-tools" className="px-10 py-5 rounded-2xl bg-white/10 text-white font-black uppercase tracking-widest hover:bg-white/20 transition-all backdrop-blur-sm active:scale-95">
+              Explore All Tools
             </Link>
           </div>
         </div>
         
         {/* Decorative Background */}
         <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-500/20 rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-emerald-500/20 rounded-full blur-[160px]" />
         </div>
       </div>
     </div>

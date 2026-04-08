@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { Mail, Send, User, MessageSquare, CheckCircle2, AlertCircle } from 'lucide-react';
 
@@ -23,6 +24,10 @@ export function Contact() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Contact Us - QuickTools Pro</title>
+        <meta name="description" content="Have questions or feedback? Get in touch with the QuickTools Pro team. We're here to help you make the most of our digital toolkit." />
+      </Helmet>
       
 
       <div className="text-center mb-16">

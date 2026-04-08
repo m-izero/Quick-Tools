@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   ArrowRightLeft, 
   Ruler, 
@@ -11,6 +12,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
+import { Link } from 'react-router-dom';
 
 type Category = 'length' | 'weight' | 'temperature' | 'speed' | 'data';
 
@@ -126,6 +128,11 @@ export default function UnitConverter() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Unit Converter - Length, Weight, Temperature, Data | QuickTools Pro</title>
+        <meta name="description" content="Fast and accurate unit conversion for length, weight, temperature, speed, and data. Convert meters to kilometers, Celsius to Fahrenheit, and more instantly." />
+        <meta name="keywords" content="unit converter, length converter, weight converter, temperature converter, data converter, metric conversion, online converter" />
+      </Helmet>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
           <motion.div
@@ -233,58 +240,120 @@ export default function UnitConverter() {
           </div>
         </div>
 
-        {/* SEO Content Section */}
+        {/* Rich Content Section */}
         <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
-                  Free <span className="text-emerald-500">Unit Converter</span> Online
-                </h2>
-                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                  Convert between hundreds of different units across multiple categories with our comprehensive online unit converter. Whether you're working on a school project, a professional engineering task, or just need to convert a recipe, our tool provides instant and accurate results. We support a wide range of measurements including length, weight, temperature, speed, and digital data storage, making it a versatile utility for everyone.
-                </p>
-              </div>
-              
-              <div className="space-y-6">
-                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
-                <ol className="space-y-4">
-                  {[
-                    "Select a category from the top (Length, Weight, Temperature, etc.).",
-                    "Choose the 'From' unit and the 'To' unit from the dropdown menus.",
-                    "Enter the value you want to convert in the 'From' input field.",
-                    "The converted result will appear instantly in the 'To' box below.",
-                    "Use the swap button to quickly reverse the conversion direction."
-                  ].map((step, i) => (
-                    <li key={i} className="flex gap-4 items-start">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">
-                        {i + 1}
-                      </span>
-                      <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">{step}</span>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </div>
+          <div className="max-w-3xl mx-auto space-y-16">
+            {/* H1 & Intro */}
+            <section>
+              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                Professional <span className="text-emerald-500">Unit Converter</span>
+              </h2>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                Our Unit Converter is a comprehensive, all-in-one online utility designed for students, professionals, and DIY enthusiasts who need to perform quick and accurate measurements transformations. Whether you're working on a complex engineering project, translating a recipe from metric to imperial, or calculating data storage requirements, our tool provides instant results across multiple categories. We support a wide range of units for length, weight, temperature, speed, and digital data, ensuring that you have the right conversion at your fingertips whenever you need it. Built with a focus on precision and ease of use, it's the ultimate companion for all your measurement needs.
+              </p>
+            </section>
 
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {[
-                    { title: "Instant Conversions", desc: "Get results as you type. No need to click a convert button or wait for page reloads." },
-                    { title: "Wide Range of Units", desc: "Supports both metric and imperial systems, as well as specialized units for data and speed." },
-                    { title: "High Precision", desc: "Calculations are performed with high accuracy, providing up to 6 decimal places for precise work." },
-                    { title: "Mobile Friendly", desc: "Fully responsive design allows you to perform conversions on the go from any smartphone or tablet." }
-                  ].map((benefit, i) => (
-                    <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
-                      <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
-                    </div>
-                  ))}
-                </div>
+            {/* How to Use */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+              <ol className="space-y-4">
+                {[
+                  "Select the measurement category you need from the top icons: Length, Weight, Temperature, Speed, or Data.",
+                  "Choose your starting unit from the 'From' dropdown menu (e.g., Meters, Kilograms, or Celsius).",
+                  "Select your target unit from the 'To' dropdown menu (e.g., Feet, Pounds, or Fahrenheit).",
+                  "Enter the numeric value you wish to convert into the 'From' input field; the tool will process the conversion in real-time.",
+                  "Review the result in the 'To' section, which displays the converted value with high mathematical precision.",
+                  "Use the 'Swap' button (the double arrows) to quickly reverse the conversion direction between your selected units."
+                ].map((step, i) => (
+                  <li key={i} className="flex gap-4 items-start text-zinc-600 dark:text-zinc-400 font-medium">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            {/* Why Use This Tool? */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why Use This Tool?</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { title: "Instant Real-Time Results", desc: "Experience zero-wait conversions that update as you type, eliminating the need for a 'Calculate' button." },
+                  { title: "Comprehensive Unit Support", desc: "Access a wide variety of units from both the Metric and Imperial systems, as well as specialized data measurements." },
+                  { title: "High Mathematical Precision", desc: "Our converter performs calculations with high accuracy, providing up to six decimal places for technical work." },
+                  { title: "Mobile-Optimized Interface", desc: "Perform complex unit conversions on the go with a fully responsive design that works on any device." }
+                ].map((item, i) => (
+                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{item.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            </div>
+            </section>
+
+            {/* Common Use Cases */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Common Use Cases</h3>
+              <div className="space-y-4">
+                {[
+                  { title: "Academic & Scientific Research", desc: "Quickly convert measurements between different systems for physics, chemistry, or mathematics assignments." },
+                  { title: "International Travel & Cooking", desc: "Translate temperatures from Celsius to Fahrenheit or convert weights from grams to ounces for recipes." },
+                  { title: "IT & Data Management", desc: "Calculate the conversion between Megabytes, Gigabytes, and Terabytes to better understand storage capacity." }
+                ].map((useCase, i) => (
+                  <div key={i} className="flex gap-4 items-start p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
+                    <div className="h-2 w-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                    <div>
+                      <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-1">{useCase.title}</h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{useCase.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* FAQ */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Frequently Asked Questions</h3>
+              <div className="space-y-8">
+                {[
+                  { q: "How accurate are the unit conversions?", a: "Our tool uses standard conversion factors and high-precision floating-point math to ensure results are accurate up to 6 decimal places for most units." },
+                  { q: "Does this tool support both Metric and Imperial systems?", a: "Yes. We provide a wide range of units from both systems, including meters, kilometers, inches, feet, grams, pounds, and more." },
+                  { q: "Can I use this tool offline?", a: "While the tool requires an initial internet connection to load, all conversion logic is performed in your browser, meaning it works instantly once the page is open." },
+                  { q: "Why are there different factors for data storage (1000 vs 1024)?", a: "Our tool uses the standard binary prefix (1024) for data conversions (KB, MB, GB), which is the standard used by most operating systems for file sizes." },
+                  { q: "How do I convert temperature?", a: "Simply select the 'Temperature' category and choose between Celsius, Fahrenheit, and Kelvin. Our tool handles the unique offset formulas automatically." },
+                  { q: "Are there any hidden costs or limits?", a: "No. Our Unit Converter is 100% free and unlimited. You can perform as many conversions as you need without any subscriptions or fees." }
+                ].map((faq, i) => (
+                  <div key={i} className="space-y-2">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
+                      <span className="text-emerald-500">Q:</span> {faq.q}
+                    </h4>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed pl-6 border-l-2 border-emerald-500/20">
+                      {faq.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Related Tools */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {[
+                  { name: "Utility Calculators", path: "/utility-tools" },
+                  { name: "Developer Tools", path: "/dev-tools" },
+                  { name: "Color Tool", path: "/color-tool" }
+                ].map((tool, i) => (
+                  <Link
+                    key={i}
+                    to={tool.path}
+                    className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center text-sm font-black text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 hover:border-emerald-500 transition-all uppercase tracking-widest"
+                  >
+                    {tool.name}
+                  </Link>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </div>

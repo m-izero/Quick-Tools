@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Info, Users, Shield, Zap, Heart, Code2, GraduationCap, Globe } from 'lucide-react';
@@ -30,6 +31,10 @@ export function About() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>About QuickTools Pro - Our Story and Mission</title>
+        <meta name="description" content="Learn about QuickTools Pro, our mission to provide free, secure, and private online tools for developers and creators worldwide." />
+      </Helmet>
       <div className="text-center mb-16">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

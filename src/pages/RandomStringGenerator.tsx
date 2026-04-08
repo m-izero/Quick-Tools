@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   Lock, 
   Copy, 
@@ -12,6 +13,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
+import { Link } from 'react-router-dom';
 
 export function RandomStringGenerator() {
   const [randomString, setRandomString] = useState('');
@@ -62,6 +64,11 @@ export function RandomStringGenerator() {
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 sm:py-12">
+      <Helmet>
+        <title>Random String Generator - Secure Passwords & Tokens | QuickTools Pro</title>
+        <meta name="description" content="Generate secure, random strings for passwords, API tokens, or identifiers. Fully customizable length and character sets. 100% private and browser-based." />
+        <meta name="keywords" content="random string generator, password generator, token generator, secure string, random text, online tool" />
+      </Helmet>
       <div className="mb-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -208,57 +215,120 @@ export function RandomStringGenerator() {
         </div>
       </div>
 
-      {/* SEO Content Section */}
+      {/* Rich Content Section */}
       <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
-                Free <span className="text-emerald-500">Random String</span> Generator Online
-              </h2>
-              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                Generate secure, random strings for any purpose with our free online tool. Whether you need a strong password, a unique API token, or a random identifier for development, our generator provides high-entropy strings instantly. Built with security in mind, this tool uses the browser's native Web Crypto API to ensure true randomness and maximum privacy, as all generation happens locally on your device.
-              </p>
-            </div>
-            
-            <div className="space-y-6">
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
-              <ol className="space-y-4">
-                {[
-                  "Adjust the 'String Length' slider to your desired number of characters (8-64).",
-                  "Toggle the character sets you want to include (Uppercase, Lowercase, Numbers, Symbols).",
-                  "The random string will update automatically as you change the settings.",
-                  "Click 'Copy String' to save the result or use the refresh button to generate a new one."
-                ].map((step, i) => (
-                  <li key={i} className="flex gap-4 items-start">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">
-                      {i + 1}
-                    </span>
-                    <span className="text-sm text-zinc-600 dark:text-zinc-400 font-medium">{step}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
+        <div className="max-w-3xl mx-auto space-y-16">
+          {/* H1 & Intro */}
+          <section>
+            <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+              Random <span className="text-emerald-500">String Generator</span>
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              Our Random String Generator is a versatile and secure online tool designed to create high-entropy strings for a wide variety of applications. Whether you need a complex password, a unique API key, a secure token, or random test data for development, this tool provides instant results with full customization. By utilizing the browser's native Web Crypto API, we ensure that every string generated is cryptographically secure and completely private. It's the perfect solution for developers, system administrators, and security-conscious users who need reliable randomness without the risk of server-side data collection.
+            </p>
+          </section>
 
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
-              <div className="grid grid-cols-1 gap-4">
-                {[
-                  { title: "Cryptographically Secure", desc: "Uses the Web Crypto API for high-quality randomness suitable for security purposes." },
-                  { title: "100% Local Processing", desc: "Your generated strings never leave your browser, ensuring complete privacy." },
-                  { title: "Highly Customizable", desc: "Fine-tune the length and character types to meet specific requirements." },
-                  { title: "Instant & Free", desc: "Generate as many strings as you need without any cost or registration." }
-                ].map((benefit, i) => (
-                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
-                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
-                  </div>
-                ))}
-              </div>
+          {/* How to Use */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+            <ol className="space-y-4">
+              {[
+                "Use the 'String Length' slider to choose the desired number of characters for your random string (from 8 up to 64).",
+                "Select the character sets you wish to include by toggling the checkboxes for Uppercase, Lowercase, Numbers, and Symbols.",
+                "Observe the generated string in the main display box, which updates automatically as you adjust your preferences.",
+                "Click the 'Copy String' button to save the current result to your clipboard for immediate use.",
+                "If you need a different string with the same settings, click the 'Refresh' icon to regenerate a new random sequence.",
+                "For maximum security, ensure you've selected a mix of all character types and a length of at least 16 characters."
+              ].map((step, i) => (
+                <li key={i} className="flex gap-4 items-start text-zinc-600 dark:text-zinc-400 font-medium">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          {/* Why Use This Tool? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why Use This Tool?</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { title: "Cryptographically Secure", desc: "Uses the Web Crypto API for high-quality randomness suitable for security purposes." },
+                { title: "Full Customization Options", desc: "Fine-tune your strings by including or excluding specific character sets to meet requirements." },
+                { title: "No Server-Side Storage", desc: "All generation happens locally in your browser; your strings are never sent to our servers." },
+                { title: "Developer-Centric Design", desc: "A clean, fast interface that allows for quick generation and copying, saving valuable time." }
+              ].map((item, i) => (
+                <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                  <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{item.title}</h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
-          </div>
+          </section>
+
+          {/* Common Use Cases */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Common Use Cases</h3>
+            <div className="space-y-4">
+              {[
+                { title: "API Key & Token Generation", desc: "Create unique, unpredictable keys for your web services and applications to ensure secure authentication." },
+                { title: "Database Unique Identifiers", desc: "Generate random strings to use as primary keys or unique IDs in your database tables." },
+                { title: "Mock Data for Testing", desc: "Quickly produce large amounts of random text data to populate your application during testing phases." }
+              ].map((useCase, i) => (
+                <div key={i} className="flex gap-4 items-start p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
+                  <div className="h-2 w-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                  <div>
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-1">{useCase.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{useCase.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Frequently Asked Questions</h3>
+            <div className="space-y-8">
+              {[
+                { q: "How random are the strings generated by this tool?", a: "The strings are generated using the Web Crypto API, which provides a cryptographically secure source of randomness. This is much more secure than standard pseudo-random number generators found in many programming languages." },
+                { q: "What is the maximum length I can generate?", a: "Currently, our tool supports generating strings up to 64 characters in length, which provides more than enough entropy for even the most demanding security requirements." },
+                { q: "Can I include custom characters in the generator?", a: "While we provide standard sets (Uppercase, Lowercase, Numbers, Symbols), we've selected these to cover the vast majority of use cases. If you need specific characters, you can generate a string and manually swap characters as needed." },
+                { q: "Is it safe to use these strings for production passwords?", a: "Yes, absolutely. Because the generation is local and uses secure random number generation, the strings are ideal for production-level passwords and security tokens." },
+                { q: "Does this tool store any of the strings I generate?", a: "No. We prioritize your privacy. The code runs entirely on your device, and we have no way of seeing or storing the strings you create." },
+                { q: "Why should I use a random string instead of a word-based password?", a: "Random strings have much higher entropy per character than word-based passwords, making them significantly harder for hackers to crack using dictionary or brute-force attacks." }
+              ].map((faq, i) => (
+                <div key={i} className="space-y-2">
+                  <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
+                    <span className="text-emerald-500">Q:</span> {faq.q}
+                  </h4>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed pl-6 border-l-2 border-emerald-500/20">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Related Tools */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {[
+                { name: "Password Strength Checker", path: "/password-strength" },
+                { name: "Hash Generator", path: "/hash-generator" },
+                { name: "Base64 Tool", path: "/base64-tool" }
+              ].map((tool, i) => (
+                <Link
+                  key={i}
+                  to={tool.path}
+                  className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center text-sm font-black text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 hover:border-emerald-500 transition-all uppercase tracking-widest"
+                >
+                  {tool.name}
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </div>

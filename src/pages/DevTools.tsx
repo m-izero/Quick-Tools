@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { 
   Code2, 
   Braces, 
@@ -14,6 +15,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
+import { Link } from 'react-router-dom';
 
 type DevTool = 'json' | 'url' | 'base64';
 
@@ -93,6 +95,11 @@ export default function DevTools() {
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-12 px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>Developer Tools - JSON Formatter, URL Encoder, Base64 | QuickTools Pro</title>
+        <meta name="description" content="A comprehensive suite of developer utilities. Format JSON, encode/decode URLs, and handle Base64 data instantly. 100% private and browser-based processing." />
+        <meta name="keywords" content="developer tools, json formatter, url encoder, url decoder, base64 encoder, base64 decoder, online dev tools, secure formatting" />
+      </Helmet>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <motion.div
@@ -243,62 +250,120 @@ export default function DevTools() {
           </div>
         </div>
 
-        {/* SEO Content Section */}
+        {/* Rich Content Section */}
         <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
-                  Professional <span className="text-emerald-500">Developer Tools</span> Online
-                </h2>
-                <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
-                  Streamline your development workflow with our site of essential developer utilities. From formatting complex JSON structures to encoding URLs and Base64 strings, our tools provide a fast, secure, and reliable way to handle data. Built for developers by developers, these tools run entirely in your browser, ensuring that your sensitive code and data never leave your local environment.
-                </p>
-              </div>
-              
-              <div className="space-y-6">
-                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Available Tools</h3>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">JSON Formatter</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-                      Convert messy, minified JSON into a beautiful, readable format with proper indentation. Our tool also validates your JSON structure, helping you catch syntax errors instantly.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">URL Encoder/Decoder</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-                      Safely encode special characters in your URLs for web transmission or decode them back to their original form. Essential for handling query parameters and API requests.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-black text-emerald-500 uppercase tracking-widest mb-2">Base64 Tool</h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-                      Quickly encode text to Base64 format or decode Base64 strings back to plain text. Perfect for handling data in environments that only support ASCII characters.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-3xl mx-auto space-y-16">
+            {/* H1 & Intro */}
+            <section>
+              <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">
+                Professional <span className="text-emerald-500">Developer Tools</span>
+              </h2>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                Our Developer Tools suite is an essential collection of utilities designed to streamline the daily workflow of web developers, software engineers, and data analysts. From formatting complex, minified JSON structures to encoding and decoding URLs and Base64 strings, these tools provide a fast, secure, and reliable way to handle data. Built with a focus on efficiency and privacy, all processing occurs entirely within your browser, ensuring that your sensitive code and data never leave your local environment. It's the perfect companion for debugging, API testing, and data transformation tasks.
+              </p>
+            </section>
 
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Benefits</h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {[
-                    { title: "Zero Data Leakage", desc: "All processing is done client-side. Your data is never sent to our servers, keeping your secrets safe." },
-                    { title: "Instant Results", desc: "Experience real-time formatting and encoding without the latency of server-side calls." },
-                    { title: "Mobile Optimized", desc: "Access professional-grade developer tools from any device with our fully responsive interface." },
-                    { title: "Completely Free", desc: "No subscriptions, no limits. Use our tools as much as you need for your daily development tasks." }
-                  ].map((benefit, i) => (
-                    <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
-                      <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{benefit.title}</h4>
-                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{benefit.desc}</p>
-                    </div>
-                  ))}
-                </div>
+            {/* How to Use */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">How to Use</h3>
+              <ol className="space-y-4">
+                {[
+                  "Select the specific utility you need from the tool tabs: JSON Formatter, URL Encoder, or Base64 Tool.",
+                  "Paste your raw data into the 'Input' text area or type it directly.",
+                  "Click the primary action button (e.g., 'Format JSON', 'Encode URL', or 'Encode Base64') to process your data.",
+                  "If you need to reverse a process, use the 'Decode' buttons available for the URL and Base64 tools.",
+                  "Review the results in the 'Output' section, which will display the formatted or transformed data instantly.",
+                  "Click the 'Copy Result' button to save the output to your clipboard for use in your code or documentation."
+                ].map((step, i) => (
+                  <li key={i} className="flex gap-4 items-start text-zinc-600 dark:text-zinc-400 font-medium">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-black text-white">{i + 1}</span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            {/* Why Use This Tool? */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why Use This Tool?</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { title: "Enhanced Code Readability", desc: "Quickly turn unreadable, minified JSON into a beautifully indented and structured format for easier debugging." },
+                  { title: "Secure Data Handling", desc: "All transformations are performed client-side, meaning your sensitive data is never sent to a server." },
+                  { title: "Real-Time Validation", desc: "Our JSON formatter automatically checks for syntax errors, helping you identify and fix malformed data instantly." },
+                  { title: "Cross-Platform Compatibility", desc: "Access professional-grade developer utilities from any modern web browser on desktop or mobile devices." }
+                ].map((item, i) => (
+                  <div key={i} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white mb-2 uppercase tracking-widest">{item.title}</h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
               </div>
-            </div>
+            </section>
+
+            {/* Common Use Cases */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Common Use Cases</h3>
+              <div className="space-y-4">
+                {[
+                  { title: "Debugging API Responses", desc: "Format messy JSON payloads from API calls to understand the data structure and identify potential issues." },
+                  { title: "Preparing URL Parameters", desc: "Encode special characters in query strings to ensure they are transmitted correctly over the web." },
+                  { title: "Handling Binary Data in Text", desc: "Use the Base64 tool to encode small images or binary files into a text format suitable for embedding in HTML or CSS." }
+                ].map((useCase, i) => (
+                  <div key={i} className="flex gap-4 items-start p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
+                    <div className="h-2 w-2 rounded-full bg-emerald-500 mt-2 shrink-0" />
+                    <div>
+                      <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-1">{useCase.title}</h4>
+                      <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">{useCase.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* FAQ */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Frequently Asked Questions</h3>
+              <div className="space-y-8">
+                {[
+                  { q: "Is my data safe when using these online developer tools?", a: "Yes, absolutely. All processing is done locally in your browser. We do not store, log, or transmit any of the data you enter into the input fields." },
+                  { q: "Can the JSON formatter handle very large files?", a: "Yes, it can handle most standard JSON files used in web development. However, extremely large files may experience slight performance lag depending on your device's processing power." },
+                  { q: "What happens if my JSON is invalid?", a: "The tool will display a clear error message indicating that the JSON is malformed, allowing you to check your syntax and correct any missing commas or brackets." },
+                  { q: "Does the URL encoder handle all special characters?", a: "Yes, our tool uses the standard encodeURIComponent function, which safely encodes all characters that have special meaning in a URL." },
+                  { q: "What is Base64 encoding used for?", a: "Base64 is commonly used to represent binary data in an ASCII string format. This is useful for embedding data in environments that only support text, such as email or certain database fields." },
+                  { q: "Are there any limits on how many times I can use these tools?", a: "No. Our Developer Tools are completely free and unlimited. You can use them as often as you need for your professional or personal projects." }
+                ].map((faq, i) => (
+                  <div key={i} className="space-y-2">
+                    <h4 className="text-sm font-black text-zinc-900 dark:text-white uppercase tracking-widest flex items-center gap-2">
+                      <span className="text-emerald-500">Q:</span> {faq.q}
+                    </h4>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed pl-6 border-l-2 border-emerald-500/20">
+                      {faq.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Related Tools */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {[
+                  { name: "Hash Generator", path: "/hash-generator" },
+                  { name: "Random String Generator", path: "/random-string" },
+                  { name: "Color Tool", path: "/color-tool" }
+                ].map((tool, i) => (
+                  <Link
+                    key={i}
+                    to={tool.path}
+                    className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 text-center text-sm font-black text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 hover:border-emerald-500 transition-all uppercase tracking-widest"
+                  >
+                    {tool.name}
+                  </Link>
+                ))}
+              </div>
+            </section>
           </div>
         </div>
       </div>
