@@ -266,21 +266,21 @@ export function Home() {
             {
               title: "1. Browse the Tool Dashboard",
               desc: "Our homepage is your command center. Tools are organized into logical categories like 'Security', 'Image & PDF', and 'Developer Utilities'. Simply scroll and click to launch any tool instantly.",
-              image: "https://picsum.photos/seed/tools-menu/1200/800",
+              image: "images/navbar.png",
               icon: Zap,
               tag: "Dashboard"
             },
             {
               title: "2. Seamless Tool Interaction",
               desc: "Every tool is designed with a consistent, high-performance interface. Drag and drop files, paste text, or use your camera for QR scanning. All processing happens locally—no waiting for uploads.",
-              image: "https://picsum.photos/seed/upload-zone/1200/800",
+              image: "images/drag&drop.png",
               icon: Code2,
               tag: "Workspace"
             },
             {
               title: "3. Quick Access Navigation",
               desc: "Use the global navigation bar to quickly switch between tools, visit our blog for tutorials, or access legal information. Everything you need is always just one click away.",
-              image: "https://picsum.photos/seed/app-tabs/1200/800",
+              image: "images/drag&drop2.png",
               icon: ArrowRight,
               tag: "Navigation"
             }
