@@ -81,6 +81,23 @@ export function Contact() {
             </div>
           </div>
 
+          <div className="bg-zinc-50 dark:bg-zinc-950 p-8 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-900">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white mb-4 uppercase tracking-tight">Before You <span className="text-emerald-500">Contact Us</span></h3>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed mb-6">
+              Check out these quick answers to common questions. You might find what you're looking for instantly!
+            </p>
+            <div className="space-y-4">
+              <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                <h4 className="text-xs font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-2">Are the tools truly private?</h4>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Yes. All processing happens in your browser. We never see your data.</p>
+              </div>
+              <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                <h4 className="text-xs font-black text-zinc-900 dark:text-white uppercase tracking-widest mb-2">Can I request a custom tool?</h4>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Absolutely! We love hearing new ideas from our community.</p>
+              </div>
+            </div>
+          </div>
+
           <div className="bg-emerald-500 p-8 rounded-[2.5rem] text-white shadow-xl shadow-emerald-500/20">
             <h3 className="text-xl font-black mb-4">Why contact us?</h3>
             <ul className="space-y-3">

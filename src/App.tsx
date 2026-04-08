@@ -25,6 +25,7 @@ import { PrivacyPolicy } from '@/pages/PrivacyPolicy';
 import { Terms } from '@/pages/Terms';
 import { Contact } from '@/pages/Contact';
 import { About } from '@/pages/About';
+import { AllTools } from '@/pages/AllTools';
 import React, { useState, useEffect } from 'react';
 import { auth, signInWithGoogle } from '@/lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
@@ -121,6 +122,7 @@ export default function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
+            <Route path="/all-tools" element={<AllTools />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             

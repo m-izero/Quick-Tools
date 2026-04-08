@@ -244,21 +244,21 @@ export function Home() {
             {
               title: "1. Browse the Tool Dashboard",
               desc: "Our homepage is your command center. Tools are organized into logical categories like 'Security', 'Image & PDF', and 'Developer Utilities'. Simply scroll and click to launch any tool instantly.",
-              image: "https://picsum.photos/seed/dashboard-guide/1200/675",
+              image: "https://ais-pre-7rcb3li6ooogtq6xqaye5x-103546232763.europe-west1.run.app/input_file_0.png",
               icon: Zap,
               tag: "Dashboard"
             },
             {
               title: "2. Seamless Tool Interaction",
               desc: "Every tool is designed with a consistent, high-performance interface. Drag and drop files, paste text, or use your camera for QR scanning. All processing happens locally—no waiting for uploads.",
-              image: "https://picsum.photos/seed/tool-guide/1200/675",
+              image: "https://ais-pre-7rcb3li6ooogtq6xqaye5x-103546232763.europe-west1.run.app/input_file_1.png",
               icon: Code2,
               tag: "Workspace"
             },
             {
               title: "3. Quick Access Navigation",
               desc: "Use the global navigation bar to quickly switch between tools, visit our blog for tutorials, or access legal information. Everything you need is always just one click away.",
-              image: "https://picsum.photos/seed/nav-guide/1200/675",
+              image: "https://ais-pre-7rcb3li6ooogtq6xqaye5x-103546232763.europe-west1.run.app/input_file_3.png",
               icon: ArrowRight,
               tag: "Navigation"
             }
@@ -379,36 +379,57 @@ export function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {[
             {
               icon: ShieldCheck,
               title: "Privacy First",
-              desc: "Your files never leave your device. All processing happens locally in your browser for maximum security.",
+              desc: "Your files never leave your device. We use cutting-edge client-side technology to ensure that all processing happens locally in your browser, providing maximum security and peace of mind.",
               color: "text-blue-500",
               bg: "bg-blue-500/10"
             },
             {
               icon: Zap,
               title: "Lightning Fast",
-              desc: "No server uploads means no waiting. Get your results instantly with our optimized browser-based engines.",
+              desc: "No server uploads means no waiting. Our tools are optimized for performance, leveraging your device's hardware to deliver instant results without the latency of traditional web apps.",
               color: "text-amber-500",
               bg: "bg-amber-500/10"
             },
             {
               icon: Smartphone,
               title: "Mobile Optimized",
-              desc: "Designed for the modern web. Use all our tools on your phone or tablet with a seamless, responsive experience.",
+              desc: "Designed for the modern web. Whether you're on a smartphone, tablet, or desktop, our tools provide a seamless, responsive experience that adapts perfectly to your screen size.",
               color: "text-emerald-500",
               bg: "bg-emerald-500/10"
+            },
+            {
+              icon: Lock,
+              title: "No Registration",
+              desc: "Start using our tools immediately. We don't require accounts, emails, or subscriptions. Just visit the site and get your work done without any barriers or data collection.",
+              color: "text-teal-500",
+              bg: "bg-teal-500/10"
+            },
+            {
+              icon: Code2,
+              title: "Developer Friendly",
+              desc: "Built by developers for developers. Our tools include advanced features like JSON formatting, Base64 encoding, and cryptographic hashing to streamline your development workflow.",
+              color: "text-orange-500",
+              bg: "bg-orange-500/10"
+            },
+            {
+              icon: Zap,
+              title: "Professional Grade",
+              desc: "High-quality outputs every time. From lossless image compression to secure password analysis, we provide professional-grade utilities that you can rely on for your most important tasks.",
+              color: "text-cyan-500",
+              bg: "bg-cyan-500/10"
             }
           ].map((feature, i) => (
-            <div key={i} className="text-center space-y-6">
-              <div className={cn("h-20 w-20 rounded-[2rem] flex items-center justify-center mx-auto shadow-lg", feature.bg)}>
-                <feature.icon className={cn("h-10 w-10", feature.color)} />
+            <div key={i} className="group p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 transition-all hover:border-emerald-500/50 hover:shadow-xl">
+              <div className={cn("h-16 w-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-transform group-hover:scale-110", feature.bg)}>
+                <feature.icon className={cn("h-8 w-8", feature.color)} />
               </div>
-              <h3 className="text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-tight">{feature.title}</h3>
-              <p className="text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{feature.desc}</p>
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-tight mb-4">{feature.title}</h3>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">{feature.desc}</p>
             </div>
           ))}
         </div>

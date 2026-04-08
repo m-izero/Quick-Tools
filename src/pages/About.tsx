@@ -72,6 +72,57 @@ export function About() {
         ))}
       </div>
 
+      <div className="space-y-20 mb-20">
+        <section className="bg-white dark:bg-zinc-900 p-10 rounded-[3rem] border border-zinc-100 dark:border-zinc-800 shadow-sm">
+          <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">Our <span className="text-emerald-500">Core Values</span></h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="space-y-3">
+              <h4 className="text-lg font-black text-zinc-900 dark:text-white uppercase tracking-tight">User Empowerment</h4>
+              <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium leading-relaxed">
+                We believe in giving users the tools they need to succeed without barriers. No paywalls, no registrations, just pure utility.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <h4 className="text-lg font-black text-zinc-900 dark:text-white uppercase tracking-tight">Transparency</h4>
+              <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium leading-relaxed">
+                We are open about how our tools work. All processing is client-side, and we never hide what happens to your data.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <h4 className="text-lg font-black text-zinc-900 dark:text-white uppercase tracking-tight">Continuous Innovation</h4>
+              <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium leading-relaxed">
+                The digital landscape changes daily. We are committed to updating our existing tools and adding new ones to meet evolving needs.
+              </p>
+            </div>
+            <div className="space-y-3">
+              <h4 className="text-lg font-black text-zinc-900 dark:text-white uppercase tracking-tight">Accessibility</h4>
+              <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium leading-relaxed">
+                Our tools are designed to work on any device, from high-end workstations to budget smartphones, ensuring everyone has access to quality utilities.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-zinc-50 dark:bg-zinc-950 p-10 rounded-[3rem] border border-zinc-100 dark:border-zinc-900">
+          <h2 className="text-3xl font-black text-zinc-900 dark:text-white mb-6 uppercase tracking-tight">How We Ensure <span className="text-emerald-500">Privacy</span></h2>
+          <div className="prose prose-zinc dark:prose-invert max-w-none">
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              Privacy isn't just a feature at QuickTools Pro; it's our foundation. Unlike many online tools that act as a middleman between you and a server, our platform uses the <strong>Web Workers API</strong> and <strong>Client-Side JavaScript</strong> to perform all operations locally.
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 list-none p-0">
+              <li className="flex items-start gap-3 p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                <Shield className="h-5 w-5 text-emerald-500 shrink-0 mt-1" />
+                <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400"><strong>Zero Server Storage:</strong> We don't have a database for your files. Once you close the tab, the data is gone forever.</span>
+              </li>
+              <li className="flex items-start gap-3 p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+                <Lock className="h-5 w-5 text-blue-500 shrink-0 mt-1" />
+                <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400"><strong>End-to-End Local:</strong> Your sensitive information (like passwords or hashes) never travels over the network.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
         <div className="space-y-6">
           <h2 className="text-3xl font-black text-zinc-900 dark:text-white leading-tight">
