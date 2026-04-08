@@ -77,6 +77,45 @@ export function Blog() {
         </p>
       </div>
 
+      {/* Blog Intro Content */}
+      <div className="mb-24 grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+        <div className="lg:col-span-2 space-y-6">
+          <h2 className="text-3xl font-black text-zinc-900 dark:text-white uppercase tracking-tight">
+            Knowledge is <span className="text-emerald-500">Power</span>
+          </h2>
+          <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed text-lg">
+            At QuickTools Pro, we don't just provide the tools; we provide the knowledge to use them effectively. Our blog is a curated resource for developers, designers, and digital creators who want to stay ahead of the curve. From understanding the nuances of image compression to mastering the latest security protocols, our articles are designed to be practical, informative, and easy to digest.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link 
+              to="/all-tools" 
+              className="px-8 py-4 rounded-2xl bg-emerald-500 text-white font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
+            >
+              Explore All Tools
+            </Link>
+          </div>
+        </div>
+        <div className="relative group">
+          <div className="absolute -inset-4 bg-emerald-500/20 rounded-[3rem] blur-2xl opacity-25 group-hover:opacity-40 transition-opacity" />
+          <div className="relative rounded-[2.5rem] border-2 border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8 shadow-xl">
+            <h3 className="text-lg font-black text-zinc-900 dark:text-white mb-4 uppercase tracking-widest">Featured Topics</h3>
+            <ul className="space-y-4">
+              {[
+                { label: "Web Performance", count: 12 },
+                { label: "Cyber Security", count: 8 },
+                { label: "Dev Productivity", count: 15 },
+                { label: "Design Systems", count: 6 }
+              ].map((topic, i) => (
+                <li key={i} className="flex items-center justify-between text-sm font-bold text-zinc-500 hover:text-emerald-500 cursor-pointer transition-colors">
+                  <span>{topic.label}</span>
+                  <span className="px-2 py-0.5 rounded-md bg-zinc-100 dark:bg-zinc-800 text-[10px]">{topic.count}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogPosts.map((post, index) => (
           <motion.div
