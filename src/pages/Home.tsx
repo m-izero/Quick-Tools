@@ -280,7 +280,8 @@ export function Home() {
               desc: "Our sticky header provides instant access to the Blog, Tools dropdown, and About page. Use the 'Tools' menu to jump between specific categories without returning to the home screen.",
               icon: Menu,
               color: "bg-blue-500",
-              link: "#footer"
+              link: "#footer",
+              showLink: false
             },
             {
               title: "In-Depth Blog",
@@ -328,12 +329,14 @@ export function Home() {
               <p className="text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed mb-6">
                 {step.desc}
               </p>
-              <Link 
-                to={step.link}
-                className="inline-flex items-center gap-2 text-xs font-black text-emerald-500 uppercase tracking-widest group-hover:gap-3 transition-all"
-              >
-                Explore Section <ArrowRight className="h-4 w-4" />
-              </Link>
+              {step.showLink !== false && (
+                <Link 
+                  to={step.link}
+                  className="inline-flex items-center gap-2 text-xs font-black text-emerald-500 uppercase tracking-widest group-hover:gap-3 transition-all"
+                >
+                  Explore Section <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
