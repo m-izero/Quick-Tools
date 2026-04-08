@@ -57,7 +57,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-zinc-50 border-t border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800">
+    <footer id="footer" className="bg-zinc-50 border-t border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand Section */}

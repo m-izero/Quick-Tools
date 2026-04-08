@@ -273,14 +273,14 @@ export function Home() {
               desc: "The homepage is your central hub. Tools are grouped into categories like 'Security', 'Image & PDF', and 'Developer Utilities'. Use the search bar or scroll to find your desired tool instantly.",
               icon: Zap,
               color: "bg-emerald-500",
-              link: "/"
+              link: "/?openTools=true"
             },
             {
               title: "Global Navigation",
               desc: "Our sticky header provides instant access to the Blog, Tools dropdown, and About page. Use the 'Tools' menu to jump between specific categories without returning to the home screen.",
               icon: Menu,
               color: "bg-blue-500",
-              link: "#"
+              link: "#footer"
             },
             {
               title: "In-Depth Blog",

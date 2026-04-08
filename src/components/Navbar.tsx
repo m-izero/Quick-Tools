@@ -46,6 +46,14 @@ export function Navbar() {
 
   const [isToolsOpen, setIsToolsOpen] = React.useState(false);
 
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('openTools') === 'true') {
+      setIsToolsOpen(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location]);
+
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
