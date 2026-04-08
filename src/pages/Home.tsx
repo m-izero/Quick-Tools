@@ -19,7 +19,12 @@ import {
   Calculator,
   Globe,
   Braces,
-  Hash
+  Hash,
+  Menu,
+  MessageSquare,
+  Hammer,
+  Shield,
+  Mail
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/utils/cn';
@@ -251,84 +256,84 @@ export function Home() {
       </div>
 
       {/* Navigation Guide Section */}
-      <div className="mb-48 space-y-24">
-        <div className="text-center space-y-4">
+      <div className="mb-48">
+        <div className="text-center space-y-4 mb-20">
           <h2 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-tight">
             How to <span className="text-emerald-500">Navigate</span>
           </h2>
           <p className="text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl mx-auto">
-            Master QuickTools Pro in seconds. Here's a visual guide to getting the most out of our professional toolkit.
+            Master QuickTools Pro in seconds. Here's a comprehensive guide to navigating our professional toolkit and finding exactly what you need.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              title: "1. Browse the Tool Dashboard",
-              desc: "Our homepage is your command center. Tools are organized into logical categories like 'Security', 'Image & PDF', and 'Developer Utilities'. Simply scroll and click to launch any tool instantly.",
-              image: "images/navbar.png",
+              title: "Tool Dashboard",
+              desc: "The homepage is your central hub. Tools are grouped into categories like 'Security', 'Image & PDF', and 'Developer Utilities'. Use the search bar or scroll to find your desired tool instantly.",
               icon: Zap,
-              tag: "Dashboard"
+              color: "bg-emerald-500",
+              link: "/"
             },
             {
-              title: "2. Seamless Tool Interaction",
-              desc: "Every tool is designed with a consistent, high-performance interface. Drag and drop files, paste text, or use your camera for QR scanning. All processing happens locally—no waiting for uploads.",
-              image: "images/drag&drop.png",
-              icon: Code2,
-              tag: "Workspace"
+              title: "Global Navigation",
+              desc: "Our sticky header provides instant access to the Blog, Tools dropdown, and About page. Use the 'Tools' menu to jump between specific categories without returning to the home screen.",
+              icon: Menu,
+              color: "bg-blue-500",
+              link: "#"
             },
             {
-              title: "3. Quick Access Navigation",
-              desc: "Use the global navigation bar to quickly switch between tools, visit our blog for tutorials, or access legal information. Everything you need is always just one click away.",
-              image: "images/drag&drop2.png",
-              icon: ArrowRight,
-              tag: "Navigation"
+              title: "In-Depth Blog",
+              desc: "Visit our blog for detailed tutorials, security tips, and developer guides. Each post is designed to help you understand the 'why' behind the tools you use every day.",
+              icon: MessageSquare,
+              color: "bg-purple-500",
+              link: "/blog"
+            },
+            {
+              title: "All Tools Index",
+              desc: "Need a bird's eye view? The 'All Tools' page lists every single utility we offer in a clean, scannable list. Perfect for power users who know exactly what they're looking for.",
+              icon: Hammer,
+              color: "bg-amber-500",
+              link: "/all-tools"
+            },
+            {
+              title: "About & Mission",
+              desc: "Learn about our commitment to privacy and why we build these tools. Our About page explains our 'Client-Side First' philosophy and how we keep your data safe.",
+              icon: Shield,
+              color: "bg-red-500",
+              link: "/about"
+            },
+            {
+              title: "Support & Contact",
+              desc: "Have a suggestion or found a bug? Our Contact page features a direct form to reach our team. We value community feedback and use it to build new, requested features.",
+              icon: Mail,
+              color: "bg-indigo-500",
+              link: "/contact"
             }
           ].map((step, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className={cn(
-                "flex flex-col gap-12 lg:items-center",
-                i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
-              )}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="group relative p-8 rounded-[2.5rem] bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 hover:border-emerald-500/50 transition-all duration-500 shadow-sm hover:shadow-xl"
             >
-              <div className="flex-1 space-y-8">
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
-                  <step.icon className="h-5 w-5" />
-                  <span className="text-xs font-black uppercase tracking-widest">{step.tag}</span>
-                </div>
-                <h3 className="text-3xl sm:text-4xl font-black text-zinc-900 dark:text-white uppercase tracking-tight leading-tight">
-                  {step.title}
-                </h3>
-                <p className="text-lg text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-                  {step.desc}
-                </p>
-                <div className="flex items-center gap-4 pt-4">
-                  <div className="h-1 w-12 rounded-full bg-emerald-500" />
-                  <span className="text-xs font-black text-zinc-400 uppercase tracking-[0.2em]">Step {i + 1} of 3</span>
-                </div>
+              <div className={cn("h-14 w-14 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg", step.color)}>
+                <step.icon className="h-7 w-7" />
               </div>
-              <div className="flex-1 w-full">
-                <div className="relative group">
-                  <div className="absolute -inset-4 bg-emerald-500/20 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  <div className="relative overflow-hidden rounded-[2.5rem] border-4 border-zinc-100 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-800 shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:border-emerald-500/50">
-                    <img 
-                      src={step.image} 
-                      alt={step.title}
-                      className="w-full aspect-video object-cover"
-                      referrerPolicy="no-referrer"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                      <div className="h-12 w-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                        <Zap className="h-6 w-6 fill-current" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-tight mb-4">
+                {step.title}
+              </h3>
+              <p className="text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed mb-6">
+                {step.desc}
+              </p>
+              <Link 
+                to={step.link}
+                className="inline-flex items-center gap-2 text-xs font-black text-emerald-500 uppercase tracking-widest group-hover:gap-3 transition-all"
+              >
+                Explore Section <ArrowRight className="h-4 w-4" />
+              </Link>
             </motion.div>
           ))}
         </div>

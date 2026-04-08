@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
-import { Shield, Lock, Eye, Cookie, Mail, AlertCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Shield, Lock, Eye, Cookie, Mail, AlertCircle, ArrowRight } from 'lucide-react';
 
 export function PrivacyPolicy() {
   const lastUpdated = "April 4, 2026";
@@ -94,12 +95,20 @@ export function PrivacyPolicy() {
             <h2 className="text-2xl font-black text-zinc-900 dark:text-white m-0">Contact Us</h2>
           </div>
           <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you have any questions regarding this Privacy Policy, you may contact us using the information below:
+            If you have any questions regarding this Privacy Policy, you may contact us using the information below. For faster response, please use our dedicated contact form.
           </p>
-          <div className="mt-4 p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 inline-block">
-            <a href="mailto:mizerohirwaelyse@gmail.com" className="text-emerald-500 font-bold hover:underline">
-              mizerohirwaelyse@gmail.com
-            </a>
+          <div className="flex flex-wrap items-center gap-4 mt-6">
+            <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-800 border border-zinc-100 dark:border-zinc-700 inline-block">
+              <a href="mailto:mizerohirwaelyse@gmail.com" className="text-emerald-500 font-bold hover:underline">
+                mizerohirwaelyse@gmail.com
+              </a>
+            </div>
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl bg-emerald-500 text-white font-black text-xs uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20"
+            >
+              Go to Contact Page <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </section>
       </div>

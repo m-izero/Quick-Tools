@@ -84,6 +84,18 @@ export function Navbar() {
                 Blog
               </Link>
 
+              <Link
+                to="/about"
+                className={cn(
+                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  location.pathname === "/about"
+                    ? "text-emerald-600 dark:text-emerald-400"
+                    : "text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+                )}
+              >
+                About
+              </Link>
+
               <div>
                 <button
                   onMouseEnter={() => setIsToolsOpen(true)}
@@ -181,6 +193,16 @@ export function Navbar() {
               )}
             >
               Blog
+            </Link>
+            <Link
+              to="/about"
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "block text-lg font-black uppercase tracking-widest",
+                location.pathname === "/about" ? "text-emerald-500" : "text-zinc-900 dark:text-white"
+              )}
+            >
+              About
             </Link>
 
             {toolCategories.map((category) => (
