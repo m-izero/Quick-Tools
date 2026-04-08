@@ -335,6 +335,14 @@ export default function UnitConverter() {
               </div>
             </section>
 
+            {/* Why this tool was made? */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                We developed the Unit Converter to provide a fast, accurate, and ad-free alternative to the cluttered conversion websites that dominate the internet. Whether you're a student working on homework, a chef converting a recipe, or a developer calculating data sizes, we wanted to offer a tool that delivers instant results with high precision. Our focus was on creating a clean, responsive interface that handles the most common measurement systems without the need for page reloads or complex menus.
+              </p>
+            </section>
+
             {/* Related Tools */}
             <section className="space-y-6">
               <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

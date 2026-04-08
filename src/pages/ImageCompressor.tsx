@@ -601,6 +601,14 @@ export function ImageCompressor() {
             </div>
           </section>
 
+          {/* Why this tool was made? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              We built the Image Compressor to solve the common frustration of dealing with oversized image files that slow down websites and exceed email limits. While many online compressors exist, they often compromise user privacy by uploading images to remote servers. Our goal was to create a professional-grade optimization tool that runs entirely in the browser, giving users a fast, secure, and high-quality way to manage their visual assets without ever letting their private photos leave their device.
+            </p>
+          </section>
+
           {/* Related Tools */}
           <section className="space-y-6">
             <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

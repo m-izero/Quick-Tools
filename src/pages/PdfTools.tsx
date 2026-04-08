@@ -674,6 +674,14 @@ export function PdfTools() {
             </div>
           </section>
 
+          {/* Why this tool was made? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              We introduced the PDF Master suite to provide a professional, cost-free alternative to expensive PDF editing software. Managing PDFs often involves sensitive documents like contracts, resumes, and financial reports, which users are understandably hesitant to upload to unknown servers. Our mission was to build a high-performance tool that handles complex PDF operations like merging and splitting entirely within the user's browser, ensuring that their most important documents remain private and secure at all times.
+            </p>
+          </section>
+
           {/* Related Tools */}
           <section className="space-y-6">
             <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

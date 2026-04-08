@@ -301,6 +301,14 @@ export function HashGenerator() {
             </div>
           </section>
 
+          {/* Why this tool was made? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              The Hash Generator was created to provide a secure and accessible way for users to generate cryptographic signatures for their data without relying on server-side processing. In an era where data integrity is paramount, we wanted to empower developers and security-conscious individuals with a tool that can verify files, secure passwords (for testing), and create unique identifiers—all while maintaining absolute privacy by keeping the data entirely within the user's browser.
+            </p>
+          </section>
+
           {/* Related Tools */}
           <section className="space-y-6">
             <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

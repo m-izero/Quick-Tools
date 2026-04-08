@@ -375,6 +375,14 @@ export function Base64Tool() {
               </div>
             </section>
 
+            {/* Why this tool was made? */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                The Base64 Tool was developed to provide developers and IT professionals with a fast, reliable, and secure way to handle data encoding and decoding. We realized that many existing online tools send your data to their servers, which is a major security risk for sensitive information like API keys or private tokens. Our goal was to create a 100% client-side utility that performs these transformations instantly in your browser, ensuring that your data remains private while giving you the speed and convenience you need for your daily workflow.
+              </p>
+            </section>
+
             {/* Related Tools */}
             <section className="space-y-6">
               <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

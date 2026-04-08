@@ -393,6 +393,14 @@ export default function UtilityTools() {
               </div>
             </section>
 
+            {/* Why this tool was made? */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                We developed the Utility Calculators suite to solve the small but frequent mathematical challenges we all face daily. Whether it's figuring out a discount at a store, calculating a percentage for a tip, or checking an exact age, we wanted to provide a single, ad-free destination that gives you the answers instantly. Our goal was to eliminate the need for manual math or searching through complex apps by offering a clean, mobile-friendly interface that focuses on speed and accuracy for the most common everyday calculations.
+              </p>
+            </section>
+
             {/* Related Tools */}
             <section className="space-y-6">
               <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

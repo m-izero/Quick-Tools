@@ -311,6 +311,14 @@ export function PasswordStrengthMeter() {
             </div>
           </section>
 
+          {/* Why this tool was made? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              We introduced the Password Strength Meter to address the growing need for robust personal security in an increasingly digital world. Many users rely on simple, easily guessable passwords, unaware of how quickly modern hacking tools can compromise them. Our goal was to provide a transparent, easy-to-use utility that educates users on password complexity and encourages the adoption of stronger security practices, all while ensuring that sensitive data never leaves their local environment.
+            </p>
+          </section>
+
           {/* Related Tools */}
           <section className="space-y-6">
             <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

@@ -310,6 +310,14 @@ export function RandomStringGenerator() {
             </div>
           </section>
 
+          {/* Why this tool was made? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              The Random String Generator was developed to provide a reliable, cryptographically secure source of randomness for everyday digital tasks. We recognized that many online generators use insecure methods or collect user data. Our mission was to build a tool that leverages the Web Crypto API to ensure high-entropy results for passwords, tokens, and identifiers, all while maintaining a strict privacy-first approach where every string is generated locally on the user's device.
+            </p>
+          </section>
+
           {/* Related Tools */}
           <section className="space-y-6">
             <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

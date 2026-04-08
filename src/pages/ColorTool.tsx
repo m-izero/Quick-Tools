@@ -437,6 +437,14 @@ export default function ColorTool() {
               </div>
             </section>
 
+            {/* Why this tool was made? */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                We created the Color Picker & Converter to streamline the design-to-development workflow. We noticed that many color tools are either too simple or overly complex, often lacking a quick way to save and compare colors. Our goal was to build a professional utility that provides instant conversions between HEX, RGB, and HSL formats, while offering a convenient favorites system that lives right in your browser. It's designed to be the go-to tool for anyone who needs to manage digital colors with speed and mathematical precision.
+              </p>
+            </section>
+
             {/* Related Tools */}
             <section className="space-y-6">
               <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

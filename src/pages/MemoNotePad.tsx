@@ -430,6 +430,14 @@ export function MemoNotePad() {
             </div>
           </section>
 
+          {/* Why this tool was made? */}
+          <section className="space-y-6">
+            <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              MemoNote Pad was introduced to provide a truly private and instant way to capture thoughts without the friction of account creation or the privacy concerns of cloud-based note apps. We wanted to build a distraction-free writing space that respects your data by keeping everything strictly on your own device. It's the ideal solution for those who need a quick place to jot down ideas, draft content, or keep temporary notes while knowing their information is never being tracked or stored on a remote server.
+            </p>
+          </section>
+
           {/* Related Tools */}
           <section className="space-y-6">
             <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

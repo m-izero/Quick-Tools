@@ -501,6 +501,14 @@ export default function QrCodeTool() {
               </div>
             </section>
 
+            {/* Why this tool was made? */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                The QR Code Tools were created to provide a seamless, privacy-focused way to interact with QR codes without the need for specialized apps or ad-heavy websites. We noticed that many QR scanners and generators are either cluttered with intrusive ads or require unnecessary permissions. Our goal was to build a clean, browser-based utility that handles both generation and scanning locally, ensuring that your data—whether it's a private URL or a scanned code—never leaves your device.
+              </p>
+            </section>
+
             {/* Related Tools */}
             <section className="space-y-6">
               <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>

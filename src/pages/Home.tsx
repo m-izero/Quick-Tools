@@ -25,7 +25,6 @@ import { Link } from 'react-router-dom';
 import { cn } from '@/utils/cn';
 
 const toolCategories = [
-// ... (rest of the categories)
   {
     name: "Security & Privacy Tools",
     tools: [
@@ -91,6 +90,15 @@ const toolCategories = [
         path: "/dev-tools",
         color: "text-amber-500",
         bg: "bg-amber-500/10",
+        size: "md"
+      },
+      {
+        title: "Base64 Tool",
+        description: "Encode and decode text to Base64 format instantly with auto-detection.",
+        icon: Binary,
+        path: "/base64-tool",
+        color: "text-emerald-500",
+        bg: "bg-emerald-500/10",
         size: "md"
       },
       {
@@ -228,6 +236,20 @@ export function Home() {
         </div>
       </div>
 
+      {/* Why this platform was made? */}
+      <div className="mb-32">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <h2 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-tight text-center">
+            Why this platform <span className="text-emerald-500">was made?</span>
+          </h2>
+          <div className="p-8 sm:p-12 rounded-[3rem] bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800">
+            <p className="text-lg text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+              QuickTools Pro was born out of a simple observation: the internet is saturated with utility websites that are either difficult to use, insecure, or hidden behind paywalls. We saw a need for a unified, professional-grade toolkit that respects user privacy by default. By utilizing the latest advancements in browser-based computing, we've created a platform where you can compress images, manage PDFs, and secure your data without ever needing to trust a third-party server with your files. Our goal is to provide a reliable, fast, and free resource that empowers users to handle their digital tasks with confidence and efficiency.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Navigation Guide Section */}
       <div className="mb-48 space-y-24">
         <div className="text-center space-y-4">
@@ -244,21 +266,21 @@ export function Home() {
             {
               title: "1. Browse the Tool Dashboard",
               desc: "Our homepage is your command center. Tools are organized into logical categories like 'Security', 'Image & PDF', and 'Developer Utilities'. Simply scroll and click to launch any tool instantly.",
-              image: "https://ais-pre-7rcb3li6ooogtq6xqaye5x-103546232763.europe-west1.run.app/input_file_0.png",
+              image: "https://picsum.photos/seed/dashboard/1200/800",
               icon: Zap,
               tag: "Dashboard"
             },
             {
               title: "2. Seamless Tool Interaction",
               desc: "Every tool is designed with a consistent, high-performance interface. Drag and drop files, paste text, or use your camera for QR scanning. All processing happens locally—no waiting for uploads.",
-              image: "https://ais-pre-7rcb3li6ooogtq6xqaye5x-103546232763.europe-west1.run.app/input_file_1.png",
+              image: "https://picsum.photos/seed/workspace/1200/800",
               icon: Code2,
               tag: "Workspace"
             },
             {
               title: "3. Quick Access Navigation",
               desc: "Use the global navigation bar to quickly switch between tools, visit our blog for tutorials, or access legal information. Everything you need is always just one click away.",
-              image: "https://ais-pre-7rcb3li6ooogtq6xqaye5x-103546232763.europe-west1.run.app/input_file_3.png",
+              image: "https://picsum.photos/seed/navigation/1200/800",
               icon: ArrowRight,
               tag: "Navigation"
             }
@@ -375,7 +397,7 @@ export function Home() {
             Why Choose <span className="text-emerald-500">QuickTools Pro</span>?
           </h2>
           <p className="text-zinc-500 dark:text-zinc-400 font-medium max-w-2xl mx-auto">
-            We've built a platform that prioritizes your workflow and security above all else.
+            We've built a platform that prioritizes your workflow and security above all else. Here is why thousands of users trust us every day.
           </p>
         </div>
 
@@ -383,43 +405,43 @@ export function Home() {
           {[
             {
               icon: ShieldCheck,
-              title: "Privacy First",
-              desc: "Your files never leave your device. We use cutting-edge client-side technology to ensure that all processing happens locally in your browser, providing maximum security and peace of mind.",
+              title: "Privacy First Architecture",
+              desc: "Your files never leave your device. We use cutting-edge client-side technology to ensure that all processing happens locally in your browser, providing maximum security and total peace of mind for sensitive data.",
               color: "text-blue-500",
               bg: "bg-blue-500/10"
             },
             {
               icon: Zap,
-              title: "Lightning Fast",
-              desc: "No server uploads means no waiting. Our tools are optimized for performance, leveraging your device's hardware to deliver instant results without the latency of traditional web apps.",
+              title: "Lightning Fast Results",
+              desc: "No server uploads means no waiting. Our tools are optimized for performance, leveraging your device's hardware to deliver instant results without the latency of traditional web applications.",
               color: "text-amber-500",
               bg: "bg-amber-500/10"
             },
             {
               icon: Smartphone,
-              title: "Mobile Optimized",
-              desc: "Designed for the modern web. Whether you're on a smartphone, tablet, or desktop, our tools provide a seamless, responsive experience that adapts perfectly to your screen size.",
+              title: "Mobile Optimized Experience",
+              desc: "Designed for the modern web. Whether you're on a smartphone, tablet, or desktop, our tools provide a seamless, responsive experience that adapts perfectly to your screen size and input method.",
               color: "text-emerald-500",
               bg: "bg-emerald-500/10"
             },
             {
               icon: Lock,
-              title: "No Registration",
-              desc: "Start using our tools immediately. We don't require accounts, emails, or subscriptions. Just visit the site and get your work done without any barriers or data collection.",
+              title: "No Registration Required",
+              desc: "Start using our tools immediately. We don't require accounts, emails, or subscriptions. Just visit the site and get your work done without any barriers, tracking, or data collection.",
               color: "text-teal-500",
               bg: "bg-teal-500/10"
             },
             {
               icon: Code2,
-              title: "Developer Friendly",
-              desc: "Built by developers for developers. Our tools include advanced features like JSON formatting, Base64 encoding, and cryptographic hashing to streamline your development workflow.",
+              title: "Developer Centric Utilities",
+              desc: "Built by developers for developers. Our tools include advanced features like JSON formatting, Base64 encoding, and cryptographic hashing to streamline your daily development and debugging workflow.",
               color: "text-orange-500",
               bg: "bg-orange-500/10"
             },
             {
               icon: Zap,
-              title: "Professional Grade",
-              desc: "High-quality outputs every time. From lossless image compression to secure password analysis, we provide professional-grade utilities that you can rely on for your most important tasks.",
+              title: "Professional Grade Quality",
+              desc: "High-quality outputs every time. From lossless image compression to secure password analysis, we provide professional-grade utilities that you can rely on for your most important personal and business tasks.",
               color: "text-cyan-500",
               bg: "bg-cyan-500/10"
             }
@@ -495,10 +517,10 @@ export function Home() {
             Join thousands of users who trust QuickTools Pro for their daily digital tasks. No registration, no fees, just professional tools.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Link to="/image-compressor" className="px-10 py-5 rounded-2xl bg-emerald-500 text-white font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-2xl shadow-emerald-500/40 active:scale-95">
+            <Link to="/all-tools" className="px-10 py-5 rounded-2xl bg-emerald-500 text-white font-black uppercase tracking-widest hover:bg-emerald-600 transition-all shadow-2xl shadow-emerald-500/40 active:scale-95">
               Get Started Now
             </Link>
-            <Link to="/dev-tools" className="px-10 py-5 rounded-2xl bg-white/10 text-white font-black uppercase tracking-widest hover:bg-white/20 transition-all backdrop-blur-sm active:scale-95">
+            <Link to="/all-tools" className="px-10 py-5 rounded-2xl bg-white/10 text-white font-black uppercase tracking-widest hover:bg-white/20 transition-all backdrop-blur-sm active:scale-95">
               Explore All Tools
             </Link>
           </div>

@@ -345,6 +345,14 @@ export default function DevTools() {
               </div>
             </section>
 
+            {/* Why this tool was made? */}
+            <section className="space-y-6">
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Why this tool was made?</h3>
+              <p className="text-zinc-600 dark:text-zinc-400 font-medium leading-relaxed">
+                The Developer Tools suite was built to provide a centralized, high-performance hub for the most common data transformation tasks in web development. We found that developers often have to jump between multiple websites to format JSON, encode URLs, or handle Base64 data—many of which are slow or cluttered with ads. Our mission was to create a clean, unified interface that handles these essential tasks instantly and securely in the browser, ensuring that your code and data remain private while you work.
+              </p>
+            </section>
+
             {/* Related Tools */}
             <section className="space-y-6">
               <h3 className="text-xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">Related Tools</h3>
