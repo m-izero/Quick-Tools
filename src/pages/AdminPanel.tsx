@@ -52,7 +52,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
 import { useNavigate, Link } from 'react-router-dom';
-import { db, logout } from '@/lib/firebase';
+import { db, logout, handleFirestoreError, OperationType } from '@/lib/firebase';
 import { 
   doc, 
   onSnapshot, 
@@ -63,7 +63,8 @@ import {
   orderBy, 
   limit,
   addDoc,
-  deleteDoc
+  deleteDoc,
+  FirestoreError
 } from 'firebase/firestore';
 
 // Initial data for bootstrapping if DB is empty
@@ -157,9 +158,9 @@ export function AdminPanel() {
           activeUsers: 1204,
           adRevenue: 142.50,
           serverHealth: 99.9
-        });
+        }).catch(err => handleFirestoreError(err, OperationType.WRITE, 'stats/global'));
       }
-    });
+    }, (error) => handleFirestoreError(error, OperationType.GET, 'stats/global'));
 
     // 2. Usage Trends
     const qTrends = query(collection(db, 'usageTrends'), orderBy('timestamp', 'asc'), limit(7));
@@ -168,9 +169,9 @@ export function AdminPanel() {
         setUsageTrends(snap.docs.map(d => d.data()));
       } else {
         // Bootstrap
-        defaultUsageTrends.forEach(t => addDoc(collection(db, 'usageTrends'), t));
+        defaultUsageTrends.forEach(t => addDoc(collection(db, 'usageTrends'), t).catch(err => handleFirestoreError(err, OperationType.CREATE, 'usageTrends')));
       }
-    });
+    }, (error) => handleFirestoreError(error, OperationType.LIST, 'usageTrends'));
 
     // 3. Device Distribution
     const unsubDevice = onSnapshot(doc(db, 'deviceDistribution', 'current'), (docSnap) => {
@@ -187,9 +188,9 @@ export function AdminPanel() {
           mobile: 65,
           desktop: 30,
           tablet: 5
-        });
+        }).catch(err => handleFirestoreError(err, OperationType.WRITE, 'deviceDistribution/current'));
       }
-    });
+    }, (error) => handleFirestoreError(error, OperationType.GET, 'deviceDistribution/current'));
 
     // 4. Tools
     const unsubTools = onSnapshot(collection(db, 'tools'), (snap) => {
@@ -197,9 +198,9 @@ export function AdminPanel() {
         setTools(snap.docs.map(d => ({ ...d.data(), _id: d.id })));
       } else {
         // Bootstrap
-        initialTools.forEach(t => addDoc(collection(db, 'tools'), t));
+        initialTools.forEach(t => addDoc(collection(db, 'tools'), t).catch(err => handleFirestoreError(err, OperationType.CREATE, 'tools')));
       }
-    });
+    }, (error) => handleFirestoreError(error, OperationType.LIST, 'tools'));
 
     return () => {
       unsubStats();
@@ -216,10 +217,11 @@ export function AdminPanel() {
 
   const updateGlobalStat = async (field: string, value: number) => {
     setIsUpdating(true);
+    const path = 'stats/global';
     try {
-      await updateDoc(doc(db, 'stats', 'global'), { [field]: value });
+      await updateDoc(doc(db, path), { [field]: value });
     } catch (err) {
-      console.error("Error updating stat:", err);
+      handleFirestoreError(err, OperationType.UPDATE, path);
     } finally {
       setIsUpdating(false);
     }
@@ -228,18 +230,28 @@ export function AdminPanel() {
   const toggleStatus = async (id: string, currentStatus: string) => {
     const tool = tools.find(t => t.id === id);
     if (tool) {
-      await updateDoc(doc(db, 'tools', tool._id), { 
-        status: currentStatus === 'active' ? 'inactive' : 'active' 
-      });
+      const path = `tools/${tool._id}`;
+      try {
+        await updateDoc(doc(db, path), { 
+          status: currentStatus === 'active' ? 'inactive' : 'active' 
+        });
+      } catch (err) {
+        handleFirestoreError(err, OperationType.UPDATE, path);
+      }
     }
   };
 
   const toggleFeatured = async (id: string, currentFeatured: boolean) => {
     const tool = tools.find(t => t.id === id);
     if (tool) {
-      await updateDoc(doc(db, 'tools', tool._id), { 
-        featured: !currentFeatured 
-      });
+      const path = `tools/${tool._id}`;
+      try {
+        await updateDoc(doc(db, path), { 
+          featured: !currentFeatured 
+        });
+      } catch (err) {
+        handleFirestoreError(err, OperationType.UPDATE, path);
+      }
     }
   };
 
@@ -248,20 +260,30 @@ export function AdminPanel() {
     const category = prompt("Category (Images, PDF, AI, Security, Dev, Productivity):");
     if (name && category) {
       const id = name.toLowerCase().replace(/\s+/g, '-');
-      await addDoc(collection(db, 'tools'), {
-        id,
-        name,
-        category,
-        status: 'active',
-        featured: false,
-        usage: '0'
-      });
+      const path = 'tools';
+      try {
+        await addDoc(collection(db, path), {
+          id,
+          name,
+          category,
+          status: 'active',
+          featured: false,
+          usage: '0'
+        });
+      } catch (err) {
+        handleFirestoreError(err, OperationType.CREATE, path);
+      }
     }
   };
 
   const handleDeleteTool = async (docId: string) => {
     if (confirm("Are you sure you want to delete this tool?")) {
-      await deleteDoc(doc(db, 'tools', docId));
+      const path = `tools/${docId}`;
+      try {
+        await deleteDoc(doc(db, path));
+      } catch (err) {
+        handleFirestoreError(err, OperationType.DELETE, path);
+      }
     }
   };
 
@@ -270,7 +292,14 @@ export function AdminPanel() {
     if (confirm(`Are you sure you want to delete ${selectedTools.length} tools?`)) {
       for (const id of selectedTools) {
         const tool = tools.find(t => t.id === id);
-        if (tool) await deleteDoc(doc(db, 'tools', tool._id));
+        if (tool) {
+          const path = `tools/${tool._id}`;
+          try {
+            await deleteDoc(doc(db, path));
+          } catch (err) {
+            handleFirestoreError(err, OperationType.DELETE, path);
+          }
+        }
       }
       setSelectedTools([]);
     }
@@ -281,9 +310,14 @@ export function AdminPanel() {
     for (const id of selectedTools) {
       const tool = tools.find(t => t.id === id);
       if (tool) {
-        await updateDoc(doc(db, 'tools', tool._id), { 
-          status: tool.status === 'active' ? 'inactive' : 'active' 
-        });
+        const path = `tools/${tool._id}`;
+        try {
+          await updateDoc(doc(db, path), { 
+            status: tool.status === 'active' ? 'inactive' : 'active' 
+          });
+        } catch (err) {
+          handleFirestoreError(err, OperationType.UPDATE, path);
+        }
       }
     }
     setSelectedTools([]);

@@ -94,6 +94,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
 import { Blog } from './pages/Blog';
 import { BlogPost } from './pages/BlogPost';
+import { CookieConsent } from '@/components/CookieConsent';
 
 export default function App() {
   useDarkMode(); // Initialize dark mode at root
@@ -139,6 +140,7 @@ export default function App() {
         </main>
         
         <Footer />
+        <CookieConsent />
       </div>
     </Router>
   );

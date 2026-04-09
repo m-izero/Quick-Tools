@@ -184,6 +184,24 @@ export function ImageCompressor() {
         <title>Online Image Compressor - Reduce File Size Fast | QuickTools Pro</title>
         <meta name="description" content="Compress your images without losing quality. Support for PNG, JPG, and WebP. Batch process multiple images instantly in your browser. 100% private and secure." />
         <meta name="keywords" content="image compressor, reduce image size, compress png, compress jpg, online image optimizer, batch image compression" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Image Compressor",
+              "description": "Reduce image file size without losing quality. Support for PNG, JPG, and WebP. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "DesignApplication",
+              "url": "https://quick-toolz.vercel.app/image-compressor",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       
       <div className="mb-8 text-center">

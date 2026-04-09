@@ -220,6 +220,29 @@ export function BlogPost() {
       <Helmet>
         <title>{post.title} | QuickTools Blog</title>
         <meta name="description" content={post.excerpt} />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "${post.title}",
+              "description": "${post.excerpt}",
+              "author": {
+                "@type": "Person",
+                "name": "${post.author}"
+              },
+              "datePublished": "${post.date}",
+              "publisher": {
+                "@type": "Organization",
+                "name": "QuickTools Pro",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://quick-toolz.vercel.app/logo.png"
+                }
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <Link 
         to="/blog"

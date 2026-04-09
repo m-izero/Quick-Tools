@@ -101,6 +101,24 @@ export function Base64Tool() {
         <title>Base64 Encoder & Decoder - Secure Data Conversion | QuickTools Pro</title>
         <meta name="description" content="Encode and decode text to Base64 format instantly. Support for auto-detection and secure, local processing. 100% private and browser-based developer utility." />
         <meta name="keywords" content="base64 encoder, base64 decoder, base64 converter, online base64, secure encoding, developer tools" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Base64 Encoder & Decoder",
+              "description": "Encode and decode text to Base64 format instantly. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "DeveloperApplication",
+              "url": "https://quick-toolz.vercel.app/base64-tool",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       
 

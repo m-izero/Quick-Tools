@@ -279,6 +279,24 @@ export function PdfTools() {
         <title>Online PDF Tools - Merge & Split PDFs Fast | QuickTools Pro</title>
         <meta name="description" content="Manage your PDF documents with ease. Merge multiple PDF files into one or split pages into individual documents. Fast, secure, and 100% browser-based." />
         <meta name="keywords" content="pdf tools, merge pdf, split pdf, online pdf editor, pdf joiner, pdf splitter, secure pdf processing" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "PDF Master",
+              "description": "Merge multiple PDF files into one or split pages into individual documents. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "BusinessApplication",
+              "url": "https://quick-toolz.vercel.app/pdf-tools",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <div className="mb-8 text-center">
         <motion.div

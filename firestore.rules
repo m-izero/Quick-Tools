@@ -108,6 +108,10 @@ service cloud.firestore {
     // Rules
     // ===============================================================
 
+    match /system/connection_test {
+      allow read: if true;
+    }
+
     match /stats/global {
       allow read: if isAuthenticated();
       allow write: if isAdmin() && isValidGlobalStats(request.resource.data);

@@ -99,6 +99,24 @@ export default function DevTools() {
         <title>Developer Tools - JSON Formatter, URL Encoder, Base64 | QuickTools Pro</title>
         <meta name="description" content="A comprehensive suite of developer utilities. Format JSON, encode/decode URLs, and handle Base64 data instantly. 100% private and browser-based processing." />
         <meta name="keywords" content="developer tools, json formatter, url encoder, url decoder, base64 encoder, base64 decoder, online dev tools, secure formatting" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Developer Tools",
+              "description": "JSON formatter, URL encoder, and Base64 utilities for developers. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "DeveloperApplication",
+              "url": "https://quick-toolz.vercel.app/dev-tools",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">

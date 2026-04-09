@@ -117,6 +117,24 @@ export function MemoNotePad() {
         <title>MemoNote Pad - Private Browser-Based Notes | QuickTools Pro</title>
         <meta name="description" content="A simple and private online notepad. Jot down ideas, save notes locally in your browser, and download them as text files. 100% private and secure." />
         <meta name="keywords" content="online notepad, private notes, browser notes, memo pad, quick notes, local storage notes" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "MemoNote Pad",
+              "description": "A simple and private online notepad. Jot down ideas, save notes locally in your browser. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "UtilityApplication",
+              "url": "https://quick-toolz.vercel.app/memo-note-pad",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <div className="mb-8 text-center">
         <motion.div

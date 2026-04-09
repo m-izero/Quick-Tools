@@ -176,6 +176,24 @@ export default function QrCodeTool() {
         <title>QR Code Generator & Reader - Free Online Tool | QuickTools Pro</title>
         <meta name="description" content="Generate custom QR codes or scan existing ones instantly. Support for text, URLs, and more. Fast, secure, and browser-based QR code utility." />
         <meta name="keywords" content="qr code generator, qr code reader, scan qr code, create qr code, online qr tool, free qr code" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "QR Code Generator & Reader",
+              "description": "Generate custom QR codes or scan existing ones instantly. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "UtilityApplication",
+              "url": "https://quick-toolz.vercel.app/qr-code",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">

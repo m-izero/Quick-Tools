@@ -9,6 +9,8 @@ import {
   StickyNote, 
   Settings,
   Github,
+  Twitter,
+  Linkedin,
   Mail,
   QrCode,
   Palette,
@@ -74,7 +76,16 @@ export function Footer() {
               The ultimate collection of fast, secure, and free online tools for developers and creators. No login required.
             </p>
             <div className="flex items-center gap-4">
-              <a href="mailto:mizerohirwaelyse@gmail.com" className="text-zinc-400 hover:text-emerald-500 transition-colors">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-emerald-500 transition-colors">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-emerald-500 transition-colors">
+                <Github className="h-5 w-5" />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-emerald-500 transition-colors">
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="mailto:support@quick-toolz.app" className="text-zinc-400 hover:text-emerald-500 transition-colors">
                 <Mail className="h-5 w-5" />
               </a>
             </div>
@@ -110,12 +121,13 @@ export function Footer() {
               Platform
             </h3>
             <ul className="space-y-4">
+              <li><Link to="/" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Home</Link></li>
               <li><Link to="/all-tools" className="text-sm font-black text-emerald-500 hover:underline uppercase tracking-widest">All Tools</Link></li>
               <li><Link to="/blog" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Blog</Link></li>
               <li><Link to="/about" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">About</Link></li>
               <li><Link to="/contact" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Contact</Link></li>
-              <li><Link to="/privacy-policy" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Privacy</Link></li>
-              <li><Link to="/terms" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Terms</Link></li>
+              <li><Link to="/privacy-policy" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>

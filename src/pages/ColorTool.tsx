@@ -151,6 +151,24 @@ export default function ColorTool() {
         <title>Online Color Tool - HEX, RGB, HSL Converter | QuickTools Pro</title>
         <meta name="description" content="Pick, convert, and save colors for your design projects. Support for HEX, RGB, and HSL formats. Create beautiful palettes and manage your color library instantly." />
         <meta name="keywords" content="color tool, color picker, hex to rgb, rgb to hsl, color converter, online color palette, design tools" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Color Tool",
+              "description": "Pick, convert, and save colors for your design projects. Support for HEX, RGB, and HSL formats. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "DesignApplication",
+              "url": "https://quick-toolz.vercel.app/color-tool",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">

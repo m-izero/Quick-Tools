@@ -27,6 +27,17 @@ export function Contact() {
       <Helmet>
         <title>Contact Us - QuickTools Pro</title>
         <meta name="description" content="Have questions or feedback? Get in touch with the QuickTools Pro team. We're here to help you make the most of our digital toolkit." />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "ContactPage",
+              "name": "Contact Us - QuickTools Pro",
+              "description": "Get in touch with the QuickTools Pro team for support, feedback, or tool suggestions.",
+              "url": "https://quick-toolz.vercel.app/contact"
+            }
+          `}
+        </script>
       </Helmet>
       
 

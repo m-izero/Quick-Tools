@@ -68,6 +68,24 @@ export function PasswordStrengthMeter() {
         <title>Password Strength Checker - Secure Your Accounts | QuickTools Pro</title>
         <meta name="description" content="Check your password strength with our secure, local analyzer. Get instant feedback on complexity, crack time, and security improvements using the zxcvbn algorithm." />
         <meta name="keywords" content="password strength, password checker, secure password, zxcvbn, password security, online tool" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Password Strength Checker",
+              "description": "Analyze password strength using the zxcvbn algorithm. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "SecurityApplication",
+              "url": "https://quick-toolz.vercel.app/password-strength",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <div className="mb-8 text-center">
         <motion.div

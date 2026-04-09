@@ -68,6 +68,24 @@ export function RandomStringGenerator() {
         <title>Random String Generator - Secure Passwords & Tokens | QuickTools Pro</title>
         <meta name="description" content="Generate secure, random strings for passwords, API tokens, or identifiers. Fully customizable length and character sets. 100% private and browser-based." />
         <meta name="keywords" content="random string generator, password generator, token generator, secure string, random text, online tool" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Random String Generator",
+              "description": "Generate secure, random strings for passwords, tokens, or identifiers instantly. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "SecurityApplication",
+              "url": "https://quick-toolz.vercel.app/random-string-generator",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <div className="mb-8 text-center">
         <motion.div

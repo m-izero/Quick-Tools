@@ -132,6 +132,24 @@ export default function UnitConverter() {
         <title>Unit Converter - Length, Weight, Temperature, Data | QuickTools Pro</title>
         <meta name="description" content="Fast and accurate unit conversion for length, weight, temperature, speed, and data. Convert meters to kilometers, Celsius to Fahrenheit, and more instantly." />
         <meta name="keywords" content="unit converter, length converter, weight converter, temperature converter, data converter, metric conversion, online converter" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Unit Converter",
+              "description": "Fast and accurate unit conversion for length, weight, temperature, speed, and data. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "UtilityApplication",
+              "url": "https://quick-toolz.vercel.app/unit-converter",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">

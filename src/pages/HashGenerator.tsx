@@ -76,6 +76,24 @@ export function HashGenerator() {
         <title>Online Hash Generator - SHA-256, SHA-1, SHA-512 | QuickTools Pro</title>
         <meta name="description" content="Generate secure cryptographic hashes instantly. Support for SHA-256, SHA-1, and SHA-512. 100% private, browser-based hashing for your sensitive data." />
         <meta name="keywords" content="hash generator, sha256, sha1, sha512, cryptographic hash, online hash, secure hashing" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Hash Generator",
+              "description": "Generate secure SHA-256, SHA-1, and SHA-512 hashes instantly. 100% private and local processing.",
+              "operatingSystem": "All",
+              "applicationCategory": "SecurityApplication",
+              "url": "https://quick-toolz.vercel.app/hash-generator",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          `}
+        </script>
       </Helmet>
       <div className="mb-8 text-center">
         <motion.div
