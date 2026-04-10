@@ -3,34 +3,40 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ScrollToTop } from '@/components/ScrollToTop';
-import { Home } from '@/pages/Home';
-import { ImageCompressor } from '@/pages/ImageCompressor';
-import { PdfTools } from '@/pages/PdfTools';
-import { Base64Tool } from '@/pages/Base64Tool';
-import { RandomStringGenerator } from '@/pages/RandomStringGenerator';
-import { PasswordStrengthMeter } from '@/pages/PasswordStrengthMeter';
-import { HashGenerator } from '@/pages/HashGenerator';
-import { MemoNotePad } from '@/pages/MemoNotePad';
-import { AdminPanel } from '@/pages/AdminPanel';
-import QrCodeTool from '@/pages/QrCodeTool';
-import ColorTool from '@/pages/ColorTool';
-import UnitConverter from '@/pages/UnitConverter';
-import DevTools from '@/pages/DevTools';
-import UtilityTools from '@/pages/UtilityTools';
-import { PrivacyPolicy } from '@/pages/PrivacyPolicy';
-import { Terms } from '@/pages/Terms';
-import { Contact } from '@/pages/Contact';
-import { About } from '@/pages/About';
-import { AllTools } from '@/pages/AllTools';
-import React, { useState, useEffect } from 'react';
+
+// Lazy load pages
+const Home = lazy(() => import('@/pages/Home').then(m => ({ default: m.Home })));
+const ImageCompressor = lazy(() => import('@/pages/ImageCompressor').then(m => ({ default: m.ImageCompressor })));
+const PdfTools = lazy(() => import('@/pages/PdfTools').then(m => ({ default: m.PdfTools })));
+const Base64Tool = lazy(() => import('@/pages/Base64Tool').then(m => ({ default: m.Base64Tool })));
+const RandomStringGenerator = lazy(() => import('@/pages/RandomStringGenerator').then(m => ({ default: m.RandomStringGenerator })));
+const PasswordStrengthMeter = lazy(() => import('@/pages/PasswordStrengthMeter').then(m => ({ default: m.PasswordStrengthMeter })));
+const HashGenerator = lazy(() => import('@/pages/HashGenerator').then(m => ({ default: m.HashGenerator })));
+const MemoNotePad = lazy(() => import('@/pages/MemoNotePad').then(m => ({ default: m.MemoNotePad })));
+const AdminPanel = lazy(() => import('@/pages/AdminPanel').then(m => ({ default: m.AdminPanel })));
+const QrCodeTool = lazy(() => import('@/pages/QrCodeTool'));
+const ColorTool = lazy(() => import('@/pages/ColorTool'));
+const UnitConverter = lazy(() => import('@/pages/UnitConverter'));
+const DevTools = lazy(() => import('@/pages/DevTools'));
+const UtilityTools = lazy(() => import('@/pages/UtilityTools'));
+const PrivacyPolicy = lazy(() => import('@/pages/PrivacyPolicy').then(m => ({ default: m.PrivacyPolicy })));
+const Terms = lazy(() => import('@/pages/Terms').then(m => ({ default: m.Terms })));
+const Contact = lazy(() => import('@/pages/Contact').then(m => ({ default: m.Contact })));
+const About = lazy(() => import('@/pages/About').then(m => ({ default: m.About })));
+const AllTools = lazy(() => import('@/pages/AllTools').then(m => ({ default: m.AllTools })));
+const Blog = lazy(() => import('./pages/Blog').then(m => ({ default: m.Blog })));
+const BlogPost = lazy(() => import('./pages/BlogPost').then(m => ({ default: m.BlogPost })));
+
 import { auth, signInWithGoogle } from '@/lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { LogIn } from 'lucide-react';
 import { useDarkMode } from '@/hooks/useDarkMode';
+import { CookieConsent } from '@/components/CookieConsent';
 
 const ADMIN_SECRET_PATH = "/admin-secure-9x7k2";
 
@@ -92,10 +98,6 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-import { Blog } from './pages/Blog';
-import { BlogPost } from './pages/BlogPost';
-import { CookieConsent } from '@/components/CookieConsent';
-
 export default function App() {
   useDarkMode(); // Initialize dark mode at root
 
@@ -105,38 +107,44 @@ export default function App() {
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-grow pb-20">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/image-compressor" element={<ImageCompressor />} />
-            <Route path="/pdf-tools" element={<PdfTools />} />
-            <Route path="/base64-tool" element={<Base64Tool />} />
-            <Route path="/random-string-generator" element={<RandomStringGenerator />} />
-            <Route path="/password-strength" element={<PasswordStrengthMeter />} />
-            <Route path="/hash-generator" element={<HashGenerator />} />
-            <Route path="/memo-note-pad" element={<MemoNotePad />} />
-            <Route path="/qr-code" element={<QrCodeTool />} />
-            <Route path="/color-tool" element={<ColorTool />} />
-            <Route path="/unit-converter" element={<UnitConverter />} />
-            <Route path="/dev-tools" element={<DevTools />} />
-            <Route path="/utility-tools" element={<UtilityTools />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/all-tools" element={<AllTools />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
-            
-            {/* Protected Admin Route with Secret URL */}
-            <Route path={ADMIN_SECRET_PATH} element={
-              <ProtectedRoute>
-                <AdminPanel />
-              </ProtectedRoute>
-            } />
-            
-            {/* Redirect old admin path to home */}
-            <Route path="/admin" element={<Navigate to="/" replace />} />
-          </Routes>
+          <Suspense fallback={
+            <div className="min-h-[60vh] flex items-center justify-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
+            </div>
+          }>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/image-compressor" element={<ImageCompressor />} />
+              <Route path="/pdf-tools" element={<PdfTools />} />
+              <Route path="/base64-tool" element={<Base64Tool />} />
+              <Route path="/random-string-generator" element={<RandomStringGenerator />} />
+              <Route path="/password-strength" element={<PasswordStrengthMeter />} />
+              <Route path="/hash-generator" element={<HashGenerator />} />
+              <Route path="/memo-note-pad" element={<MemoNotePad />} />
+              <Route path="/qr-code" element={<QrCodeTool />} />
+              <Route path="/color-tool" element={<ColorTool />} />
+              <Route path="/unit-converter" element={<UnitConverter />} />
+              <Route path="/dev-tools" element={<DevTools />} />
+              <Route path="/utility-tools" element={<UtilityTools />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/all-tools" element={<AllTools />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
+              
+              {/* Protected Admin Route with Secret URL */}
+              <Route path={ADMIN_SECRET_PATH} element={
+                <ProtectedRoute>
+                  <AdminPanel />
+                </ProtectedRoute>
+              } />
+              
+              {/* Redirect old admin path to home */}
+              <Route path="/admin" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
         </main>
         
         <Footer />
