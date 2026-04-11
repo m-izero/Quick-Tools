@@ -49,6 +49,186 @@ export const blogPosts = [
     author: "QuickTools Team",
     readTime: "4 min read",
     category: "Tutorials"
+  },
+  {
+    id: 'importance-of-https-ssl',
+    title: "The Importance of HTTPS and SSL Certificates",
+    excerpt: "Security is no longer optional. Learn why HTTPS is essential for every website and how SSL certificates protect your users.",
+    date: "April 10, 2026",
+    author: "QuickTools Team",
+    readTime: "10 min read",
+    category: "Security"
+  },
+  {
+    id: 'mastering-pdf-manipulation',
+    title: "Mastering PDF Manipulation: Merging, Splitting, and Beyond",
+    excerpt: "PDFs are the standard for documents. Discover how to handle them like a pro with our comprehensive guide to PDF tools.",
+    date: "April 9, 2026",
+    author: "QuickTools Team",
+    readTime: "9 min read",
+    category: "Guides"
+  },
+  {
+    id: 'unit-conversion-precision',
+    title: "Unit Conversion: Why Precision Matters",
+    excerpt: "From engineering to cooking, accurate unit conversion is vital. Explore the science of measurement and how to avoid costly errors.",
+    date: "April 8, 2026",
+    author: "QuickTools Team",
+    readTime: "8 min read",
+    category: "Education"
+  },
+  {
+    id: 'color-theory-web-design',
+    title: "The Art of Color Theory in Web Design",
+    excerpt: "Colors evoke emotions and drive actions. Master the basics of color theory to create visually stunning and effective websites.",
+    date: "April 7, 2026",
+    author: "QuickTools Team",
+    readTime: "11 min read",
+    category: "Design"
+  },
+  {
+    id: 'optimizing-web-performance-advanced',
+    title: "Optimizing Web Performance: Beyond Images",
+    excerpt: "Speed is a feature. Learn advanced techniques to optimize your website's performance, from minification to caching strategies.",
+    date: "April 6, 2026",
+    author: "QuickTools Team",
+    readTime: "12 min read",
+    category: "Performance"
+  },
+  {
+    id: 'understanding-cryptographic-hashes',
+    title: "Understanding Cryptographic Hashes",
+    excerpt: "What are MD5, SHA-1, and SHA-256? Learn how cryptographic hashes work and why they are fundamental to digital security.",
+    date: "April 5, 2026",
+    author: "QuickTools Team",
+    readTime: "9 min read",
+    category: "Security"
+  },
+  {
+    id: 'secure-memo-notepad-ideas',
+    title: "Why You Need a Secure Memo Notepad",
+    excerpt: "Your ideas are valuable. Discover the benefits of using a secure, browser-based notepad for capturing your thoughts on the go.",
+    date: "April 4, 2026",
+    author: "QuickTools Team",
+    readTime: "7 min read",
+    category: "Productivity"
+  },
+  {
+    id: 'evolution-web-dev-tools',
+    title: "The Evolution of Web Development Tools",
+    excerpt: "From simple text editors to powerful IDEs and online utilities. Trace the history of the tools that shaped the modern web.",
+    date: "April 3, 2026",
+    author: "QuickTools Team",
+    readTime: "10 min read",
+    category: "Resources"
+  },
+  {
+    id: 'productive-developer-workspace',
+    title: "Building a Productive Developer Workspace",
+    excerpt: "Your environment affects your output. Learn how to optimize your physical and digital workspace for maximum focus and efficiency.",
+    date: "April 2, 2026",
+    author: "QuickTools Team",
+    readTime: "8 min read",
+    category: "Productivity"
+  },
+  {
+    id: 'ai-role-modern-software-dev',
+    title: "The Role of AI in Modern Software Development",
+    excerpt: "AI is changing how we code. Explore the impact of artificial intelligence on software engineering and what the future holds.",
+    date: "April 1, 2026",
+    author: "QuickTools Team",
+    readTime: "11 min read",
+    category: "Technology"
+  },
+  {
+    id: 'mastering-regular-expressions',
+    title: "Mastering Regular Expressions: A Developer's Guide",
+    excerpt: "Regular expressions are a powerful tool for pattern matching and text manipulation. Learn how to master them and boost your coding efficiency.",
+    date: "March 31, 2026",
+    author: "QuickTools Team",
+    readTime: "12 min read",
+    category: "Developer Tools"
+  },
+  {
+    id: 'the-future-of-web-security',
+    title: "The Future of Web Security: Trends to Watch",
+    excerpt: "From zero-trust architecture to quantum-resistant cryptography. Explore the emerging trends that will define the future of web security.",
+    date: "March 30, 2026",
+    author: "QuickTools Team",
+    readTime: "11 min read",
+    category: "Security"
+  },
+  {
+    id: 'optimizing-images-for-seo',
+    title: "Optimizing Images for SEO: A Comprehensive Guide",
+    excerpt: "Images are vital for SEO. Learn how to optimize your images for search engines, from alt text to file names and structured data.",
+    date: "March 29, 2026",
+    author: "QuickTools Team",
+    readTime: "10 min read",
+    category: "SEO"
+  },
+  {
+    id: 'the-impact-of-web-accessibility',
+    title: "The Impact of Web Accessibility on User Experience",
+    excerpt: "Accessibility is not just a legal requirement; it's a moral and business imperative. Discover how to build a more inclusive web for everyone.",
+    date: "March 28, 2026",
+    author: "QuickTools Team",
+    readTime: "13 min read",
+    category: "Design"
+  },
+  {
+    id: 'modern-javascript-features',
+    title: "Modern JavaScript Features You Should Be Using",
+    excerpt: "JavaScript is evolving rapidly. Explore the latest features and syntax that will help you write cleaner, more efficient, and more maintainable code.",
+    date: "March 27, 2026",
+    author: "QuickTools Team",
+    readTime: "12 min read",
+    category: "Education"
+  },
+  {
+    id: 'understanding-api-security',
+    title: "Understanding API Security: Best Practices",
+    excerpt: "APIs are the backbone of modern apps. Learn how to secure your interfaces and protect your data from common vulnerabilities.",
+    date: "March 26, 2026",
+    author: "QuickTools Team",
+    readTime: "11 min read",
+    category: "Security"
+  },
+  {
+    id: 'the-rise-of-edge-computing',
+    title: "The Rise of Edge Computing: What You Need to Know",
+    excerpt: "Discover the benefits of moving processing closer to the source. Explore how edge computing is shaping the future of the web.",
+    date: "March 25, 2026",
+    author: "QuickTools Team",
+    readTime: "10 min read",
+    category: "Technology"
+  },
+  {
+    id: 'mastering-css-grid-layout',
+    title: "Mastering CSS Grid Layout: From Zero to Hero",
+    excerpt: "CSS Grid is a revolutionary layout system. Learn how to build complex, responsive layouts with ease using this powerful tool.",
+    date: "March 24, 2026",
+    author: "QuickTools Team",
+    readTime: "12 min read",
+    category: "Design"
+  },
+  {
+    id: 'the-importance-of-code-reviews',
+    title: "The Importance of Code Reviews in Software Development",
+    excerpt: "Code reviews are not just about finding bugs. Discover how they promote knowledge sharing and improve overall code quality.",
+    date: "March 23, 2026",
+    author: "QuickTools Team",
+    readTime: "11 min read",
+    category: "Developer Tools"
+  },
+  {
+    id: 'building-scalable-web-apps',
+    title: "Building Scalable Web Applications: A Guide",
+    excerpt: "Learn the principles and patterns of building applications that can handle millions of users, from load balancing to microservices.",
+    date: "March 22, 2026",
+    author: "QuickTools Team",
+    readTime: "13 min read",
+    category: "Architecture"
   }
 ];
 
