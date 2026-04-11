@@ -79,22 +79,31 @@ export function PrivacyPolicy() {
           </div>
         </section>
 
-        {/* Google AdSense */}
+        {/* Advertising & Cookies */}
         <section className="bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] border border-zinc-100 dark:border-zinc-800 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
             <div className="h-10 w-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
               <Cookie className="h-5 w-5 text-amber-500" />
             </div>
-            <h2 className="text-2xl font-black text-zinc-900 dark:text-white m-0">3. Google AdSense & Cookies</h2>
+            <h2 className="text-2xl font-black text-zinc-900 dark:text-white m-0">3. Advertising & Cookies</h2>
           </div>
           <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            We use Google AdSense to serve advertisements on our website. Google, as a third-party vendor, uses cookies to serve ads based on your prior visits to our website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our sites and/or other sites on the Internet.
+            We use third-party advertising networks to serve advertisements on our website. These networks may include Media.net, Ezoic, PropellerAds, and/or Google AdSense. Our advertising partners, as third-party vendors, use cookies to serve ads based on your prior visits to our website or other websites across the internet.
           </p>
           <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mt-4">
-            Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-emerald-500 hover:underline">Google Ad Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-emerald-500 hover:underline">www.aboutads.info</a>.
+            These advertising cookies enable our partners and their associated networks to serve ads to you based on your browsing activity. The data collected may include your IP address, browser type, pages visited, and time spent on pages — all used for the purpose of delivering relevant advertisements.
           </p>
-          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mt-4 italic">
-            Note: We do not control the cookies used by third-party advertisers. You should consult the respective privacy policies of these third-party ad servers for more detailed information on their practices.
+          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mt-4">
+            You may opt out of personalized advertising at any time by:
+          </p>
+          <ul className="list-disc pl-6 mt-2 space-y-2 text-zinc-600 dark:text-zinc-400">
+            <li>Visiting Google Ad Settings at <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-emerald-500 hover:underline">google.com/settings/ads</a></li>
+            <li>Visiting the NAI opt-out page at <a href="https://www.networkadvertising.org/choices" target="_blank" rel="noopener noreferrer" className="text-emerald-500 hover:underline">networkadvertising.org/choices</a></li>
+            <li>Visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" className="text-emerald-500 hover:underline">www.aboutads.info</a></li>
+            <li>Adjusting your browser's cookie settings directly</li>
+          </ul>
+          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mt-6 italic">
+            Note: We do not control the cookies used by third-party advertisers. You should consult the respective privacy policies of these third-party ad servers for more detailed information on their practices. Opting out of personalized ads does not mean you will stop seeing advertisements — it means the ads shown will be less relevant to your interests.
           </p>
         </section>
 
