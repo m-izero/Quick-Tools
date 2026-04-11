@@ -126,7 +126,14 @@ export function Footer() {
               <li><Link to="/blog" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Blog</Link></li>
               <li><Link to="/about" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">About</Link></li>
               <li><Link to="/contact" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Contact</Link></li>
-              <li><Link to="/privacy-policy" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Privacy Policy</Link></li>
+              <li>
+                <Link 
+                  to="/privacy-policy" 
+                  aria-label="Privacy Policy"
+                  className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors"
+                   >Privacy Policy  
+                </Link>
+              </li>
               <li><Link to="/terms" className="text-sm text-zinc-600 hover:text-emerald-500 dark:text-zinc-400 transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
@@ -136,6 +143,17 @@ export function Footer() {
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
             &copy; {currentYear} QuickTools Pro. Built for speed and privacy.
           </p>
+          <section className="text-center py-4">
+  <p className="text-sm text-zinc-500 dark:text-zinc-400">
+    Questions? Email us at{' '}
+    <a 
+      href="mailto:support@quick-toolz.app"
+      className="text-emerald-500 hover:underline"
+    >
+      support@quick-toolz.app
+    </a>
+  </p>
+</section>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 text-xs text-zinc-400">
               <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
