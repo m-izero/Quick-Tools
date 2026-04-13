@@ -256,6 +256,65 @@ export function Home() {
         </motion.div>
       </div>
 
+      {/* Tools Grid - Categorized */}
+      <div className="mb-48 space-y-32">
+        <div className="text-center space-y-4 mb-20">
+          <h2 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-tight">
+            Explore All <span className="text-emerald-500">Utilities</span>
+          </h2>
+        </div>
+        {toolCategories.map((category, catIndex) => (
+          <div key={category.name}>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-12">
+              <h2 className="text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">
+                {category.name}
+              </h2>
+              <div className="h-px flex-grow bg-zinc-200 dark:bg-zinc-800 hidden sm:block" />
+              <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
+                {category.tools.length} Specialized Tools
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[280px]">
+              {category.tools.map((tool, index) => (
+                <motion.div
+                  key={tool.title}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (catIndex * 0.1) + (index * 0.05) }}
+                  className={cn(
+                    "group relative",
+                    tool.size === 'lg' ? "sm:col-span-2" : "col-span-1"
+                  )}
+                >
+                  <Link
+                    to={tool.path}
+                    className="flex flex-col h-full overflow-hidden rounded-[2.5rem] border-2 border-zinc-100 bg-white p-8 sm:p-10 transition-all hover:border-emerald-500 hover:shadow-2xl hover:shadow-emerald-500/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-500"
+                  >
+                    <div className={cn(
+                      "mb-8 flex h-14 w-14 items-center justify-center rounded-2xl shadow-lg transition-transform group-hover:scale-110 duration-500",
+                      tool.bg
+                    )}>
+                      <tool.icon className={cn("h-7 w-7", tool.color)} />
+                    </div>
+                    <div className="flex-grow min-w-0">
+                      <h3 className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white truncate">{tool.title}</h3>
+                      <p className="mt-4 text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400 line-clamp-2">
+                        {tool.description}
+                      </p>
+                    </div>
+                    <div className="mt-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-emerald-500">
+                      Launch Tool <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
       {/* Why Choose Quick Tools Pro? */}
       <div className="mb-48">
         <div className="text-center space-y-4 mb-20">
@@ -476,64 +535,6 @@ export function Home() {
         </div>
       </div>
 
-      {/* Tools Grid - Categorized (Original Section kept but moved down) */}
-      <div className="space-y-32">
-        <div className="text-center space-y-4 mb-20">
-          <h2 className="text-3xl sm:text-5xl font-black text-zinc-900 dark:text-white uppercase tracking-tight">
-            Explore All <span className="text-emerald-500">Utilities</span>
-          </h2>
-        </div>
-        {toolCategories.map((category, catIndex) => (
-          <div key={category.name}>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-12">
-              <h2 className="text-2xl font-black text-zinc-900 dark:text-white uppercase tracking-widest">
-                {category.name}
-              </h2>
-              <div className="h-px flex-grow bg-zinc-200 dark:bg-zinc-800 hidden sm:block" />
-              <p className="text-xs font-bold text-zinc-500 uppercase tracking-widest">
-                {category.tools.length} Specialized Tools
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[280px]">
-              {category.tools.map((tool, index) => (
-                <motion.div
-                  key={tool.title}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (catIndex * 0.1) + (index * 0.05) }}
-                  className={cn(
-                    "group relative",
-                    tool.size === 'lg' ? "sm:col-span-2" : "col-span-1"
-                  )}
-                >
-                  <Link
-                    to={tool.path}
-                    className="flex flex-col h-full overflow-hidden rounded-[2.5rem] border-2 border-zinc-100 bg-white p-8 sm:p-10 transition-all hover:border-emerald-500 hover:shadow-2xl hover:shadow-emerald-500/10 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-500"
-                  >
-                    <div className={cn(
-                      "mb-8 flex h-14 w-14 items-center justify-center rounded-2xl shadow-lg transition-transform group-hover:scale-110 duration-500",
-                      tool.bg
-                    )}>
-                      <tool.icon className={cn("h-7 w-7", tool.color)} />
-                    </div>
-                    <div className="flex-grow min-w-0">
-                      <h3 className="text-2xl font-black tracking-tight text-zinc-900 dark:text-white truncate">{tool.title}</h3>
-                      <p className="mt-4 text-sm font-medium leading-relaxed text-zinc-500 dark:text-zinc-400 line-clamp-2">
-                        {tool.description}
-                      </p>
-                    </div>
-                    <div className="mt-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-emerald-500">
-                      Launch Tool <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
