@@ -153,6 +153,16 @@ export function Footer() {
       support@quick-toolz.app
     </a>
   </p>
+  <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2">
+    <a 
+      href="https://www.profitablecpmratenetwork.com/nk3i8j129w?key=10820a846ef7f76a48ca4a5a3c4da201"
+      target="_blank"
+      rel="noopener"
+      className="hover:text-emerald-500 transition-colors"
+    >
+      Sponsored
+    </a>
+  </p>
 </section>
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 text-xs text-zinc-400">
