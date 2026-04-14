@@ -1,44 +1,28 @@
 {
   "routes": [
-    {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml"
-    },
-    {
-      "src": "/robots.txt",
-      "dest": "/robots.txt"
-    },
-    {
-      "src": "/ads.txt",
-      "dest": "/ads.txt"
-    },
+    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
+    { "src": "/robots.txt", "dest": "/robots.txt" },
+    { "src": "/ads.txt", "dest": "/ads.txt" },
     {
       "src": "/(.*)\\.js",
       "dest": "/$1.js",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
     },
     {
       "src": "/(.*)\\.css",
       "dest": "/$1.css",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
     },
     {
       "src": "/(.*)\\.(?:jpg|jpeg|png|gif|webp|svg|ico)",
       "dest": "/$1",
-      "headers": {
-        "Cache-Control": "public, max-age=2592000"
-      }
+      "headers": { "Cache-Control": "public, max-age=2592000" }
     },
     {
       "src": "/(.*)",
       "dest": "/index.html",
       "headers": {
         "Cache-Control": "public, max-age=0, must-revalidate",
-        "Content-Security-Policy": "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:; script-src * 'unsafe-inline' 'unsafe-eval' data: blob:; style-src * 'unsafe-inline'; font-src * data:; img-src * data: blob:; connect-src * data: blob:; frame-src *; worker-src * blob: data:; object-src *;",
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "SAMEORIGIN",
         "Referrer-Policy": "strict-origin-when-cross-origin",
