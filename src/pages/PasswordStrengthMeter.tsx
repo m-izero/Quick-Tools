@@ -17,6 +17,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import zxcvbn from 'zxcvbn';
 import { cn } from '@/utils/cn';
 import { Link } from 'react-router-dom';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 export function PasswordStrengthMeter() {
   const [password, setPassword] = useState('');
@@ -205,6 +206,8 @@ export function PasswordStrengthMeter() {
               )}
             </div>
           </div>
+
+          <ToolAdBanner />
         </div>
 
         <div className="lg:col-span-4 space-y-6">

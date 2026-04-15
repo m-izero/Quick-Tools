@@ -14,6 +14,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
 import { Link } from 'react-router-dom';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 type ColorFormat = 'hex' | 'rgb' | 'hsl';
 
@@ -358,6 +359,10 @@ export default function ColorTool() {
               )}
             </div>
           </div>
+        </div>
+
+        <div className="mt-8">
+          <ToolAdBanner />
         </div>
 
         {/* Rich Content Section */}

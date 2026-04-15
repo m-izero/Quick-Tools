@@ -32,6 +32,7 @@ import {
 import { Link } from 'react-router-dom';
 import { cn } from '@/utils/cn';
 import { blogPosts } from './Blog';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 const toolCategories = [
   {
@@ -314,6 +315,8 @@ export function Home() {
           </div>
         ))}
       </div>
+
+      <ToolAdBanner />
 
       {/* Why Choose Quick Tools Pro? */}
       <div className="mb-48">

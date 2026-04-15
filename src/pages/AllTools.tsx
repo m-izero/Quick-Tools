@@ -19,6 +19,7 @@ import {
   Heart
 } from 'lucide-react';
 import { cn } from '@/utils/cn';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 const allTools = [
   {
@@ -138,6 +139,10 @@ export function AllTools() {
             </div>
           </section>
         ))}
+      </div>
+
+      <div className="mt-8">
+        <ToolAdBanner />
       </div>
 
       {/* SEO Content Depth Section */}

@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FileUpload } from '@/components/FileUpload';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 import { cn } from '@/utils/cn';
 import { Link } from 'react-router-dom';
 
@@ -523,6 +524,8 @@ export function ImageCompressor() {
           </div>
         </div>
       )}
+
+      <ToolAdBanner />
 
       {/* Rich Content Section */}
       <div className="mt-24 border-t border-zinc-100 pt-24 dark:border-zinc-800">

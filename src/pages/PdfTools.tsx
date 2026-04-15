@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 import {
   DndContext,
   closestCenter,
@@ -595,6 +596,10 @@ export function PdfTools() {
             </ul>
           </div>
         </div>
+      </div>
+
+      <div className="mt-8">
+        <ToolAdBanner />
       </div>
 
       {/* Rich Content Section */}

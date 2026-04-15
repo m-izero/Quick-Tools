@@ -18,6 +18,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
 import { Link } from 'react-router-dom';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 interface Note {
   id: string;
@@ -351,6 +352,10 @@ export function MemoNotePad() {
             </div>
           )}
         </div>
+      </div>
+
+      <div className="mt-8">
+        <ToolAdBanner />
       </div>
 
       {/* Rich Content Section */}

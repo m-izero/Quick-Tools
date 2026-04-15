@@ -18,6 +18,7 @@ import jsQR from 'jsqr';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
 import { Link } from 'react-router-dom';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 export default function QrCodeTool() {
   const [activeTab, setActiveTab] = useState<'generate' | 'read'>('generate');
@@ -422,6 +423,10 @@ export default function QrCodeTool() {
               </motion.div>
             )}
           </AnimatePresence>
+        </div>
+
+        <div className="mt-8">
+          <ToolAdBanner />
         </div>
 
         {/* Rich Content Section */}

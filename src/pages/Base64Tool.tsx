@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/utils/cn';
 import { Link } from 'react-router-dom';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 export function Base64Tool() {
   const [input, setInput] = useState('');
@@ -296,6 +297,10 @@ export function Base64Tool() {
             <h3 className="text-lg font-black text-zinc-900 dark:text-white mb-2">Responsive</h3>
             <p className="text-sm text-zinc-500 font-medium">Fully optimized for mobile devices. Large touch targets and clean layout.</p>
           </div>
+        </div>
+
+        <div className="mt-8">
+          <ToolAdBanner />
         </div>
 
         {/* Rich Content Section */}

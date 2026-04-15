@@ -1,13 +1,32 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, User } from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc, updateDoc, onSnapshot, collection, query, orderBy, limit, getDocFromServer, FirestoreError } from 'firebase/firestore';
+import { 
+  getFirestore, 
+  doc, 
+  getDoc, 
+  setDoc, 
+  updateDoc, 
+  onSnapshot, 
+  collection, 
+  query, 
+  orderBy, 
+  limit, 
+  getDocFromServer, 
+  FirestoreError,
+  initializeFirestore
+} from 'firebase/firestore';
 
 // Import the Firebase configuration
 import firebaseConfig from '../../firebase-applet-config.json';
 
 // Initialize Firebase SDK
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+
+// Initialize Firestore with settings to handle potential connectivity issues in some environments
+export const db = initializeFirestore(app, {
+  experimentalForceLongPolling: true,
+}, firebaseConfig.firestoreDatabaseId);
+
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 
@@ -88,12 +107,14 @@ export const logout = async () => {
 // Test connection helper
 export async function testConnection() {
   const path = 'system/connection_test';
+  console.log(`Firestore connection test: Attempting to reach database "${firebaseConfig.firestoreDatabaseId}"...`);
   try {
     // Try to get a document from the server to test connectivity
     await getDocFromServer(doc(db, path));
+    console.log("Firestore connection test: Success! Reached server.");
   } catch (error) {
     if (error instanceof Error && (error.message.includes('the client is offline') || error.message.includes('Could not reach Cloud Firestore backend'))) {
-      console.error("Please check your Firebase configuration. The client appears to be offline or the backend is unreachable.");
+      console.error(`Please check your Firebase configuration. The client appears to be offline or the backend is unreachable. Database ID: ${firebaseConfig.firestoreDatabaseId}`);
       // We don't throw here to avoid crashing the whole app, but we log it clearly
     } else if (error instanceof FirestoreError && error.code === 'permission-denied') {
       // Permission denied is actually a good sign - it means we REACHED the server

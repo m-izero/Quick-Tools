@@ -14,6 +14,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/utils/cn';
 import { Link } from 'react-router-dom';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 type UtilityTool = 'age' | 'percentage' | 'discount';
 
@@ -296,6 +297,10 @@ export default function UtilityTools() {
               )}
             </AnimatePresence>
           </div>
+        </div>
+
+        <div className="mt-8">
+          <ToolAdBanner />
         </div>
 
         {/* Rich Content Section */}

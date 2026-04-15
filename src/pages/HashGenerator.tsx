@@ -15,6 +15,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import CryptoJS from 'crypto-js';
 import { cn } from '@/utils/cn';
 import { Link } from 'react-router-dom';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 export function HashGenerator() {
   const [inputText, setInputText] = useState('');
@@ -222,6 +223,10 @@ export function HashGenerator() {
             </ul>
           </div>
         </div>
+      </div>
+
+      <div className="mt-8">
+        <ToolAdBanner />
       </div>
 
       {/* Rich Content Section */}
