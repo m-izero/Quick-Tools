@@ -1138,9 +1138,6 @@ export function BlogPost() {
               <ToolAdBanner />
             </div>
             {postContent[post.id]}
-            <div className="mt-12">
-              <ToolAdBanner />
-            </div>
           </div>
         </div>
       </article>
