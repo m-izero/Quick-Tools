@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 import { FileText, CheckCircle, AlertTriangle, Scale, RefreshCcw, UserCheck } from 'lucide-react';
 
 export function Terms() {
@@ -106,6 +107,7 @@ export function Terms() {
       </div>
 
       <div className="mt-12">
+        <ToolAdBanner />
       </div>
     </div>
   );

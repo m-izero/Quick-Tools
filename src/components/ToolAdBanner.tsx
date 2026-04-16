@@ -16,8 +16,8 @@ export function ToolAdBanner() {
       atOptions = {
         'key' : 'b92d3538c0d79f6581c48fa934d73543',
         'format' : 'iframe',
-        'height' : 250,
-        'width' : 300,
+        'height' : 150,
+        'width' : 350,
         'params' : {}
       };
     `;
@@ -42,7 +42,7 @@ export function ToolAdBanner() {
     <div className="flex justify-center my-8">
       <div
         ref={containerRef}
-        style={{ width: '300px', minHeight: '250px' }}
+        style={{ width: '350px', minHeight: '150px' }}
         className="relative rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-700"
       >
         {/* Placeholder only shows while ad hasn't loaded */}

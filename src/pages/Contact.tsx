@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 import { Mail, Send, User, MessageSquare, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export function Contact() {
@@ -229,6 +230,7 @@ export function Contact() {
       </div>
 
       <div className="mt-20">
+        <ToolAdBanner />
       </div>
     </div>
   );

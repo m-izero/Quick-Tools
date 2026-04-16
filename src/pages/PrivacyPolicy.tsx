@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 import { Link } from 'react-router-dom';
 import { Shield, Lock, Eye, Cookie, Mail, AlertCircle, ArrowRight, Globe, History } from 'lucide-react';
 
@@ -207,6 +208,8 @@ export function PrivacyPolicy() {
           <Link to="/contact" className="text-sm font-black text-zinc-500 hover:text-emerald-500 uppercase tracking-widest transition-colors">Get Support</Link>
         </div>
       </div>
+
+      <ToolAdBanner />
     </div>
   );
 }

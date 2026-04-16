@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { BookOpen, ArrowRight, Clock, User } from 'lucide-react';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 export const blogPosts = [
   {
@@ -341,6 +342,10 @@ export function Blog() {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      <div className="mt-16">
+        <ToolAdBanner />
       </div>
     </div>
   );

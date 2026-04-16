@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 import { Info, Users, Shield, Zap, Heart, Code2, GraduationCap, Globe, CheckCircle2, Target, Eye } from 'lucide-react';
 
 export function About() {
@@ -217,6 +218,8 @@ export function About() {
           </Link>
         </div>
       </div>
+
+      <ToolAdBanner />
     </div>
   );
 }

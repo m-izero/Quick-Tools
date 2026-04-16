@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { ArrowLeft, Clock, User, Calendar, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { blogPosts } from './Blog';
+import { ToolAdBanner } from '@/components/ToolAdBanner';
 
 const postContent: Record<string, React.ReactNode> = {
   'compress-images-quality': (
@@ -1133,7 +1134,13 @@ export function BlogPost() {
           </div>
           
           <div className="bg-white dark:bg-zinc-900 rounded-[3rem] p-8 sm:p-12 border border-zinc-100 dark:border-zinc-800 shadow-2xl shadow-emerald-500/5">
+            <div className="mb-12">
+              <ToolAdBanner />
+            </div>
             {postContent[post.id]}
+            <div className="mt-12">
+              <ToolAdBanner />
+            </div>
           </div>
         </div>
       </article>
